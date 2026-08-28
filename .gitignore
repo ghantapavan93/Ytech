@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build output
+.next/
+.next-build/
+out/
+build/
+*.tsbuildinfo
+
+# generated
+next-env.d.ts
+
+# environment
+.env*
+
+# local tooling
+.claude/settings.local.json
+
+# os
+.DS_Store
+Thumbs.db
+
+# private outreach notes, kept local
+DEMO.md
