@@ -47,6 +47,7 @@ const SUBJECTS: Record<string, string> = {
   "sourcing-data.test.ts": "That sourcing moves the cost line and nothing else",
   "nav-data.test.ts": "The route list, and that a first visit is offered three doors and no more",
   "invariants.test.ts": "That this count agrees with the suite it counts",
+  "charter.test.ts": "That the closing charter describes the firm the room just watched",
 };
 
 export const SUITE: SuiteGroup[] = SUITE_FILES.map(({ file, count }) => ({

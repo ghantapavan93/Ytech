@@ -72,7 +72,7 @@ export function loadPath(out: EngineOutput, levers: Levers): Member[] {
       id: "capacity",
       label: "PRODUCTION CAPACITY",
       value: hrs(released),
-      note: released > 0 ? "freed, and now looking for somewhere to go" : "nothing freed yet",
+      note: released > 0 ? "freed, looking for a home" : "nothing freed yet",
       state: released > 0 ? "ok" : "inert",
       overload: 0,
       passes: routed,
@@ -83,8 +83,8 @@ export function loadPath(out: EngineOutput, levers: Levers): Member[] {
       label: "FEE MODEL",
       value: keepsSaving ? "FIXED FEE" : "HOURLY",
       note: keepsSaving
-        ? "the firm keeps what the agent saves"
-        : "an hour not billed is an hour the client keeps",
+        ? "the firm keeps the saving"
+        : "the client keeps the saving",
       state: released === 0 ? "inert" : keepsSaving ? "ok" : "failing",
       overload: 0,
       passes: feePasses,
@@ -96,8 +96,8 @@ export function loadPath(out: EngineOutput, levers: Levers): Member[] {
       value: `${out.peHoursPerWeek.toFixed(1)}h`,
       note:
         reviewRatio > 1
-          ? `past the ${sustainable}h this desk can carry`
-          : `inside the ${sustainable}h this desk can carry`,
+          ? `past the ${sustainable}h it can carry`
+          : `inside the ${sustainable}h it can carry`,
       state: out.liabilityBreach
         ? "failing"
         : reviewRatio > 1.15
@@ -115,8 +115,8 @@ export function loadPath(out: EngineOutput, levers: Levers): Member[] {
       value: `${Math.round(out.learningIndexPct)}%`,
       note:
         out.learningIndexPct === 0
-          ? "no junior is learning this work any more"
-          : "of the deep-practice hours juniors had before",
+          ? "no junior learns this now"
+          : "of the practice hours juniors had",
       state:
         out.learningIndexPct === 0
           ? "failing"
@@ -134,7 +134,7 @@ export function loadPath(out: EngineOutput, levers: Levers): Member[] {
       note:
         arriving > 0
           ? "reached the foundation"
-          : "nothing reached the foundation",
+          : "nothing reached the base",
       state: out.deltaMargin > 0 ? "ok" : arriving > 0 ? "strained" : "failing",
       overload: 0,
       passes: 1,

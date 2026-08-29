@@ -7,12 +7,12 @@ import {
   runEngine,
   type Levers,
 } from "@/lib/engines/engine";
-import { buildCharter, evaluateProgress } from "@/lib/engines/progress-engine";
 import { SNAP } from "@/lib/motion";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Printer, X } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { roomCharter } from "./charter";
 import { loadPath, verdictLine } from "./load-path-state";
 import { ValueLoadPath } from "./ValueLoadPath";
 
@@ -127,7 +127,8 @@ export function RoomMode() {
     NAIVE_DEPLOYMENT.pricingModel === "TM_100" ? 0 : opening.jrRedeployedHours,
   );
   const members = useMemo(() => loadPath(out, levers), [out, levers]);
-  const charter = useMemo(() => buildCharter(evaluateProgress([])), []);
+  /* Derived from the run the room is looking at, not from a second framing. */
+  const charter = useMemo(() => roomCharter(out, levers), [out, levers]);
 
   const index = BEATS.indexOf(beat);
   const go = useCallback((d: 1 | -1) => {

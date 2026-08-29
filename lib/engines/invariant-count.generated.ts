@@ -76,6 +76,10 @@ export const SUITE_FILES: SuiteFile[] = [
     "count": 6
   },
   {
+    "file": "components/room/charter.test.ts",
+    "count": 5
+  },
+  {
     "file": "components/triage/screen-data.test.ts",
     "count": 5
   },
@@ -89,6 +93,6 @@ export const SUITE_FILES: SuiteFile[] = [
   }
 ];
 
-export const INVARIANT_COUNT = 211;
+export const INVARIANT_COUNT = 216;
 
-export const SUITE_FILE_COUNT = 19;
+export const SUITE_FILE_COUNT = 20;
