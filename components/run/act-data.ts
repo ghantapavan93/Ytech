@@ -115,7 +115,18 @@ export const ACTS: Act[] = [
     n: "06",
     kicker: "Lever three, review",
     headline: `Licensed review back to ${review.peHoursPerWeek.toFixed(1)} hours a week. The member straightens.`,
-    body: `A risk-tiered delta gate puts the reviewer in front of flagged clauses rather than whole packages. The stamp stays defensible and the load comes back inside what the desk can carry, so the bow comes out of the member while you watch. This is the lever that was actually failing, and it is the last one anybody reaches for.`,
+    /*
+     * The caveat is the point of this act, not a hedge on it.
+     *
+     * The tiered gate is budgeted at 1.0 hours a package against a manual
+     * baseline of 3.0, which is the largest single assumption in the run and
+     * the first thing a reviewer who works in this world will go after. Left
+     * unsaid, it reads as the model quietly finding a two-thirds saving in
+     * licensed review, which is the exact move the rest of the page argues
+     * against. Said out loud, it is a budget the firm has to hold, and the
+     * instrument's job is to show what happens when it cannot.
+     */
+    body: `A risk-tiered delta gate puts the reviewer in front of flagged clauses rather than whole packages. The stamp stays defensible and the load comes back inside what the desk can carry, so the bow comes out of the member while you watch. This is the lever that was actually failing, and it is the last one anybody reaches for. It is also the heaviest assumption on this page: ${review.peHoursPerPkg.toFixed(1)} hours a package against ${ATLAS_BASELINE.basePeHoursPerPkg.toFixed(1)} today is a budget the firm sets, not a saving the tool hands over, and a gate that cannot hold it puts the bow straight back.`,
     levers: REVIEW,
     advance: "The fourth condition",
   },

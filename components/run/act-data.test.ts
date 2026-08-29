@@ -66,3 +66,19 @@ describe("the structure actually moves", () => {
     );
   });
 });
+
+describe("the review lever names its own assumption", () => {
+  it("says the budget and the baseline it is measured against", () => {
+    // Lever three is the only act whose result rests on a number the firm
+    // has to hold rather than one the model derives. A run that showed
+    // licensed review falling by two thirds without saying where that came
+    // from would be doing the thing this whole page argues against.
+    const act = ACTS.find((a) => a.kicker === "Lever three, review");
+    expect(act).toBeDefined();
+    expect(act!.body).toMatch(/budget the firm sets, not a saving/i);
+    expect(act!.body).toContain(
+      runEngine(ATLAS_BASELINE, act!.levers).peHoursPerPkg.toFixed(1),
+    );
+    expect(act!.body).toContain(ATLAS_BASELINE.basePeHoursPerPkg.toFixed(1));
+  });
+});
