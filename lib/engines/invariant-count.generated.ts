@@ -32,6 +32,10 @@ export const SUITE_FILES: SuiteFile[] = [
     "count": 16
   },
   {
+    "file": "lib/engines/continuum-engine.test.ts",
+    "count": 15
+  },
+  {
     "file": "lib/engines/prep-engine.test.ts",
     "count": 13
   },
@@ -93,6 +97,6 @@ export const SUITE_FILES: SuiteFile[] = [
   }
 ];
 
-export const INVARIANT_COUNT = 216;
+export const INVARIANT_COUNT = 231;
 
-export const SUITE_FILE_COUNT = 20;
+export const SUITE_FILE_COUNT = 21;

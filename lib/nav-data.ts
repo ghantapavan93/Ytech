@@ -74,6 +74,14 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
+    href: "/continuum",
+    name: "Continuum",
+    blurb:
+      "Track when a published position moved, propose the change, and refuse to make it without approval.",
+    group: "instrument",
+    keywords: ["continuum","position","judgment","twin","stale","supersede","approval","evolution","delta","belief","versioned"],
+  },
+  {
     href: "/room",
     primary: true,
     name: "Run the room",
