@@ -57,6 +57,23 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
+    href: "/triage",
+    name: "Which workflow",
+    blurb: "Rank the candidates, and refuse to rank the ones nobody has measured.",
+    group: "instrument",
+    keywords: [
+      "triage",
+      "diagnosis",
+      "which workflow",
+      "candidates",
+      "before",
+      "choose",
+      "exposure",
+      "analysis",
+      "data",
+    ],
+  },
+  {
     href: "/engine",
     primary: true,
     name: "The wind tunnel",

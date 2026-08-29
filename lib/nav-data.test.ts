@@ -10,7 +10,9 @@ describe("the route list", () => {
     }
   });
 
-  it("keeps the header to three primary items", () => {
+  it("offers exactly three ways to check the run", () => {
+    // primary no longer drives the header. It marks the evidence, the
+    // engine and the future: the three exits under the run, and no more.
     expect(NAV_ITEMS.filter((i) => i.primary)).toHaveLength(3);
   });
 
