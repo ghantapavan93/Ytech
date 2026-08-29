@@ -1,12 +1,22 @@
 "use client";
 
 import { ATLAS_BASELINE, type EngineOutput, type Levers } from "@/lib/engines/engine";
-import { useMemo } from "react";
-import { DiagramFigure } from "./DiagramFigure";
-import { buildLoadPathScene, type LoadPathData } from "./scenes/loadPathScene";
+import { LoadPathFigure, type LoadPathFigureData } from "./LoadPathFigure";
 
 const hrs = (n: number) => `${Math.round(n)}h`;
 
+/**
+ * The load path figure, and the reading of it in words.
+ *
+ * The readout strip that used to sit under this is gone. It existed because
+ * the WebGL version could not render text, so every number had to live
+ * outside the picture; the drawing now states its own figures and repeating
+ * them underneath would just be a second legend.
+ *
+ * The written description stays. It is what a screen reader and a printed
+ * page receive, and the rule has not changed: if a fact only exists in the
+ * drawing, it is not on the page.
+ */
 export function LoadPathDiagram({
   out,
   levers,
@@ -14,13 +24,10 @@ export function LoadPathDiagram({
   out: EngineOutput;
   levers: Levers;
 }) {
-  const build = useMemo(() => buildLoadPathScene(), []);
-
   const released = out.jrRedeployedHours + out.jrSavedHoursUnused;
-  // Blended billing keeps only part of the saving, so it is not a clean yes.
   const keepsTheSaving = levers.pricingModel === "FIXED_FEE";
 
-  const data: LoadPathData = {
+  const data: LoadPathFigureData = {
     releasedHours: released,
     redeployedHours: out.jrRedeployedHours,
     unusedHours: out.jrSavedHoursUnused,
@@ -30,31 +37,35 @@ export function LoadPathDiagram({
     keepsTheSaving,
   };
 
-  const overload = out.peHoursPerWeek / ATLAS_BASELINE.pePillarSustainableHrsPerWeek;
   const arriving = keepsTheSaving ? out.jrRedeployedHours : 0;
-
-  const reading = keepsTheSaving
-    ? `${hrs(released)} released. ${hrs(out.jrRedeployedHours)} carried into billable backlog and ${hrs(out.jrSavedHoursUnused)} ran to ground as slack. The fee gate is fixed fee, so what is carried reaches the foundation.`
-    : `${hrs(released)} released. ${hrs(out.jrRedeployedHours)} carried and ${hrs(out.jrSavedHoursUnused)} ran to ground as slack. The fee gate is hourly, so even the carried hours stop there: an hour not billed is an hour the client keeps.`;
-
-  const reviewReading =
-    overload > 1
-      ? `The review member is at ${out.peHoursPerWeek.toFixed(1)} hours a week against ${ATLAS_BASELINE.pePillarSustainableHrsPerWeek} it can sustain, which is why it is bowing. Automating the drafting did not move work onto that desk from the released pool, it created new verification work, so review carries its own induced load and fails first.`
-      : `The review member is at ${out.peHoursPerWeek.toFixed(1)} hours a week against ${ATLAS_BASELINE.pePillarSustainableHrsPerWeek} it can sustain, so it stands straight.`;
+  const overloaded = out.peHoursPerWeek > ATLAS_BASELINE.pePillarSustainableHrsPerWeek;
 
   return (
-    <DiagramFigure
-      build={build}
-      data={data}
-      height={380}
-      caption="The value load path"
-      description={`Released capacity enters at the top and travels down through the firm the way a load travels through a structure. ${reading} ${reviewReading} The column on the left is the talent pipeline, which loses section rather than bending: it is holding ${Math.round(out.learningIndexPct)}% of its baseline deep-practice hours. The plate at the bottom is what actually reached business value.`}
-      readout={[
-        { label: "Released", value: hrs(released) },
-        { label: "Carried to backlog", value: hrs(out.jrRedeployedHours) },
-        { label: "Ran to ground", value: hrs(out.jrSavedHoursUnused) },
-        { label: "Reached value", value: hrs(arriving) },
-      ]}
-    />
+    <figure className="card overflow-hidden">
+      <div className="px-4 pt-5 sm:px-6">
+        <LoadPathFigure data={data} />
+      </div>
+
+      <figcaption className="mt-2 border-t border-line px-5 py-4">
+        <p className="text-[12.5px] font-medium text-zinc-300">
+          The value load path
+        </p>
+        <p className="diagram-reading mt-1.5 text-[12.5px] leading-relaxed text-zinc-500">
+          {hrs(released)} of released capacity enters at the top.{" "}
+          {hrs(out.jrRedeployedHours)} is carried into billable backlog and{" "}
+          {hrs(out.jrSavedHoursUnused)} runs to ground as slack. The fee gate is{" "}
+          {keepsTheSaving
+            ? "a fixed fee, so what is carried reaches the foundation"
+            : "hourly, so even the carried hours stop there"}
+          , leaving {hrs(arriving)} at business value. Licensed review is a
+          separate member carrying induced work rather than a share of the
+          released pool: it sits at {out.peHoursPerWeek.toFixed(1)} hours a week
+          against {ATLAS_BASELINE.pePillarSustainableHrsPerWeek} it can sustain,
+          so it {overloaded ? "bows" : "stands straight"}. The narrow column is
+          the talent pipeline, holding {Math.round(out.learningIndexPct)}% of its
+          baseline deep-practice hours.
+        </p>
+      </figcaption>
+    </figure>
   );
 }
