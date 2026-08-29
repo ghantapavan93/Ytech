@@ -574,7 +574,7 @@ export const CLIENT_PROOFS: ClientProof[] = [
     firm: "SSOE Group",
     headline: "Already runs spec-search AI on live projects",
     facts: [
-      "SSOE's public AI page lists an ACC AI Assistant that searches specifications for faster RFI and submittal responses, the exact workflow class Atlas Civil models.",
+      "SSOE's public AI page lists an ACC AI Assistant that searches specifications for faster RFI and submittal responses, the exact workflow class Atlas Structural & Civil models.",
       "CEO Vince DiPofi began firm-wide AI integration in 2022 with a governance team, after two years collaborating with YegaTech (SSOE press release).",
       "100% of employees completed voluntary Copilot training ahead of the October 2025 goal; YegaTech's case study cites an AI opportunity portfolio built in eight weeks.",
     ],

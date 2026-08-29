@@ -25,7 +25,7 @@ export const PRESETS: Preset[] = [
   {
     id: "tm-trap",
     label: "The T&M Trap",
-    tagline: "42% faster agent dropped into an untouched operating model.",
+    tagline: "42% less drafting time, dropped into an untouched operating model.",
     levers: { ...NAIVE_DEPLOYMENT },
   },
   {

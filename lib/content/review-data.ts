@@ -202,7 +202,7 @@ export const HARD_TESTS: HardTest[] = [
     name: "The Thirty Second Test",
     question: "Is the value understood before the demo reaches 30 seconds?",
     answer:
-      "The opening sentence does it alone: “This agent is 42% faster. The firm should not deploy it. Yet.”",
+      "The opening sentence does it alone: “This agent cuts drafting time by 42%. The firm should not deploy it. Yet.”",
   },
   {
     name: "The Existing Tool Test",

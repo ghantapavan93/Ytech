@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Value Shift · AEC AI Economics Wind Tunnel",
   description:
-    "This agent is 42% faster. The firm should not deploy it. Yet. A deterministic scenario-rehearsal instrument that runs an AI workflow through a firm's fee model, incentives, review capacity, and talent system before anyone builds it.",
+    "This agent cuts drafting time by 42%. The firm should not deploy it. Yet. A deterministic scenario-rehearsal instrument that runs an AI workflow through a firm's fee model, incentives, review capacity, and talent system before anyone builds it.",
 };
 
 export default function RootLayout({

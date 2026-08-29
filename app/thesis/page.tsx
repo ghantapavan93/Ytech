@@ -126,7 +126,7 @@ function LensCard({ title, sub, lens }: { title: string; sub: string; lens: Inde
  * /thesis, the receipts. The instrument's bibliography: each published
  * YegaTech claim mapped to the mechanism that operationalizes it, what
  * their clients have already shown publicly, and the industry grounding
- * behind every synthetic assumption in the Atlas Civil model.
+ * behind every synthetic assumption in the Atlas Structural & Civil model.
  */
 export default function ThesisPage() {
   const naiveLens = computeIndexLens(
@@ -590,7 +590,7 @@ export default function ThesisPage() {
             dimensions whose published weights put Operating Model (35%) and
             Business Model (30%) at 65% of the total. Score the wind tunnel's
             two canonical states through that structure and the four levers
-            move Atlas Civil{" "}
+            move Atlas Structural &amp; Civil{" "}
             <span className="font-semibold text-zinc-200">
               a full stage up their own Index, without touching culture.
             </span>
@@ -598,7 +598,7 @@ export default function ThesisPage() {
           <div className="mt-5 grid gap-4 lg:grid-cols-2">
             <LensCard
               title="Naive deployment"
-              sub="42% faster agent, untouched operating model"
+              sub="42% less drafting time, untouched operating model"
               lens={naiveLens}
             />
             <LensCard
@@ -623,7 +623,8 @@ export default function ThesisPage() {
           <div className="flex items-center gap-2 text-zinc-500">
             <Anchor size={14} />
             <p className="micro-label">
-              Why Atlas Civil looks the way it does, every assumption anchored
+              Why Atlas Structural &amp; Civil looks the way it does, every
+              assumption anchored
             </p>
           </div>
           <div className="card mt-5 divide-y divide-line">

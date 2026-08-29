@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { ATLAS_BASELINE } from "./engine";
 import {
   BASE_LAYERS,
   CLAIM,
@@ -213,5 +214,24 @@ describe("the charter agrees with the readings", () => {
       (f) => f.label === "Licensed-review burden",
     )!.value;
     expect(failing).toContain("22-hour");
+  });
+});
+
+describe("the wind tunnel and the chain describe one firm", () => {
+  it("sizes the claim from the same baseline the wind tunnel runs on", () => {
+    // These drifted once: the wind tunnel said 20 packages at 20 hours while
+    // this file said 192 hours a month. Same firm, two baselines. A reader
+    // who checked would have stopped reading, so the relationship is pinned.
+    expect(CLAIM.packagesPerMonth).toBe(ATLAS_BASELINE.monthlyPackageVolume);
+    expect(CLAIM.baselineHours).toBe(
+      ATLAS_BASELINE.monthlyPackageVolume * ATLAS_BASELINE.baseJrHoursPerPkg,
+    );
+  });
+
+  it("states the claim as less time, never as more speed", () => {
+    // 42 percent less time is not 42 percent faster, and the difference is
+    // the kind a reader with a technical background notices immediately.
+    expect(CLAIM.headlineLabel).toContain("less");
+    expect(CLAIM.headlineLabel).not.toContain("faster");
   });
 });

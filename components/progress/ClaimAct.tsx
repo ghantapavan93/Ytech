@@ -47,7 +47,8 @@ export function ClaimAct({
           </p>
 
           <p className="mt-6 max-w-xl text-[14.5px] leading-relaxed text-zinc-400">
-            Atlas Civil runs an AI-assisted specification-QA workflow across
+            Atlas Structural &amp; Civil runs an AI-assisted specification-QA
+            workflow across
             twenty packages a month. It is dramatically faster, and every
             number in the pilot report is true. Not one of them answers the
             question the board will ask.

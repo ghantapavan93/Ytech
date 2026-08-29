@@ -19,7 +19,7 @@ const GOVERNED: Levers = {
 describe("legacy baseline (no AI, 100% T&M)", () => {
   const out = runEngine(ATLAS_BASELINE, LEGACY_BASELINE_LEVERS);
 
-  it("reproduces Atlas Civil's canonical monthly numbers", () => {
+  it("reproduces Atlas Structural & Civil's canonical monthly numbers", () => {
     expect(out.revenue).toBeCloseTo(103_000, 5);
     expect(out.cost).toBeCloseTo(51_400, 5);
     expect(out.margin).toBeCloseTo(51_600, 5);
@@ -38,7 +38,7 @@ describe("legacy baseline (no AI, 100% T&M)", () => {
   });
 });
 
-describe("naive deployment (42% faster agent, untouched operating model)", () => {
+describe("naive deployment (42% less drafting time, untouched operating model)", () => {
   const out = runEngine(ATLAS_BASELINE, NAIVE_DEPLOYMENT);
 
   it("destroys revenue under T&M", () => {

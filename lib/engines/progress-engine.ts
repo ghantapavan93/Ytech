@@ -17,6 +17,25 @@
  * strongest, which is the opposite of how a dashboard aggregates.
  */
 
+import { ATLAS_BASELINE } from "./engine";
+
+/**
+ * The one scenario, sized once.
+ *
+ * These were hardcoded, and drifted: the wind tunnel described the same
+ * workflow as 20 hours a package across 20 packages while this file called
+ * it 192 hours a month. Two baselines for one firm is the kind of thing the
+ * instrument exists to catch, so the figures are now derived from the
+ * engine's own baseline and cannot separate again.
+ */
+const PACKAGES_PER_MONTH = ATLAS_BASELINE.monthlyPackageVolume;
+const BASELINE_HOURS = PACKAGES_PER_MONTH * ATLAS_BASELINE.baseJrHoursPerPkg;
+const HEADLINE_PCT = 42;
+const RELEASED_HOURS = Math.round(BASELINE_HOURS * (HEADLINE_PCT / 100));
+const AFTER_HOURS = BASELINE_HOURS - RELEASED_HOURS;
+/** Of the released hours, what the day-30 remedy actually redeploys. */
+const REDEPLOYED_HOURS = Math.round(RELEASED_HOURS * 0.92);
+
 export type LayerState = "proven" | "adverse" | "unknown";
 
 /**
@@ -66,15 +85,15 @@ export interface Layer {
  * the chain below reconciles to these three.
  */
 export const CLAIM = {
-  headlineValue: 42,
+  headlineValue: HEADLINE_PCT,
   headlineUnit: "%",
-  headlineLabel: "less task time",
-  baselineHours: 192,
-  afterHours: 111.4,
-  releasedHours: 80.6,
+  headlineLabel: "less drafting time",
+  baselineHours: BASELINE_HOURS,
+  afterHours: AFTER_HOURS,
+  releasedHours: RELEASED_HOURS,
   runs: 500,
   adoptionPct: 80,
-  packagesPerMonth: 20,
+  packagesPerMonth: PACKAGES_PER_MONTH,
 } as const;
 
 /** The opening state: a pilot that looks like a success. */
@@ -102,10 +121,10 @@ export const BASE_LAYERS: Layer[] = [
     state: "proven",
     blocks: "A working tool is a precondition for value, not evidence of it.",
     metric: {
-      label: "Draft spec-QA hours a month",
-      before: "192h",
-      after: "111.4h",
-      delta: "80.6h released",
+      label: "Drafting hours a month, all packages",
+      before: `${BASELINE_HOURS}h`,
+      after: `${AFTER_HOURS}h`,
+      delta: `${RELEASED_HOURS}h released`,
       direction: "good",
     },
   },
@@ -150,7 +169,7 @@ export const BASE_LAYERS: Layer[] = [
     blocks: "An hour saved becomes money only when something else is done with it. Nobody checked.",
     metric: {
       label: "Released hours redeployed",
-      after: "0 of 80.6h",
+      after: `0 of ${RELEASED_HOURS}h`,
       delta: "no reading exists",
       direction: "bad",
     },
@@ -276,14 +295,14 @@ export const EVIDENCE: Evidence[] = [
   {
     id: "financial-good",
     label: "The freed capacity went somewhere",
-    detail: "74 of the 80.6 released hours were redeployed to backlog and billed, which is where the margin finally appears.",
+    detail: `${REDEPLOYED_HOURS} of the ${RELEASED_HOURS} released hours were redeployed to backlog and billed, which is where the margin finally appears.`,
     layer: "financial",
     resolvesTo: "proven",
     good: true,
     metric: {
       label: "Released hours redeployed",
-      before: "0 of 80.6h",
-      after: "74 of 80.6h",
+      before: `0 of ${RELEASED_HOURS}h`,
+      after: `${REDEPLOYED_HOURS} of ${RELEASED_HOURS}h`,
       delta: "billed to backlog",
       direction: "good",
     },
@@ -297,8 +316,8 @@ export const EVIDENCE: Evidence[] = [
     good: false,
     metric: {
       label: "Released hours redeployed",
-      before: "0 of 80.6h",
-      after: "0 of 80.6h",
+      before: `0 of ${RELEASED_HOURS}h`,
+      after: `0 of ${RELEASED_HOURS}h`,
       delta: "absorbed as slack, utilization fell",
       direction: "bad",
     },

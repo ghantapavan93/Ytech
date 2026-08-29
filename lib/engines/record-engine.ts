@@ -88,7 +88,7 @@ export const SEED_RECORDS: DecisionRecord[] = [
     workflow: "Specification QA and submittal review",
     archetype: "25 to 75 staff, civil and structural",
     pricing: "hourly",
-    belief: "A 42% faster review would drop straight to the bottom line.",
+    belief: "42% less drafting time would drop straight to the bottom line.",
     contradiction:
       "Under time and materials, the saved hours were unbilled revenue. Review load moved onto one licensed PE.",
     decision: "redesign-first",

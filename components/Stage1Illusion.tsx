@@ -37,7 +37,8 @@ export function Stage1Illusion({ aiSpeedupPct, revealed, onSimulate, onWatch }: 
         className="fade-up mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-zinc-100 sm:text-6xl"
         style={{ animationDelay: "80ms" }}
       >
-        This agent is <span className="claim-figure">{speedup}% faster</span>.
+        This agent cuts drafting time by{" "}
+        <span className="claim-figure">{speedup}%</span>.
         <span className="block text-zinc-500">
           The firm should not deploy it. Yet.
         </span>

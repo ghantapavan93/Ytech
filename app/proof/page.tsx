@@ -138,8 +138,9 @@ export default function ProofPage() {
             </Link>
           </div>
           <p className="mt-8 text-[11px] leading-relaxed text-zinc-600">
-            One synthetic case, computed by a deterministic engine with fifteen
-            invariant tests. No real firm and no real engagement is
+            One synthetic case, computed by a deterministic engine whose
+            invariants are covered by the test suite. No real firm and no real
+            engagement is
             represented. Built by Pavan Kalyan as an independent prototype, not
             affiliated with YegaTech.
           </p>
