@@ -74,6 +74,26 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
+    href: "/demand",
+    name: "What the shortage is worth",
+    blurb:
+      "Turn down the one condition nobody at the firm decides, and see how much of the result was the labour market.",
+    group: "instrument",
+    keywords: [
+      "demand",
+      "backlog",
+      "labour shortage",
+      "labor shortage",
+      "market",
+      "normalizes",
+      "absorption",
+      "redeployment",
+      "subsidy",
+      "hourly",
+      "fixed fee",
+    ],
+  },
+  {
     href: "/engine",
     primary: true,
     name: "The wind tunnel",

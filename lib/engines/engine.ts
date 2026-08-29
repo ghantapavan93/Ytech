@@ -106,6 +106,18 @@ export interface EngineOutput {
   jrPackageHours: number;
   jrRedeployedHours: number;
   jrSavedHoursUnused: number;
+  /**
+   * The two reasons a freed hour goes unused, kept apart.
+   *
+   * They sum to jrSavedHoursUnused and they are not the same problem. Hours
+   * nobody routed are a leadership decision and the whole argument of this
+   * instrument is that those are fixable. Hours nobody could sell are a
+   * market condition, and no amount of operating-model design recovers them.
+   * Reporting one number for both let a market condition read as a
+   * management failure, and let a management failure hide behind the market.
+   */
+  jrHoursUnrouted: number;
+  jrHoursUnsold: number;
   jrUtilizationPct: number; // 0–100
   baselineJrUtilizationPct: number; // 0–100
   peHoursPerPkg: number;
@@ -220,7 +232,36 @@ function peHoursPerPkg(base: FirmBaseline, levers: Levers): number {
   }
 }
 
-export function runEngine(base: FirmBaseline, levers: Levers): EngineOutput {
+/**
+ * Conditions outside the firm's control, as distinct from levers inside it.
+ *
+ * Everything in Levers is something a principal can decide on a Monday.
+ * This is not. It is here because leaving it out was quietly asserting the
+ * most generous version of it: that every hour the agent frees can be sold
+ * to somebody, which is true in the labour market of 2026 and is not a law.
+ */
+export interface Conditions {
+  /**
+   * Share of freed junior hours for which billable work actually exists
+   * (0–1). One is the shortage every firm is currently operating in, where
+   * roughly a third of practices are turning work away, so redeployment is
+   * capped by intent alone. It is a market reading, not a firm property, and
+   * it is the assumption a pilot run today is silently making.
+   */
+  demandAbsorption: number;
+}
+
+/** What the model assumed before the condition was named. */
+export const ABUNDANT: Conditions = { demandAbsorption: 1 };
+
+/** Keeps a hand-entered condition inside the range the arithmetic assumes. */
+const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
+
+export function runEngine(
+  base: FirmBaseline,
+  levers: Levers,
+  conditions: Conditions = ABUNDANT,
+): EngineOutput {
   const V = base.monthlyPackageVolume;
 
   // ---- Junior production hours -------------------------------------------
@@ -238,9 +279,18 @@ export function runEngine(base: FirmBaseline, levers: Levers): EngineOutput {
     jrPackageHours = V * aiJrHoursPerPkg;
   }
 
+  /*
+   * Redeployment is the smaller of what the firm routes and what the market
+   * will buy. Intent alone used to decide it, which made a full backlog an
+   * unstated premise of every result the instrument produced.
+   */
   const jrSavedPool = jrBaseTotal - jrPackageHours;
-  const jrRedeployedHours = jrSavedPool * levers.backlogRedeploymentPct;
+  const intendedRedeploy = jrSavedPool * levers.backlogRedeploymentPct;
+  const absorbableHours = jrSavedPool * clamp01(conditions.demandAbsorption);
+  const jrRedeployedHours = Math.min(intendedRedeploy, absorbableHours);
   const jrSavedHoursUnused = jrSavedPool - jrRedeployedHours;
+  const jrHoursUnrouted = jrSavedPool - intendedRedeploy;
+  const jrHoursUnsold = jrSavedHoursUnused - jrHoursUnrouted;
 
   // Junior capacity is fixed by headcount: baseline hours at baseline utilization.
   const jrCapacityHours = jrBaseTotal / base.baselineJrUtilization;
@@ -421,6 +471,8 @@ export function runEngine(base: FirmBaseline, levers: Levers): EngineOutput {
     jrPackageHours,
     jrRedeployedHours,
     jrSavedHoursUnused,
+    jrHoursUnrouted,
+    jrHoursUnsold,
     jrUtilizationPct: utilizationPct,
     baselineJrUtilizationPct: base.baselineJrUtilization * 100,
     peHoursPerPkg: pePerPkg,
