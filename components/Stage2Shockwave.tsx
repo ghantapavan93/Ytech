@@ -1,6 +1,6 @@
 "use client";
 
-import type { EngineOutput } from "@/lib/engines/engine";
+import type { EngineOutput, Levers } from "@/lib/engines/engine";
 import { fmtHours, fmtMoney, fmtPct } from "@/lib/format";
 import {
   ArrowRight,
@@ -9,12 +9,14 @@ import {
   ShieldAlert,
   Zap,
 } from "lucide-react";
-import { WindTunnelDiagram } from "./diagram/WindTunnelDiagram";
+import { LoadPathDiagram } from "./diagram/LoadPathDiagram";
 import { PILLAR_STYLE, SYSTEM_STYLE } from "./status";
 import { Ticker } from "./Ticker";
 
 interface Stage2Props {
   out: EngineOutput;
+  /** The load path needs these to know whether the fee gate passes load. */
+  levers: Levers;
   aiSpeedupPct: number;
   retuneRevealed: boolean;
   onRetune: () => void;
@@ -84,7 +86,13 @@ function PillarCard({ icon, label, status, headline, sub, narrative, index }: Pi
  * Stage 2, the wind tunnel. One technical improvement propagates through
  * four organizational pillars, live, from the current lever state.
  */
-export function Stage2Shockwave({ out, aiSpeedupPct, retuneRevealed, onRetune }: Stage2Props) {
+export function Stage2Shockwave({
+  out,
+  levers,
+  aiSpeedupPct,
+  retuneRevealed,
+  onRetune,
+}: Stage2Props) {
   const sys = SYSTEM_STYLE[out.systemStatus];
   const speedup = Math.round(aiSpeedupPct * 100);
 
@@ -162,9 +170,9 @@ export function Stage2Shockwave({ out, aiSpeedupPct, retuneRevealed, onRetune }:
             </div>
           </div>
 
-          {/* The same four pillars, as the assembly they form */}
+          {/* The load, and where it stops being carried */}
           <div className="mb-4">
-            <WindTunnelDiagram out={out} />
+            <LoadPathDiagram out={out} levers={levers} />
           </div>
 
           {/* Four pillars */}

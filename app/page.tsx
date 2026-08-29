@@ -125,6 +125,7 @@ export default function Home() {
         {stage >= 2 && (
           <Stage2Shockwave
             out={out}
+            levers={levers}
             aiSpeedupPct={levers.aiSpeedupPct}
             retuneRevealed={stage >= 3}
             onRetune={() => reveal(3, "stage-3")}
