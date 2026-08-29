@@ -65,43 +65,62 @@ export default function RunPage() {
           <TheRun />
         </section>
 
-        {/* Three ways out, and no more. Everything the run absorbed is
-            still there for anyone who goes looking; none of it is offered
-            to a reader who has just watched the argument land. */}
+        {/*
+          The exits, named as the objections rather than as the pages.
+
+          This was three cards chosen before two of these existed, and the two
+          strongest things to hand a sceptic were reachable only from the
+          command palette. Five one-line rows are less visually heavy than
+          three cards were and they say what each one is for, which is the
+          part a reader who has just watched the argument actually wants.
+          Everything else the run absorbed is still there for anyone who goes
+          looking and none of it is offered here.
+        */}
         <section className="mx-auto w-full max-w-6xl border-t border-line px-5 pt-10">
-          <p className="micro-label">If you want to check it</p>
-          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+          <p className="micro-label">What you would ask next</p>
+          <ul className="mt-4 divide-y divide-line border-y border-line">
             {[
               {
+                href: "/refusal",
+                q: "Isn't this just a number people will learn to manage?",
+                a: "Every operating model ranked. The best three are refused.",
+              },
+              {
+                href: "/demand",
+                q: "How much of this is the labour market rather than the firm?",
+                a: "More than half of it, at today's market. The dial is here.",
+              },
+              {
                 href: "/thesis",
-                title: "Inspect the evidence",
-                body: "Every claim behind this, quoted and dated, mapped to the mechanism it drives.",
+                q: "Where does any of this come from?",
+                a: "Every claim, quoted and dated, against the mechanism it drives.",
               },
               {
                 href: "/engine",
-                title: "Inspect the engine",
-                body: "The levers, the assumption ledger, and every number open to editing.",
+                q: "Can I change the assumptions?",
+                a: "The levers, the ledger, and every number open to editing.",
               },
               {
                 href: "/vision",
-                title: "See where this could go",
-                body: "What one instrument becomes across a cohort, written as a proposal.",
+                q: "What would this be worth more than once?",
+                a: "What one instrument becomes across a cohort.",
               },
             ].map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="group rounded-xl border border-line bg-surface-1 p-5 transition-colors hover:border-line-strong hover:bg-surface-2"
-              >
-                <p className="text-[15px] font-semibold text-ink-1 transition-colors group-hover:text-ink-1">
-                  {l.title}
-                </p>
-                <p className="mt-1.5 text-[13px] leading-relaxed text-ink-4">
-                  {l.body}
-                </p>
-              </Link>
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="group flex flex-col gap-1 py-3.5 transition-colors sm:flex-row sm:items-baseline sm:gap-6"
+                >
+                  <span className="text-[15px] font-medium text-ink-2 transition-colors group-hover:text-ink-1 sm:w-[46%] sm:shrink-0">
+                    {l.q}
+                  </span>
+                  <span className="text-[13px] leading-relaxed text-ink-4 transition-colors group-hover:text-ink-3">
+                    {l.a}
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
 
         <p className="mx-auto w-full max-w-6xl px-5 pb-16 pt-12 text-[11.5px] leading-relaxed text-ink-4">
