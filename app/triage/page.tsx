@@ -1,4 +1,5 @@
 import { CommandHint } from "@/components/CommandPalette";
+import { TenXScreen } from "@/components/TenXScreen";
 import { TriageBoard } from "@/components/TriageBoard";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
@@ -75,7 +76,33 @@ export default function TriagePage() {
           <TriageBoard />
         </section>
 
-        <section className="mt-14 border-t border-line pt-10">
+        <section className="mt-16 border-t border-line pt-10">
+          <p className="micro-label">Then the workflow gets sized</p>
+          <h2 className="mt-4 max-w-3xl text-[26px] font-semibold leading-[1.12] tracking-[-0.025em] text-ink-1 sm:text-[32px]">
+            The screen cannot fail this workflow.
+            <span className="block text-ink-4">Only the operating model can.</span>
+          </h2>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-3">
+            Once a workflow is chosen, the next step is nearly always a return
+            threshold: build it only if it is worth some multiple of what it
+            costs. It is good discipline and this is not an argument against
+            it. It is an argument that the threshold is being applied to the
+            wrong quantity.
+          </p>
+          <p className="mt-4 max-w-2xl text-[13px] leading-relaxed text-ink-4">
+            A screen values the hours the agent frees. The firm receives what
+            survives the fee model, the routing decision, the review gate and
+            the practice floor. On the one workflow here that has been through
+            the wind tunnel, those two numbers do not differ by a margin. They
+            differ in sign, and a denominator cannot move a number across zero.
+          </p>
+
+          <div className="mt-8">
+            <TenXScreen />
+          </div>
+        </section>
+
+        <section className="mt-16 border-t border-line pt-10">
           <p className="micro-label">What happens next</p>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink-3">
             Specification QA is the largest exposure on this list and it is not
