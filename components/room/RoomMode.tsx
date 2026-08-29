@@ -119,6 +119,13 @@ export function RoomMode() {
   // The opening number is the untouched operating model, always, whatever
   // the room has since changed.
   const opening = useMemo(() => runEngine(ATLAS_BASELINE, NAIVE_DEPLOYMENT), []);
+  const openingReleased = Math.round(
+    opening.jrRedeployedHours + opening.jrSavedHoursUnused,
+  );
+  /* Nothing survives the fee gate under hourly billing, routed or not. */
+  const openingArriving = Math.round(
+    NAIVE_DEPLOYMENT.pricingModel === "TM_100" ? 0 : opening.jrRedeployedHours,
+  );
   const members = useMemo(() => loadPath(out, levers), [out, levers]);
   const charter = useMemo(() => buildCharter(evaluateProgress([])), []);
 
@@ -195,6 +202,21 @@ export function RoomMode() {
                     The firm ends the month {plain(opening.deltaMargin)} worse.
                   </span>
                 </h1>
+                {/*
+                  Both figures come from the same run as the headline. The
+                  second one is zero rather than small, because under the
+                  untouched operating model nothing routes the freed hours and
+                  the hourly fee gate keeps none of the saving. A near-miss
+                  would be an easier line to read and it would not be true.
+                */}
+                <p className="mt-7 max-w-2xl text-[clamp(15px,1.9vw,21px)] leading-[1.4] text-ink-2">
+                  {openingReleased} hours were released.{" "}
+                  <span className="text-ink-4">
+                    {openingArriving === 0
+                      ? "None of them reached business value."
+                      : `Only ${openingArriving} reached business value.`}
+                  </span>
+                </p>
                 <p className="mt-5 text-[12.5px] text-ink-4">
                   Atlas Civil is a synthetic AEC scenario. Every result here is
                   illustrative and editable, and none of it is a forecast.
