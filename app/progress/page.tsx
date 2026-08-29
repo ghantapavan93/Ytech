@@ -1,3 +1,4 @@
+import { ProgressChainDiagram } from "@/components/diagram/ProgressChainDiagram";
 import { CommandHint } from "@/components/CommandPalette";
 import { ProofOfProgress } from "@/components/ProofOfProgress";
 import { ArrowLeft } from "lucide-react";
@@ -77,6 +78,10 @@ export default function ProgressPage() {
 
         <section className="mt-14 sm:mt-16">
           <ProofOfProgress />
+        </section>
+
+        <section className="mt-14">
+          <ProgressChainDiagram />
         </section>
 
         <section className="mt-16 border-t border-line pt-10">

@@ -1,5 +1,6 @@
 "use client";
 
+import { PrepAssemblyDiagram } from "./diagram/PrepAssemblyDiagram";
 import {
   buildPrepSheet,
   DEFAULT_FIRM,
@@ -230,6 +231,19 @@ export function PrepBoard() {
         : [...prev.triggers, t],
     }));
 
+  const sheetSections = [
+    sheet.openWith,
+    sheet.contradiction,
+    sheet.doNotBuild,
+    sheet.guardrails,
+    sheet.firstExperiment,
+    sheet.watchFor,
+  ];
+  // A section is still on the sheet unless every line in it was set aside.
+  const sectionsHeld = sheetSections.filter((lines) =>
+    lines.some((line) => marks[line.id] !== "dropped"),
+  ).length;
+
   const keptCount = Object.values(marks).filter((m) => m === "kept").length;
   const droppedCount = Object.values(marks).filter((m) => m === "dropped").length;
 
@@ -348,6 +362,11 @@ export function PrepBoard() {
           )}
         </div>
       </div>
+
+      <PrepAssemblyDiagram
+        sections={sheetSections.length}
+        kept={sectionsHeld}
+      />
 
       {/* The sheet */}
       <div id="prep-sheet" className="card p-6 sm:p-7">

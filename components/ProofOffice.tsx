@@ -11,6 +11,7 @@ import {
 } from "@/lib/engines/proof-engine";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ShieldOff, Undo2, X } from "lucide-react";
+import { ProofDivergenceDiagram } from "./diagram/ProofDivergenceDiagram";
 import { DivergenceTrack } from "./DivergenceTrack";
 import { useMemo, useState } from "react";
 
@@ -74,6 +75,8 @@ export function ProofOffice() {
       </div>
 
       <DivergenceTrack applied={applied} week={week} />
+
+      <ProofDivergenceDiagram applied={applied} />
 
       {/* The sentence for the week you are standing in. */}
       <AnimatePresence mode="wait">

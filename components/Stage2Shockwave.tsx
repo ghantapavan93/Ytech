@@ -9,6 +9,7 @@ import {
   ShieldAlert,
   Zap,
 } from "lucide-react";
+import { WindTunnelDiagram } from "./diagram/WindTunnelDiagram";
 import { PILLAR_STYLE, SYSTEM_STYLE } from "./status";
 import { Ticker } from "./Ticker";
 
@@ -159,6 +160,11 @@ export function Stage2Shockwave({ out, aiSpeedupPct, retuneRevealed, onRetune }:
                 <Ticker value={out.jrSavedHoursUnused} format={(n) => fmtHours(n, 1)} className="text-rose-400" />
               </div>
             </div>
+          </div>
+
+          {/* The same four pillars, as the assembly they form */}
+          <div className="mb-4">
+            <WindTunnelDiagram out={out} />
           </div>
 
           {/* Four pillars */}

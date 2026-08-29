@@ -1,5 +1,6 @@
 "use client";
 
+import { VisionLatticeDiagram } from "./diagram/VisionLatticeDiagram";
 import { CommandHint } from "./CommandPalette";
 import {
   FIRST_PRINCIPLES,
@@ -172,6 +173,10 @@ export function VisionContent() {
         </section>
 
         {/* The stack */}
+        <section className="mt-16">
+          <VisionLatticeDiagram />
+        </section>
+
         <section className="mt-20">
           <SectionHead
             icon={<Rocket size={14} />}

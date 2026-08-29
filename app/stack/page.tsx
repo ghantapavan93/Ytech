@@ -1,4 +1,5 @@
 import { CommandHint } from "@/components/CommandPalette";
+import { StackDiagram } from "@/components/diagram/StackDiagram";
 import {
   FLOOR_CASES,
   FLOOR_CONTRAST,
@@ -125,6 +126,10 @@ export default function StackPage() {
         </section>
 
         {/* The layers */}
+        <section className="mt-12">
+          <StackDiagram />
+        </section>
+
         <section className="mt-14">
           <div className="flex items-center gap-2 text-zinc-500">
             <Layers size={14} />

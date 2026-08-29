@@ -266,6 +266,14 @@ input[type="range"].lever::-moz-range-thumb {
   .print-hidden {
     display: none !important;
   }
+  /* A canvas prints as an empty rectangle, so the scene drops out and the
+     written reading underneath carries the figure on paper. */
+  .diagram-canvas {
+    display: none !important;
+  }
+  .diagram-reading {
+    color: #333 !important;
+  }
 }
 
 /* ---------- the claimed figure ---------- */

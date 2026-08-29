@@ -1,5 +1,6 @@
 "use client";
 
+import { RecordFunnelDiagram } from "./diagram/RecordFunnelDiagram";
 import {
   advance,
   canEmitPattern,
@@ -243,6 +244,10 @@ export function DecisionRecords() {
               reset portfolio
             </button>
           )}
+        </div>
+
+        <div className="mt-6">
+          <RecordFunnelDiagram records={records} />
         </div>
 
         <div className="mt-6 space-y-1">

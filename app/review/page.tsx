@@ -1,3 +1,4 @@
+import { ReviewSurvivorDiagram } from "@/components/diagram/ReviewSurvivorDiagram";
 import { CommandHint } from "@/components/CommandPalette";
 import {
   BRUTAL_CONCLUSION,
@@ -165,6 +166,10 @@ export default function ReviewPage() {
         </section>
 
         {/* Governing question */}
+        <section className="mt-12">
+          <ReviewSurvivorDiagram />
+        </section>
+
         <section className="mt-16">
           <SectionHeading
             id="question"

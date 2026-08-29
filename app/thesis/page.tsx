@@ -1,3 +1,4 @@
+import { ThesisBipartiteDiagram } from "@/components/diagram/ThesisBipartiteDiagram";
 import { CommandHint } from "@/components/CommandPalette";
 import { PageContents, type ContentsEntry } from "@/components/PageContents";
 import {
@@ -192,6 +193,10 @@ export default function ThesisPage() {
             summary={`${THESIS_ROWS.length} claims, every one quoted, dated and linked`}
             entries={CONTENTS}
           />
+        </section>
+
+        <section className="mt-10">
+          <ThesisBipartiteDiagram />
         </section>
 
         {/* Claim → mechanism rows */}

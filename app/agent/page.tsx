@@ -1,3 +1,4 @@
+import { AgentBoundaryDiagram } from "@/components/diagram/AgentBoundaryDiagram";
 import { CommandHint } from "@/components/CommandPalette";
 import { AgentConsole } from "@/components/AgentConsole";
 import { ArrowLeft } from "lucide-react";
@@ -70,6 +71,10 @@ export default function AgentPage() {
             out loud. A model could draft prose on top of this later. It could
             not be trusted with the refusals.
           </p>
+        </section>
+
+        <section className="mt-12">
+          <AgentBoundaryDiagram />
         </section>
 
         <section className="mt-10">
