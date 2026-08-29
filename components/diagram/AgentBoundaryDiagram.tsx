@@ -1,31 +1,23 @@
 "use client";
 
 import { PLAYS } from "@/lib/engines/agent-engine";
-import { useMemo } from "react";
-import { DiagramFigure } from "./DiagramFigure";
-import { buildBoundaryScene } from "./scenes/boundaryScene";
+import { BoundaryFigure } from "./BoundaryFigure";
+import { SvgFigure } from "./svg-kit";
 
-/** Calls the agent hands back on every run, without exception. */
-const REFUSALS = 4;
+const REFUSALS = [
+  "the decision",
+  "the numbers",
+  "the sources",
+  "anyone's voice",
+];
 
 export function AgentBoundaryDiagram() {
-  const build = useMemo(
-    () => buildBoundaryScene({ plays: PLAYS.length, refusals: REFUSALS }),
-    [],
-  );
-
   return (
-    <DiagramFigure
-      build={build}
-      height={300}
+    <SvgFigure
       caption="What it runs, and what it hands back"
-      description={`The frame is the boundary. The ${PLAYS.length} green forms inside are the jobs the agent will run on its own: diagnosing a firm, preparing for a talk, advising on what to build, reviewing what was decided, and following up afterwards. The red forms outside are the calls it refuses on every run. They sit outside the frame rather than dimmed inside it, because a refusal is not a weaker version of doing the work. The frame is the product, and a tool that quietly moved a red form inside it would be a worse tool wearing the same name.`}
-      readout={[
-        { label: "Jobs it runs", value: String(PLAYS.length) },
-        { label: "Calls it refuses", value: String(REFUSALS) },
-        { label: "Model in the path", value: "None" },
-        { label: "Runs with no refusal", value: "0" },
-      ]}
-    />
+      description={`The ${PLAYS.length} jobs inside the frame are the ones the agent runs on its own. The items outside it are handed back on every single run. They sit outside rather than dimmed inside because a refusal is not a weaker version of doing the work, and the frame is the product. A tool that quietly moved one of them inside would be a worse tool wearing the same name.`}
+    >
+      <BoundaryFigure plays={PLAYS.map((p) => p.name)} refusals={REFUSALS} />
+    </SvgFigure>
   );
 }
