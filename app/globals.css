@@ -19,6 +19,15 @@
      gets confused with the claim it is testing. */
   --color-claim: #cdf94a;
 
+  /* Ink. Four greys, and every one clears 4.5:1 on canvas and on a card.
+     The previous ramp leaned on zinc-500/600/700, which measure 4.09, 2.56
+     and 1.89 against the canvas: three steps of text nobody could read. */
+  --color-ink-1: #f4f4f5;
+  --color-ink-2: #d4d4d8;
+  --color-ink-3: #a1a1aa;
+  --color-ink-4: #8a8a94;
+
+
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "Cascadia Code", monospace;
 }

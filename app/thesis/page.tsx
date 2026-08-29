@@ -79,8 +79,8 @@ function LensCard({ title, sub, lens }: { title: string; sub: string; lens: Inde
     <div className="card p-6">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h3 className="text-[14px] font-semibold text-zinc-200">{title}</h3>
-          <p className="mt-1 text-[11.5px] text-zinc-500">{sub}</p>
+          <h3 className="text-[15px] font-semibold text-ink-1">{title}</h3>
+          <p className="mt-1 text-[11.5px] text-ink-4">{sub}</p>
         </div>
         <div className="text-right">
           <p className="mono-num text-2xl font-semibold" style={{ color: hex }}>
@@ -98,13 +98,13 @@ function LensCard({ title, sub, lens }: { title: string; sub: string; lens: Inde
         {lens.dimensions.map((d) => (
           <div key={d.name}>
             <div className="mb-1 flex items-baseline justify-between gap-3">
-              <span className="text-[11.5px] font-medium text-zinc-300">
+              <span className="text-[11.5px] font-medium text-ink-2">
                 {d.name}
-                <span className="mono-num ml-1.5 text-[10px] text-zinc-600">
+                <span className="mono-num ml-1.5 text-[10px] text-ink-4">
                   ×{d.weight.toFixed(2)}
                 </span>
               </span>
-              <span className="mono-num text-[11px] text-zinc-400">
+              <span className="mono-num text-[11.5px] text-ink-3">
                 {d.rating.toFixed(1)} / 5
               </span>
             </div>
@@ -114,7 +114,7 @@ function LensCard({ title, sub, lens }: { title: string; sub: string; lens: Inde
                 style={{ width: `${(d.rating / 5) * 100}%`, background: hex }}
               />
             </div>
-            <p className="mt-1 text-[10.5px] leading-relaxed text-zinc-600">{d.rationale}</p>
+            <p className="mt-1 text-[10px] leading-relaxed text-ink-4">{d.rationale}</p>
           </div>
         ))}
       </div>
@@ -142,11 +142,11 @@ export default function ThesisPage() {
           <div className="flex items-baseline gap-3">
             <Link
               href="/"
-              className="text-[14px] font-bold tracking-[-0.01em] text-zinc-100 transition-colors hover:text-white"
+              className="text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
             >
               VALUE&nbsp;SHIFT
             </Link>
-            <span className="hidden font-mono text-[11px] text-zinc-600 sm:block">
+            <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // The Receipts
             </span>
           </div>
@@ -154,7 +154,7 @@ export default function ThesisPage() {
             <CommandHint />
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-ink-4 transition-colors hover:border-line-strong hover:text-ink-1"
             >
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
@@ -171,14 +171,14 @@ export default function ThesisPage() {
             Thesis map · every claim quoted, dated, and linked
           </p>
           <h1
-            className="fade-up mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-zinc-100 sm:text-5xl"
+            className="fade-up mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-ink-1 sm:text-5xl"
             style={{ animationDelay: "80ms" }}
           >
             Their argument.
-            <span className="block text-zinc-500">Made operable.</span>
+            <span className="block text-ink-4">Made operable.</span>
           </h1>
           <p
-            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-400"
+            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-ink-3"
             style={{ animationDelay: "160ms" }}
           >
             Nothing in this instrument is a new theory. Every mechanism,             the rejected speedup, the four levers, the experiment charter, the
@@ -201,7 +201,7 @@ export default function ThesisPage() {
 
         {/* Claim → mechanism rows */}
         <section id="claims" className="mt-14 scroll-mt-20">
-          <div className="flex items-center gap-2 text-zinc-500">
+          <div className="flex items-center gap-2 text-ink-4">
             <BookOpenText size={14} />
             <p className="micro-label">The argument, mechanism by mechanism</p>
           </div>
@@ -210,24 +210,24 @@ export default function ThesisPage() {
               <div
                 key={row.quote}
                 className={`card grid gap-5 p-6 lg:grid-cols-[1.1fr_1fr] ${
-                  row.tension ? "border-amber-500/30 bg-amber-500/[0.04]" : ""
+                  row.tension ? "border-amber-500/25 bg-amber-500/[0.06]" : ""
                 }`}
               >
                 <div>
                   {row.tension && (
-                    <span className="mono-num mb-2 inline-block rounded-md bg-amber-500/15 px-2 py-1 text-[9px] font-bold tracking-[0.14em] text-amber-400">
+                    <span className="mono-num mb-2 inline-block rounded-md bg-amber-500/12 px-2 py-1 text-[10px] font-bold tracking-[0.14em] text-amber-400">
                       THE TENSION, WHERE THIS INSTRUMENT PUSHES BACK
                     </span>
                   )}
-                  <p className="text-[13.5px] font-semibold leading-snug text-zinc-200">
+                  <p className="text-[15px] font-semibold leading-snug text-ink-1">
                     {row.claim}
                   </p>
                   <div className="mt-3 flex gap-2.5">
                     <Quote
                       size={13}
-                      className={`mt-0.5 shrink-0 ${row.tension ? "text-amber-400/80" : "text-cyan-400/70"}`}
+                      className={`mt-0.5 shrink-0 ${row.tension ? "text-amber-400/80" : "text-cyan-400/80"}`}
                     />
-                    <p className="text-[13px] italic leading-relaxed text-zinc-400">
+                    <p className="text-[13px] italic leading-relaxed text-ink-3">
                       &ldquo;{row.quote}&rdquo;
                     </p>
                   </div>
@@ -235,7 +235,7 @@ export default function ThesisPage() {
                     href={row.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group mt-2.5 inline-flex items-center gap-1.5 text-[11px] text-zinc-600 transition-colors hover:text-zinc-300"
+                    className="group mt-2.5 inline-flex items-center gap-1.5 text-[11.5px] text-ink-4 transition-colors hover:text-ink-2"
                   >
                     {row.source} · {row.date}
                     <ArrowUpRight
@@ -244,16 +244,16 @@ export default function ThesisPage() {
                     />
                   </a>
                 </div>
-                <div className="flex flex-col justify-between gap-4 rounded-xl border border-line bg-canvas/50 p-4">
-                  <p className="text-[12.5px] leading-relaxed text-zinc-400">
-                    <span className="font-semibold text-zinc-300">
+                <div className="flex flex-col justify-between gap-4 rounded-xl border border-line bg-canvas/55 p-4">
+                  <p className="text-[13px] leading-relaxed text-ink-3">
+                    <span className="font-semibold text-ink-2">
                       In the instrument:{" "}
                     </span>
                     {row.mechanism}
                   </p>
                   <Link
                     href={row.anchor}
-                    className="inline-flex items-center gap-1.5 self-start rounded-lg border border-cyan-500/40 bg-cyan-500/10 px-3 py-1.5 text-[11.5px] font-semibold text-cyan-200 transition-colors hover:bg-cyan-500/20"
+                    className="inline-flex items-center gap-1.5 self-start rounded-lg border border-cyan-500/40 bg-cyan-500/12 px-3 py-1.5 text-[11.5px] font-semibold text-cyan-200 transition-colors hover:bg-cyan-500/25"
                   >
                     <Anchor size={11} />
                     {row.anchorLabel}
@@ -266,11 +266,11 @@ export default function ThesisPage() {
 
         {/* Where the premise is weak */}
         <section id="weak" className="mt-14 scroll-mt-20">
-          <div className="flex items-center gap-2 text-zinc-500">
+          <div className="flex items-center gap-2 text-ink-4">
             <Swords size={14} />
             <p className="micro-label">Where this premise is weak</p>
           </div>
-          <p className="mt-3 max-w-2xl text-[13px] leading-relaxed text-zinc-400">
+          <p className="mt-3 max-w-2xl text-[13px] leading-relaxed text-ink-3">
             A prototype that only collects agreeing evidence is marketing.
             These are the strongest findings against the argument this
             instrument runs on. Four of the five are conceded outright,
@@ -287,31 +287,31 @@ export default function ThesisPage() {
               >
                 <div>
                   <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-[13.5px] font-semibold leading-snug text-zinc-200">
+                    <h3 className="text-[15px] font-semibold leading-snug text-ink-1">
                       {c.claim}
                     </h3>
                     {c.conceded && (
-                      <span className="mono-num shrink-0 rounded-md bg-amber-500/15 px-2 py-1 text-[9px] font-bold tracking-[0.12em] text-amber-400">
+                      <span className="mono-num shrink-0 rounded-md bg-amber-500/12 px-2 py-1 text-[10px] font-bold tracking-[0.12em] text-amber-400">
                         CONCEDED
                       </span>
                     )}
                   </div>
-                  <p className="mt-2.5 text-[12.5px] leading-relaxed text-zinc-400">
+                  <p className="mt-2.5 text-[13px] leading-relaxed text-ink-3">
                     {c.detail}
                   </p>
                   <a
                     href={c.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group mt-2 inline-flex items-center gap-1.5 text-[11px] text-zinc-600 transition-colors hover:text-zinc-300"
+                    className="group mt-2 inline-flex items-center gap-1.5 text-[11.5px] text-ink-4 transition-colors hover:text-ink-2"
                   >
                     {c.source}
                     <ArrowUpRight size={10} />
                   </a>
                 </div>
-                <div className="rounded-xl border border-line bg-canvas/50 p-4">
-                  <p className="text-[12.5px] leading-relaxed text-zinc-400">
-                    <span className="font-semibold text-zinc-300">Response: </span>
+                <div className="rounded-xl border border-line bg-canvas/55 p-4">
+                  <p className="text-[13px] leading-relaxed text-ink-3">
+                    <span className="font-semibold text-ink-2">Response: </span>
                     {c.response}
                   </p>
                 </div>
@@ -319,29 +319,29 @@ export default function ThesisPage() {
             ))}
           </div>
 
-          <div className="card mt-4 border-emerald-500/25 bg-emerald-500/[0.04] p-6">
+          <div className="card mt-4 border-emerald-500/25 bg-emerald-500/[0.06] p-6">
             <p className="micro-label !text-emerald-300/80">
               The one firm that answered it out loud
             </p>
-            <p className="mt-3 text-[14px] italic leading-relaxed text-zinc-200">
+            <p className="mt-3 text-[15px] italic leading-relaxed text-ink-1">
               &ldquo;{AECOM_PROOF.quote}&rdquo;
             </p>
-            <p className="mt-1.5 text-[11.5px] text-zinc-500">{AECOM_PROOF.who}</p>
-            <p className="mt-3 text-[12.5px] leading-relaxed text-zinc-400">
+            <p className="mt-1.5 text-[11.5px] text-ink-4">{AECOM_PROOF.who}</p>
+            <p className="mt-3 text-[13px] leading-relaxed text-ink-3">
               {AECOM_PROOF.context}
             </p>
             <a
               href={AECOM_PROOF.href}
               target="_blank"
               rel="noreferrer"
-              className="group mt-2.5 inline-flex items-center gap-1.5 text-[11px] text-zinc-600 transition-colors hover:text-zinc-300"
+              className="group mt-2.5 inline-flex items-center gap-1.5 text-[11.5px] text-ink-4 transition-colors hover:text-ink-2"
             >
               {AECOM_PROOF.source}
               <ArrowUpRight size={10} />
             </a>
           </div>
 
-          <p className="mt-5 max-w-3xl rounded-xl border border-cyan-500/25 bg-cyan-500/[0.05] p-5 text-[13px] leading-relaxed text-zinc-300">
+          <p className="mt-5 max-w-3xl rounded-xl border border-cyan-500/25 bg-cyan-500/[0.06] p-5 text-[13px] leading-relaxed text-ink-2">
             <span className="font-semibold">Where that leaves the argument.</span>{" "}
             The contradiction is documented, named by ACEC as an industry
             barrier, and currently masked rather than refuted. A labor shortage
@@ -349,7 +349,7 @@ export default function ThesisPage() {
             the loss yet. That makes redeployment the most important lever on
             the instrument, not pricing, and it makes the honest question a
             different one:{" "}
-            <span className="font-semibold text-zinc-100">
+            <span className="font-semibold text-ink-1">
               what happens when the backlog normalizes and absorbing the freed
               hours stops being automatic?
             </span>{" "}
@@ -359,18 +359,18 @@ export default function ThesisPage() {
 
         {/* The room */}
         <section id="room" className="mt-14 scroll-mt-20">
-          <div className="flex items-center gap-2 text-zinc-500">
+          <div className="flex items-center gap-2 text-ink-4">
             <Users size={14} />
             <p className="micro-label">
               The room on 4 December, in its own words
             </p>
           </div>
-          <p className="mt-3 max-w-2xl text-[13px] leading-relaxed text-zinc-400">
+          <p className="mt-3 max-w-2xl text-[13px] leading-relaxed text-ink-3">
             These are people scheduled to speak at the CEO AI Symposium. They
             are not YegaTech, which is what makes them worth quoting. The
             premise this instrument runs on does not need to be argued at that
             room.{" "}
-            <span className="font-semibold text-zinc-200">
+            <span className="font-semibold text-ink-1">
               It is already being said inside it.
             </span>
           </p>
@@ -379,27 +379,27 @@ export default function ThesisPage() {
               <div key={v.quote} className="card flex flex-col gap-3 p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <h3 className="text-[13.5px] font-semibold text-zinc-200">{v.who}</h3>
-                    <p className="mt-0.5 text-[11px] leading-relaxed text-zinc-500">
+                    <h3 className="text-[15px] font-semibold text-ink-1">{v.who}</h3>
+                    <p className="mt-0.5 text-[11.5px] leading-relaxed text-ink-4">
                       {v.role}
                     </p>
                   </div>
-                  <span className="mono-num shrink-0 rounded-md bg-cyan-500/10 px-2 py-1 text-[9px] font-bold tracking-[0.12em] text-cyan-400">
+                  <span className="mono-num shrink-0 rounded-md bg-cyan-500/12 px-2 py-1 text-[10px] font-bold tracking-[0.12em] text-cyan-400">
                     {v.lever.toUpperCase()}
                   </span>
                 </div>
                 <div className="flex gap-2.5">
-                  <Quote size={13} className="mt-0.5 shrink-0 text-cyan-400/70" />
-                  <p className="text-[13.5px] italic leading-relaxed text-zinc-300">
+                  <Quote size={13} className="mt-0.5 shrink-0 text-cyan-400/80" />
+                  <p className="text-[15px] italic leading-relaxed text-ink-2">
                     &ldquo;{v.quote}&rdquo;
                   </p>
                 </div>
-                <p className="text-[12px] leading-relaxed text-zinc-500">{v.context}</p>
+                <p className="text-[13px] leading-relaxed text-ink-4">{v.context}</p>
                 <a
                   href={v.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group mt-auto inline-flex items-center gap-1.5 text-[11px] text-zinc-600 transition-colors hover:text-zinc-300"
+                  className="group mt-auto inline-flex items-center gap-1.5 text-[11.5px] text-ink-4 transition-colors hover:text-ink-2"
                 >
                   {v.date}
                   <ArrowUpRight size={10} />
@@ -407,7 +407,7 @@ export default function ThesisPage() {
               </div>
             ))}
           </div>
-          <p className="mt-4 text-[11px] leading-relaxed text-zinc-600">
+          <p className="mt-4 text-[11.5px] leading-relaxed text-ink-4">
             One more finding worth stating plainly, because it cuts against
             this project as much as for it. Across all seven speakers' firms,
             not a single published AI return figure exists. They publish
@@ -420,13 +420,13 @@ export default function ThesisPage() {
 
         {/* The spoken record */}
         <section id="spoken" className="mt-14 scroll-mt-20">
-          <div className="flex items-center gap-2 text-zinc-500">
+          <div className="flex items-center gap-2 text-ink-4">
             <Mic size={14} />
             <p className="micro-label">
               The spoken record, her frameworks from the podcast corpus
             </p>
           </div>
-          <p className="mt-3 max-w-2xl text-[13px] leading-relaxed text-zinc-400">
+          <p className="mt-3 max-w-2xl text-[13px] leading-relaxed text-ink-3">
             Transcripts and recaps of her appearances, read in full. Seven
             frameworks recur across two years of tape, and each one already
             has a mechanism waiting for it in the instrument. As she put it in
@@ -435,12 +435,12 @@ export default function ThesisPage() {
           <div className="mt-5 grid gap-3 lg:grid-cols-2">
             {SPOKEN_RECORD.map((f) => (
               <div key={f.title} className="card flex flex-col gap-3 p-6">
-                <h3 className="text-[13.5px] font-semibold text-zinc-200">{f.title}</h3>
-                <p className="text-[12.5px] leading-relaxed text-zinc-500">{f.oneLiner}</p>
+                <h3 className="text-[15px] font-semibold text-ink-1">{f.title}</h3>
+                <p className="text-[13px] leading-relaxed text-ink-4">{f.oneLiner}</p>
                 {f.quote && (
                   <div className="flex gap-2.5">
-                    <Quote size={12} className="mt-0.5 shrink-0 text-cyan-400/70" />
-                    <p className="text-[12.5px] italic leading-relaxed text-zinc-400">
+                    <Quote size={12} className="mt-0.5 shrink-0 text-cyan-400/80" />
+                    <p className="text-[13px] italic leading-relaxed text-ink-3">
                       &ldquo;{f.quote}&rdquo;
                     </p>
                   </div>
@@ -449,13 +449,13 @@ export default function ThesisPage() {
                   href={f.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-1.5 text-[11px] text-zinc-600 transition-colors hover:text-zinc-300"
+                  className="group inline-flex items-center gap-1.5 text-[11.5px] text-ink-4 transition-colors hover:text-ink-2"
                 >
                   {f.source} · {f.date}
                   <ArrowUpRight size={10} />
                 </a>
-                <p className="mt-auto rounded-xl border border-line bg-canvas/50 p-3.5 text-[12px] leading-relaxed text-zinc-400">
-                  <span className="font-semibold text-zinc-300">In the instrument: </span>
+                <p className="mt-auto rounded-xl border border-line bg-canvas/55 p-3.5 text-[13px] leading-relaxed text-ink-3">
+                  <span className="font-semibold text-ink-2">In the instrument: </span>
                   {f.echo}
                 </p>
               </div>
@@ -464,7 +464,7 @@ export default function ThesisPage() {
 
           {/* Message arc */}
           <div className="mt-8">
-            <div className="flex items-center gap-2 text-zinc-500">
+            <div className="flex items-center gap-2 text-ink-4">
               <History size={14} />
               <p className="micro-label">Her message arc, the instrument lands where it points</p>
             </div>
@@ -479,20 +479,20 @@ export default function ThesisPage() {
                   }`}
                 >
                   <p
-                    className={`mono-num text-[11px] font-semibold ${
-                      i === MESSAGE_ARC.length - 1 ? "text-cyan-300" : "text-zinc-500"
+                    className={`mono-num text-[11.5px] font-semibold ${
+                      i === MESSAGE_ARC.length - 1 ? "text-cyan-300" : "text-ink-4"
                     }`}
                   >
                     {step.year}
                   </p>
                   <h3
-                    className={`mt-2 text-[13.5px] font-semibold ${
-                      i === MESSAGE_ARC.length - 1 ? "text-cyan-200" : "text-zinc-200"
+                    className={`mt-2 text-[15px] font-semibold ${
+                      i === MESSAGE_ARC.length - 1 ? "text-cyan-200" : "text-ink-1"
                     }`}
                   >
                     {step.theme}
                   </h3>
-                  <p className="mt-2 text-[11.5px] leading-relaxed text-zinc-500">{step.note}</p>
+                  <p className="mt-2 text-[11.5px] leading-relaxed text-ink-4">{step.note}</p>
                 </div>
               ))}
             </div>
@@ -501,7 +501,7 @@ export default function ThesisPage() {
 
         {/* Client proofs */}
         <section id="clients" className="mt-14 scroll-mt-20">
-          <div className="flex items-center gap-2 text-zinc-500">
+          <div className="flex items-center gap-2 text-ink-4">
             <Building2 size={14} />
             <p className="micro-label">
               What their clients have already shown publicly
@@ -511,14 +511,14 @@ export default function ThesisPage() {
             {CLIENT_PROOFS.map((proof) => (
               <div key={proof.firm} className="card p-6">
                 <p className="micro-label !text-cyan-300/80">{proof.firm}</p>
-                <h3 className="mt-2 text-[14px] font-semibold text-zinc-200">
+                <h3 className="mt-2 text-[15px] font-semibold text-ink-1">
                   {proof.headline}
                 </h3>
                 <ul className="mt-3 space-y-2">
                   {proof.facts.map((fact) => (
                     <li
                       key={fact}
-                      className="flex gap-2.5 text-[12.5px] leading-relaxed text-zinc-400"
+                      className="flex gap-2.5 text-[13px] leading-relaxed text-ink-3"
                     >
                       <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-zinc-600" />
                       {fact}
@@ -530,7 +530,7 @@ export default function ThesisPage() {
                     href={proof.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group mt-3 inline-flex items-center gap-1.5 text-[11px] text-zinc-600 transition-colors hover:text-zinc-300"
+                    className="group mt-3 inline-flex items-center gap-1.5 text-[11.5px] text-ink-4 transition-colors hover:text-ink-2"
                   >
                     Source
                     <ArrowUpRight size={10} />
@@ -543,7 +543,7 @@ export default function ThesisPage() {
 
         {/* Why now, their calendar */}
         <section id="calendar" className="mt-14 scroll-mt-20">
-          <div className="flex items-center gap-2 text-zinc-500">
+          <div className="flex items-center gap-2 text-ink-4">
             <CalendarClock size={14} />
             <p className="micro-label">Why now, their own calendar</p>
           </div>
@@ -558,20 +558,20 @@ export default function ThesisPage() {
                 }`}
               >
                 <p
-                  className={`mono-num text-[11px] font-semibold ${
-                    step.insert ? "text-cyan-300" : "text-zinc-500"
+                  className={`mono-num text-[11.5px] font-semibold ${
+                    step.insert ? "text-cyan-300" : "text-ink-4"
                   }`}
                 >
                   {step.date}
                 </p>
                 <h3
-                  className={`mt-2 text-[13.5px] font-semibold ${
-                    step.insert ? "text-cyan-200" : "text-zinc-200"
+                  className={`mt-2 text-[15px] font-semibold ${
+                    step.insert ? "text-cyan-200" : "text-ink-1"
                   }`}
                 >
                   {step.title}
                 </h3>
-                <p className="mt-2 text-[12px] leading-relaxed text-zinc-500">
+                <p className="mt-2 text-[13px] leading-relaxed text-ink-4">
                   {step.body}
                 </p>
               </div>
@@ -581,17 +581,17 @@ export default function ThesisPage() {
 
         {/* The Index Lens */}
         <section id="yardstick" className="mt-14 scroll-mt-20">
-          <div className="flex items-center gap-2 text-zinc-500">
+          <div className="flex items-center gap-2 text-ink-4">
             <Gauge size={14} />
             <p className="micro-label">Their yardstick, applied</p>
           </div>
-          <p className="mt-3 max-w-2xl text-[13px] leading-relaxed text-zinc-400">
+          <p className="mt-3 max-w-2xl text-[13px] leading-relaxed text-ink-3">
             YegaTech's AI Transformation Index scores firms across four
             dimensions whose published weights put Operating Model (35%) and
             Business Model (30%) at 65% of the total. Score the wind tunnel's
             two canonical states through that structure and the four levers
             move Atlas Structural &amp; Civil{" "}
-            <span className="font-semibold text-zinc-200">
+            <span className="font-semibold text-ink-1">
               a full stage up their own Index, without touching culture.
             </span>
           </p>
@@ -607,7 +607,7 @@ export default function ThesisPage() {
               lens={governedLens}
             />
           </div>
-          <p className="mt-4 text-[11px] leading-relaxed text-zinc-600">
+          <p className="mt-4 text-[11.5px] leading-relaxed text-ink-4">
             The dimensions, weights, and stage bands are YegaTech's, read from
             the Index page's published scoring script. The mapping from
             wind-tunnel outputs to dimension ratings is ours, deterministic,
@@ -620,7 +620,7 @@ export default function ThesisPage() {
 
         {/* Grounding */}
         <section id="grounding" className="mt-14 scroll-mt-20">
-          <div className="flex items-center gap-2 text-zinc-500">
+          <div className="flex items-center gap-2 text-ink-4">
             <Anchor size={14} />
             <p className="micro-label">
               Why Atlas Structural &amp; Civil looks the way it does, every
@@ -633,18 +633,18 @@ export default function ThesisPage() {
                 key={row.assumption}
                 className="grid gap-2 px-6 py-4 lg:grid-cols-[1fr_1.3fr]"
               >
-                <p className="text-[12.5px] font-semibold leading-relaxed text-zinc-300">
+                <p className="text-[13px] font-semibold leading-relaxed text-ink-2">
                   {row.assumption}
                 </p>
                 <div>
-                  <p className="text-[12.5px] leading-relaxed text-zinc-400">
+                  <p className="text-[13px] leading-relaxed text-ink-3">
                     {row.grounding}
                   </p>
                   <a
                     href={row.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group mt-1 inline-flex items-center gap-1.5 text-[11px] text-zinc-600 transition-colors hover:text-zinc-300"
+                    className="group mt-1 inline-flex items-center gap-1.5 text-[11.5px] text-ink-4 transition-colors hover:text-ink-2"
                   >
                     {row.source}
                     <ArrowUpRight size={10} />
@@ -653,7 +653,7 @@ export default function ThesisPage() {
               </div>
             ))}
           </div>
-          <p className="mt-4 text-[11px] leading-relaxed text-zinc-600">
+          <p className="mt-4 text-[11.5px] leading-relaxed text-ink-4">
             The firm itself, its name, staff, volumes, and every dollar, is
             synthetic and editable. The grounding above anchors the shape of
             the model, never its outputs. The instrument refuses to predict
@@ -663,10 +663,10 @@ export default function ThesisPage() {
 
         {/* CTA */}
         <section id="point" className="mt-14 scroll-mt-20">
-          <div className="card flex flex-col items-start justify-between gap-5 border-cyan-500/20 bg-cyan-500/[0.04] p-7 sm:flex-row sm:items-center">
+          <div className="card flex flex-col items-start justify-between gap-5 border-cyan-500/25 bg-cyan-500/[0.06] p-7 sm:flex-row sm:items-center">
             <div>
               <p className="micro-label !text-cyan-300/80">The point</p>
-              <p className="mt-2 max-w-xl text-[14px] leading-relaxed text-zinc-300">
+              <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-ink-2">
                 Reading someone's work is easy. This is the harder compliment:
                 their argument, running as software, refusing the same easy
                 answers they refuse.
@@ -674,7 +674,7 @@ export default function ThesisPage() {
             </div>
             <Link
               href="/engine?run=1"
-              className="group inline-flex shrink-0 items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[14px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
+              className="group inline-flex shrink-0 items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[15px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
             >
               Watch it run
               <ArrowRight
@@ -683,7 +683,7 @@ export default function ThesisPage() {
               />
             </Link>
           </div>
-          <p className="mt-8 text-[11px] text-zinc-600">
+          <p className="mt-8 text-[11.5px] text-ink-4">
             Built by Pavan Kalyan. Independent work, not affiliated with or
             endorsed by YegaTech. Quotes are 15 words or fewer, attributed and
             linked; anything unverifiable was left out.

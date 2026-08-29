@@ -53,27 +53,27 @@ export function CollapseStrip() {
   return (
     <div ref={ref}>
       <p className="micro-label">Why this instrument exists</p>
-      <h2 className="mt-4 max-w-2xl text-2xl font-semibold leading-[1.15] tracking-[-0.025em] text-zinc-100 sm:text-[34px]">
+      <h2 className="mt-4 max-w-2xl text-2xl font-semibold leading-[1.15] tracking-[-0.025em] text-ink-1 sm:text-[32px]">
         Almost everyone has adopted it.
-        <span className="block text-zinc-500">Almost nobody can show a result.</span>
+        <span className="block text-ink-4">Almost nobody can show a result.</span>
       </h2>
 
       <div className="mt-9 space-y-9">
         {BANDS.map((band, bandIndex) => (
           <div key={band.scope}>
             <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-2">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-zinc-300">
+              <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-2">
                 {band.scope}
               </p>
-              <p className="text-[11.5px] text-zinc-600">{band.source}</p>
+              <p className="text-[11.5px] text-ink-4">{band.source}</p>
             </div>
 
             <div className="mt-4 space-y-2.5">
               {band.rungs.map((rung, i) => (
                 <div key={rung.label} className="flex items-center gap-4">
                   <span
-                    className={`mono-num w-[74px] shrink-0 text-right text-[26px] font-semibold leading-none tracking-[-0.04em] sm:w-[96px] sm:text-[38px] ${
-                      rung.terminal ? "text-crit" : "text-zinc-300"
+                    className={`mono-num w-[74px] shrink-0 text-right text-[26px] font-semibold leading-none tracking-[-0.04em] sm:w-[96px] sm:text-[44px] ${
+                      rung.terminal ? "text-crit" : "text-ink-2"
                     }`}
                   >
                     {rung.pct}%
@@ -82,7 +82,7 @@ export function CollapseStrip() {
                   {/* The track matters as much as the bar. Without the full
                       width drawn behind it you see three bars rather than a
                       collapse, and the shortfall is the whole point. */}
-                  <div className="relative h-[26px] min-w-0 flex-1 overflow-hidden rounded-sm border border-dashed border-white/[0.09] sm:h-[34px]">
+                  <div className="relative h-[26px] min-w-0 flex-1 overflow-hidden rounded-sm border border-dashed border-white/[0.10] sm:h-[34px]">
                     <motion.div
                       className={`absolute inset-y-0 left-0 ${
                         rung.terminal ? "bg-crit/25" : "bg-white/[0.10]"
@@ -102,7 +102,7 @@ export function CollapseStrip() {
                     />
                   </div>
 
-                  <span className="hidden w-[13rem] shrink-0 text-[12.5px] leading-tight text-zinc-500 sm:block">
+                  <span className="hidden w-[13rem] shrink-0 text-[13px] leading-tight text-ink-4 sm:block">
                     {rung.label}
                   </span>
                 </div>
@@ -112,8 +112,8 @@ export function CollapseStrip() {
             {/* On narrow screens the labels move under the bars. */}
             <div className="mt-3 space-y-1 sm:hidden">
               {band.rungs.map((rung) => (
-                <p key={rung.label} className="text-[12px] text-zinc-500">
-                  <span className="mono-num text-zinc-400">{rung.pct}%</span>{" "}
+                <p key={rung.label} className="text-[13px] text-ink-4">
+                  <span className="mono-num text-ink-3">{rung.pct}%</span>{" "}
                   {rung.label}
                 </p>
               ))}
@@ -122,7 +122,7 @@ export function CollapseStrip() {
         ))}
       </div>
 
-      <p className="mt-9 max-w-2xl border-l-2 border-line-strong pl-4 text-[14.5px] leading-relaxed text-zinc-300">
+      <p className="mt-9 max-w-2xl border-l-2 border-line-strong pl-4 text-[15px] leading-relaxed text-ink-2">
         That drop is not a model problem. Every one of those firms has working
         technology. What they do not have is a fee structure, a review gate, an
         incentive, and a talent pipeline that can absorb what the technology

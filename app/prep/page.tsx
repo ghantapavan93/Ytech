@@ -18,11 +18,11 @@ export default function PrepPage() {
           <div className="flex items-baseline gap-3">
             <Link
               href="/"
-              className="text-[14px] font-bold tracking-[-0.01em] text-zinc-100 transition-colors hover:text-white"
+              className="text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
             >
               VALUE&nbsp;SHIFT
             </Link>
-            <span className="hidden font-mono text-[11px] text-zinc-600 sm:block">
+            <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // Prep Board
             </span>
           </div>
@@ -30,7 +30,7 @@ export default function PrepPage() {
             <CommandHint />
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-ink-4 transition-colors hover:border-line-strong hover:text-ink-1"
             >
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
@@ -46,16 +46,16 @@ export default function PrepPage() {
             A second instrument, built on the same rule
           </p>
           <h1
-            className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-zinc-100 sm:text-5xl"
+            className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-ink-1 sm:text-5xl"
             style={{ animationDelay: "80ms" }}
           >
             Fifteen minutes before the call,
-            <span className="block text-zinc-500">
+            <span className="block text-ink-4">
               built from what YegaTech has published.
             </span>
           </h1>
           <p
-            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-400"
+            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-ink-3"
             style={{ animationDelay: "160ms" }}
           >
             Tell it what you know about the firm. It hands back the opening
@@ -65,7 +65,7 @@ export default function PrepPage() {
             the source stays attached so you can check it.
           </p>
           <p
-            className="fade-up mt-4 max-w-2xl text-[13px] leading-relaxed text-zinc-500"
+            className="fade-up mt-4 max-w-2xl text-[13px] leading-relaxed text-ink-4"
             style={{ animationDelay: "220ms" }}
           >
             It is not a voice, and it does not pretend to be one. It is a
@@ -78,7 +78,7 @@ export default function PrepPage() {
           <PrepBoard />
         </section>
 
-        <p className="print-hidden mt-10 text-[11px] leading-relaxed text-zinc-600">
+        <p className="print-hidden mt-10 text-[11.5px] leading-relaxed text-ink-4">
           Built by Pavan Kalyan as an independent prototype. Not affiliated
           with YegaTech. The method lines are drawn from their published
           articles, podcasts, and framework pages, each linked at the point of

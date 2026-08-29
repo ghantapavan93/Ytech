@@ -55,7 +55,7 @@ export function ChainSpine({
       className="pointer-events-none absolute bottom-8 left-[8px] top-4 w-[3px] sm:left-[12px]"
     >
       {/* The unlit track, so the distance still to go stays visible. */}
-      <div className="absolute inset-0 rounded-full bg-white/[0.07]" />
+      <div className="absolute inset-0 rounded-full bg-white/[0.10]" />
 
       <motion.div
         className="absolute inset-0 rounded-full"

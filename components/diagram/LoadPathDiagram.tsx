@@ -47,10 +47,10 @@ export function LoadPathDiagram({
       </div>
 
       <figcaption className="mt-2 border-t border-line px-5 py-4">
-        <p className="text-[12.5px] font-medium text-zinc-300">
+        <p className="text-[13px] font-medium text-ink-2">
           The value load path
         </p>
-        <p className="diagram-reading mt-1.5 text-[12.5px] leading-relaxed text-zinc-500">
+        <p className="diagram-reading mt-1.5 text-[13px] leading-relaxed text-ink-4">
           {hrs(released)} of released capacity enters at the top.{" "}
           {hrs(out.jrRedeployedHours)} is carried into billable backlog and{" "}
           {hrs(out.jrSavedHoursUnused)} runs to ground as slack. The fee gate is{" "}

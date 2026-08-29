@@ -60,9 +60,9 @@ function PillarCard({ icon, label, status, headline, sub, narrative, index }: Pi
     >
       <PulseRail hex={style.hex} delayMs={index * 550} />
       <div className="flex items-center justify-between gap-3">
-        <div className="flex items-center gap-2 text-zinc-400">
+        <div className="flex items-center gap-2 text-ink-3">
           {icon}
-          <span className="micro-label !text-zinc-400">{label}</span>
+          <span className="micro-label !text-ink-3">{label}</span>
         </div>
         <span
           className={`mono-num rounded-md px-1.5 py-0.5 text-[10px] font-bold tracking-[0.14em] ${style.text}`}
@@ -75,9 +75,9 @@ function PillarCard({ icon, label, status, headline, sub, narrative, index }: Pi
         <span className={`text-[26px] font-semibold leading-none ${style.text}`}>
           {headline}
         </span>
-        <span className="mono-num text-[12px] text-zinc-500">{sub}</span>
+        <span className="mono-num text-[13px] text-ink-4">{sub}</span>
       </div>
-      <p className="mt-3 text-[12.5px] leading-relaxed text-zinc-400">{narrative}</p>
+      <p className="mt-3 text-[13px] leading-relaxed text-ink-3">{narrative}</p>
     </div>
   );
 }
@@ -116,7 +116,7 @@ export function Stage2Shockwave({
             <h2 className={`text-xl font-semibold tracking-[-0.02em] sm:text-2xl ${sys.text}`}>
               {sys.verdict}
             </h2>
-            <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-zinc-400">
+            <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-ink-3">
               {out.primaryBreakdownReason}
             </p>
           </div>
@@ -127,13 +127,13 @@ export function Stage2Shockwave({
               format={(n) => fmtMoney(n, { sign: true })}
               className={`text-3xl font-semibold ${sys.text}`}
             />
-            <p className="mono-num mt-1 text-[11px] text-zinc-500">per month</p>
+            <p className="mono-num mt-1 text-[11.5px] text-ink-4">per month</p>
           </div>
         </div>
 
         {/* Source node feeding the pillars */}
         <div className="mt-8 grid gap-4 lg:grid-cols-[1fr_2.1fr]">
-          <div className="card relative flex flex-col justify-between gap-6 border-cyan-500/25 bg-cyan-500/[0.05] p-5">
+          <div className="card relative flex flex-col justify-between gap-6 border-cyan-500/25 bg-cyan-500/[0.06] p-5">
             <div>
               <div className="flex items-center gap-2 text-cyan-300">
                 <Zap size={14} />
@@ -142,21 +142,21 @@ export function Stage2Shockwave({
               <p className="mt-4 text-[26px] font-semibold leading-none text-cyan-200">
                 −{speedup}%
               </p>
-              <p className="mono-num mt-1.5 text-[12px] text-zinc-500">
+              <p className="mono-num mt-1.5 text-[13px] text-ink-4">
                 junior production hours / package
               </p>
             </div>
-            <div className="space-y-2 border-t border-line pt-4 font-mono text-[11.5px] text-zinc-500">
+            <div className="space-y-2 border-t border-line pt-4 font-mono text-[11.5px] text-ink-4">
               <div className="flex justify-between">
                 <span>Jr package hours</span>
-                <Ticker value={out.jrPackageHours} format={(n) => fmtHours(n, 1)} className="text-zinc-300" />
+                <Ticker value={out.jrPackageHours} format={(n) => fmtHours(n, 1)} className="text-ink-2" />
               </div>
               <div className="flex justify-between">
                 <span>Hours freed / mo</span>
                 <Ticker
                   value={out.jrRedeployedHours + out.jrSavedHoursUnused}
                   format={(n) => fmtHours(n, 1)}
-                  className="text-zinc-300"
+                  className="text-ink-2"
                 />
               </div>
               <div className="flex justify-between">
@@ -226,13 +226,13 @@ export function Stage2Shockwave({
 
         {!retuneRevealed && (
           <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-md text-[13px] leading-relaxed text-zinc-500">
+            <p className="max-w-md text-[13px] leading-relaxed text-ink-4">
               None of this is a technology failure. Every red light is a
               leadership design decision, which means leadership can re-tune it.
             </p>
             <button
               onClick={onRetune}
-              className="group inline-flex items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[14px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(16,185,129,0.55)]"
+              className="group inline-flex items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[15px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(16,185,129,0.55)]"
             >
               Re-tune the operating system
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />

@@ -19,11 +19,11 @@ export default function ProgressPage() {
           <div className="flex items-baseline gap-3">
             <Link
               href="/"
-              className="text-[14px] font-bold tracking-[-0.01em] text-zinc-100 transition-colors hover:text-white"
+              className="text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
             >
               VALUE&nbsp;SHIFT
             </Link>
-            <span className="hidden font-mono text-[11px] text-zinc-600 sm:block">
+            <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // Proof of Progress
             </span>
           </div>
@@ -31,7 +31,7 @@ export default function ProgressPage() {
             <CommandHint />
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-ink-4 transition-colors hover:border-line-strong hover:text-ink-1"
             >
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
@@ -47,16 +47,16 @@ export default function ProgressPage() {
             Are you measuring AI progress, or AI activity?
           </p>
           <h1
-            className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-zinc-100 sm:text-5xl"
+            className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-ink-1 sm:text-5xl"
             style={{ animationDelay: "80ms" }}
           >
             Your AI pilot looks successful.
-            <span className="block text-zinc-500">
+            <span className="block text-ink-4">
               The question is whether the firm is.
             </span>
           </h1>
           <p
-            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-400"
+            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-ink-3"
             style={{ animationDelay: "160ms" }}
           >
             Prompts, tokens, tools, agents and adoption rates all count
@@ -65,7 +65,7 @@ export default function ProgressPage() {
             it stops at the first link nobody measured.
           </p>
           <p
-            className="fade-up mt-4 max-w-2xl text-[13px] leading-relaxed text-zinc-500"
+            className="fade-up mt-4 max-w-2xl text-[13px] leading-relaxed text-ink-4"
             style={{ animationDelay: "220ms" }}
           >
             The rule underneath it is one line. An unmeasured link does not
@@ -88,15 +88,15 @@ export default function ProgressPage() {
           <p className="micro-label">Where this sits</p>
           <div className="mt-4 grid gap-4 sm:grid-cols-3">
             <div>
-              <p className="text-[13.5px] font-semibold text-zinc-200">
+              <p className="text-[15px] font-semibold text-ink-1">
                 The wind tunnel runs underneath
               </p>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-zinc-500">
+              <p className="mt-1.5 text-[13px] leading-relaxed text-ink-4">
                 Every number in the chain above comes from the same
                 deterministic model.{" "}
                 <Link
                   href="/"
-                  className="text-zinc-300 underline decoration-zinc-700 underline-offset-2 transition-colors hover:text-zinc-100 hover:decoration-zinc-500"
+                  className="text-ink-2 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1 hover:decoration-ink-4"
                 >
                   Open the economics
                 </Link>
@@ -104,14 +104,14 @@ export default function ProgressPage() {
               </p>
             </div>
             <div>
-              <p className="text-[13.5px] font-semibold text-zinc-200">
+              <p className="text-[15px] font-semibold text-ink-1">
                 The Proof Office keeps it alive
               </p>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-zinc-500">
+              <p className="mt-1.5 text-[13px] leading-relaxed text-ink-4">
                 A decision made here still expires when its conditions break.{" "}
                 <Link
                   href="/proof"
-                  className="text-zinc-300 underline decoration-zinc-700 underline-offset-2 transition-colors hover:text-zinc-100 hover:decoration-zinc-500"
+                  className="text-ink-2 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1 hover:decoration-ink-4"
                 >
                   See what expiry looks like
                 </Link>
@@ -119,14 +119,14 @@ export default function ProgressPage() {
               </p>
             </div>
             <div>
-              <p className="text-[13.5px] font-semibold text-zinc-200">
+              <p className="text-[15px] font-semibold text-ink-1">
                 Every finished chain is a record
               </p>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-zinc-500">
+              <p className="mt-1.5 text-[13px] leading-relaxed text-ink-4">
                 Enough of them and the pattern across firms becomes the asset.{" "}
                 <Link
                   href="/vision"
-                  className="text-zinc-300 underline decoration-zinc-700 underline-offset-2 transition-colors hover:text-zinc-100 hover:decoration-zinc-500"
+                  className="text-ink-2 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1 hover:decoration-ink-4"
                 >
                   Read the argument
                 </Link>
@@ -136,7 +136,7 @@ export default function ProgressPage() {
           </div>
         </section>
 
-        <p className="mt-12 text-[11px] leading-relaxed text-zinc-600">
+        <p className="mt-12 text-[11.5px] leading-relaxed text-ink-4">
           Built by Pavan Kalyan as an independent prototype, not affiliated with
           YegaTech. The specification-QA case is synthetic and calibrated
           against published consultant fee and utilization data. It is a worked

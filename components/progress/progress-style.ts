@@ -15,13 +15,13 @@ export const STATE_STYLE: Record<
 > = {
   proven: {
     dot: "bg-ok",
-    ring: "border-ok/30 bg-ok/[0.05]",
+    ring: "border-ok/25 bg-ok/[0.06]",
     text: "text-ok",
     word: "Measured, holds",
   },
   adverse: {
     dot: "bg-crit",
-    ring: "border-crit/30 bg-crit/[0.05]",
+    ring: "border-crit/25 bg-crit/[0.06]",
     text: "text-crit",
     word: "Measured, against you",
   },
@@ -29,7 +29,7 @@ export const STATE_STYLE: Record<
     // Dashed, because this is an absence rather than a bad reading. The
     // absence is what blocks the decision, so it still has to read loud.
     dot: "bg-warn",
-    ring: "border-warn/40 border-dashed bg-warn/[0.04]",
+    ring: "border-warn/40 border-dashed bg-warn/[0.06]",
     text: "text-warn",
     word: "Never measured",
   },
@@ -64,7 +64,7 @@ export const DECISION_STYLE: Record<
     text: "text-crit",
     dot: "bg-crit",
     border: "border-crit/55",
-    bg: "bg-crit/[0.09]",
+    bg: "bg-crit/[0.10]",
     glow: "rgba(244,63,94,0.40)",
   },
 };

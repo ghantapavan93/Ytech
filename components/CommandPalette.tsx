@@ -131,22 +131,22 @@ export function CommandPalette() {
             className="relative w-full max-w-xl overflow-hidden rounded-2xl border border-line-strong bg-surface-1 shadow-[0_28px_90px_-20px_rgba(0,0,0,0.9)]"
           >
             <div className="flex items-center gap-3 border-b border-line px-4">
-              <Search size={15} className="shrink-0 text-zinc-600" />
+              <Search size={15} className="shrink-0 text-ink-4" />
               <input
                 ref={inputRef}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Jump to an instrument, or search what it does"
-                className="command-input w-full bg-transparent py-4 text-[14px] text-zinc-100 outline-none placeholder:text-zinc-600"
+                className="command-input w-full bg-transparent py-4 text-[15px] text-ink-1 outline-none placeholder:text-ink-4"
               />
-              <kbd className="mono-num shrink-0 rounded border border-line px-1.5 py-0.5 text-[10px] text-zinc-600">
+              <kbd className="mono-num shrink-0 rounded border border-line px-1.5 py-0.5 text-[10px] text-ink-4">
                 esc
               </kbd>
             </div>
 
             <div ref={listRef} className="max-h-[52vh] overflow-y-auto p-2">
               {grouped.length === 0 && (
-                <p className="px-3 py-8 text-center text-[13px] text-zinc-500">
+                <p className="px-3 py-8 text-center text-[13px] text-ink-4">
                   Nothing matches that. There are {NAV_ITEMS.length} places here,
                   and it will not invent an extra one.
                 </p>
@@ -167,25 +167,25 @@ export function CommandPalette() {
                         onClick={() => go(item)}
                         onMouseMove={() => setActive(i)}
                         className={`flex w-full items-start gap-3 rounded-xl px-3 py-2.5 text-left transition-colors ${
-                          isActive ? "bg-white/[0.07]" : ""
+                          isActive ? "bg-white/[0.10]" : ""
                         }`}
                       >
                         <div className="min-w-0 flex-1">
                           <p
-                            className={`text-[13.5px] font-medium ${
-                              isActive ? "text-zinc-100" : "text-zinc-300"
+                            className={`text-[15px] font-medium ${
+                              isActive ? "text-ink-1" : "text-ink-2"
                             }`}
                           >
                             {item.name}
                           </p>
-                          <p className="mt-0.5 truncate text-[12px] text-zinc-500">
+                          <p className="mt-0.5 truncate text-[13px] text-ink-4">
                             {item.blurb}
                           </p>
                         </div>
                         {isActive && (
                           <CornerDownLeft
                             size={13}
-                            className="mt-1 shrink-0 text-zinc-500"
+                            className="mt-1 shrink-0 text-ink-4"
                           />
                         )}
                       </button>
@@ -196,10 +196,10 @@ export function CommandPalette() {
             </div>
 
             <div className="flex items-center justify-between border-t border-line px-4 py-2.5">
-              <span className="text-[11px] text-zinc-600">
+              <span className="text-[11.5px] text-ink-4">
                 {flat.length} {flat.length === 1 ? "place" : "places"}
               </span>
-              <span className="flex items-center gap-3 text-[11px] text-zinc-600">
+              <span className="flex items-center gap-3 text-[11.5px] text-ink-4">
                 <span className="flex items-center gap-1">
                   <kbd className="mono-num rounded border border-line px-1 text-[10px]">
                     ↑
@@ -243,11 +243,11 @@ export function CommandHint() {
       title="Search everything"
       className="group inline-flex items-center gap-2 rounded-lg border border-line px-2.5 py-1.5 transition-colors hover:border-line-strong"
     >
-      <Search size={12} className="text-zinc-600 transition-colors group-hover:text-zinc-400" />
-      <span className="hidden text-[11.5px] text-zinc-500 transition-colors group-hover:text-zinc-300 sm:inline">
+      <Search size={12} className="text-ink-4 transition-colors group-hover:text-ink-3" />
+      <span className="hidden text-[11.5px] text-ink-4 transition-colors group-hover:text-ink-2 sm:inline">
         Search
       </span>
-      <kbd className="mono-num hidden rounded border border-line px-1 text-[10px] text-zinc-600 sm:inline">
+      <kbd className="mono-num hidden rounded border border-line px-1 text-[10px] text-ink-4 sm:inline">
         {mac ? "⌘" : "Ctrl"}K
       </kbd>
     </button>

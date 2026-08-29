@@ -16,12 +16,12 @@ export function ClaimReadout({ settled }: { settled: boolean }) {
   return (
     <div
       className={`claim-dial status-surface relative overflow-hidden rounded-2xl border p-6 sm:p-7 ${
-        settled ? "border-line" : "border-white/10"
+        settled ? "border-line" : "border-white/12"
       }`}
     >
       <div className="flex items-start justify-between gap-4">
         <p className="micro-label">Pilot report</p>
-        <p className="mono-num text-[10px] uppercase tracking-[0.16em] text-zinc-600">
+        <p className="mono-num text-[10px] uppercase tracking-[0.16em] text-ink-4">
           90-day window
         </p>
       </div>
@@ -29,20 +29,20 @@ export function ClaimReadout({ settled }: { settled: boolean }) {
       <div className="mt-6 flex items-end justify-center gap-1 py-2">
         <span
           className={`text-[72px] font-semibold leading-[0.85] sm:text-[96px] ${
-            settled ? "text-zinc-700 transition-colors duration-700" : "claim-figure"
+            settled ? "text-ink-4 transition-colors duration-700" : "claim-figure"
           }`}
         >
           {n}
         </span>
         <span
           className={`pb-2 text-2xl font-semibold sm:text-3xl ${
-            settled ? "text-zinc-700" : "claim-figure"
+            settled ? "text-ink-4" : "claim-figure"
           }`}
         >
           {CLAIM.headlineUnit}
         </span>
       </div>
-      <p className="text-center text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+      <p className="text-center text-[11.5px] uppercase tracking-[0.18em] text-ink-4">
         {CLAIM.headlineLabel}
       </p>
 
@@ -56,14 +56,14 @@ export function ClaimReadout({ settled }: { settled: boolean }) {
       <div
         className={`status-surface mt-4 flex items-center justify-center gap-2 rounded-lg border px-3 py-2 ${
           settled
-            ? "border-line bg-canvas/40 text-zinc-500"
-            : "border-ok/35 bg-ok/[0.06] text-ok"
+            ? "border-line bg-canvas/40 text-ink-4"
+            : "border-ok/40 bg-ok/[0.06] text-ok"
         }`}
       >
         <span
           className={`h-1.5 w-1.5 rounded-full ${settled ? "bg-zinc-600" : "bg-ok"}`}
         />
-        <span className="text-[11px] font-medium uppercase tracking-[0.14em]">
+        <span className="text-[11.5px] font-medium uppercase tracking-[0.14em]">
           {settled ? "Claim under test" : "Pilot status: successful"}
         </span>
       </div>
@@ -74,8 +74,8 @@ export function ClaimReadout({ settled }: { settled: boolean }) {
 function Cell({ label, value }: { label: string; value: string }) {
   return (
     <div className="bg-surface-1 px-3 py-2.5">
-      <p className="text-[10px] uppercase tracking-[0.14em] text-zinc-600">{label}</p>
-      <p className="mono-num mt-1 text-[15px] font-semibold text-zinc-300">{value}</p>
+      <p className="text-[10px] uppercase tracking-[0.14em] text-ink-4">{label}</p>
+      <p className="mono-num mt-1 text-[15px] font-semibold text-ink-2">{value}</p>
     </div>
   );
 }

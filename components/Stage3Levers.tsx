@@ -35,8 +35,8 @@ function LeverBlock({
   return (
     <div id={id} className="scroll-mt-24">
       <div className="mb-2 flex items-baseline gap-2.5">
-        <span className="mono-num text-[11px] font-semibold text-cyan-400/80">{step}</span>
-        <h3 className="text-[13px] font-semibold tracking-wide text-zinc-200">{title}</h3>
+        <span className="mono-num text-[11.5px] font-semibold text-cyan-400/80">{step}</span>
+        <h3 className="text-[13px] font-semibold tracking-wide text-ink-1">{title}</h3>
       </div>
       {children}
     </div>
@@ -60,11 +60,11 @@ function CompareBar({
   return (
     <div>
       <div className="mb-1.5 flex items-baseline justify-between">
-        <span className={`text-[12px] ${dim ? "text-zinc-500" : "text-zinc-300"}`}>{label}</span>
+        <span className={`text-[13px] ${dim ? "text-ink-4" : "text-ink-2"}`}>{label}</span>
         <Ticker
           value={value}
           format={(n) => fmtMoney(n)}
-          className={`text-[13px] font-semibold ${dim ? "text-zinc-500" : "text-zinc-200"}`}
+          className={`text-[13px] font-semibold ${dim ? "text-ink-4" : "text-ink-1"}`}
         />
       </div>
       <div className="h-2 overflow-hidden rounded-full bg-white/[0.06]">
@@ -101,9 +101,9 @@ export function Stage3Levers({
     <section id="stage-3" className="mx-auto w-full max-w-6xl scroll-mt-24 px-5 py-14">
       <div className="fade-up">
         <p className="micro-label">Stage 03 · Leadership re-tuning</p>
-        <h2 className="mt-3 max-w-2xl text-2xl font-semibold tracking-[-0.02em] text-zinc-100 sm:text-3xl">
+        <h2 className="mt-3 max-w-2xl text-2xl font-semibold tracking-[-0.02em] text-ink-1 sm:text-3xl">
           Same agent. Same speed.{" "}
-          <span className="text-zinc-500">Different operating system.</span>
+          <span className="text-ink-4">Different operating system.</span>
         </h2>
 
         <div className="mt-8 grid gap-5 lg:grid-cols-[1.15fr_1fr]">
@@ -180,13 +180,13 @@ export function Stage3Levers({
                 onClick={() => setAssumptionsOpen(!assumptionsOpen)}
                 className="flex w-full items-center justify-between text-left"
               >
-                <span className="flex items-center gap-2 text-[12px] font-medium text-zinc-400">
+                <span className="flex items-center gap-2 text-[13px] font-medium text-ink-3">
                   <SlidersHorizontal size={13} />
                   Assumption ledger, every number is synthetic &amp; editable
                 </span>
                 <ChevronDown
                   size={15}
-                  className={`text-zinc-500 transition-transform ${assumptionsOpen ? "rotate-180" : ""}`}
+                  className={`text-ink-4 transition-transform ${assumptionsOpen ? "rotate-180" : ""}`}
                 />
               </button>
               {assumptionsOpen && (
@@ -221,7 +221,7 @@ export function Stage3Levers({
                     onChange={(v) => onBaseChange("fixedFeePerPackage", v)}
                     leftHint="fixed fee per package"
                   />
-                  <p className="text-[11px] leading-relaxed text-zinc-600">
+                  <p className="text-[11.5px] leading-relaxed text-ink-4">
                     Rates: Jr ${base.jrBillRate}/${base.jrCostRate} · PM $
                     {base.pmBillRate}/${base.pmCostRate} · PE ${base.peBillRate}/$
                     {base.peCostRate} (bill/cost per hour). AI tooling $
@@ -255,9 +255,9 @@ export function Stage3Levers({
                   format={(n) => fmtMoney(n, { sign: true })}
                   className={`text-4xl font-semibold ${sys.text}`}
                 />
-                <span className="text-[12px] text-zinc-500">net margin / mo vs pre-AI</span>
+                <span className="text-[13px] text-ink-4">net margin / mo vs pre-AI</span>
               </div>
-              <p className="mt-3 text-[12.5px] leading-relaxed text-zinc-400">
+              <p className="mt-3 text-[13px] leading-relaxed text-ink-3">
                 {out.primaryBreakdownReason}
               </p>
             </div>
@@ -307,7 +307,7 @@ export function Stage3Levers({
             {!charterRevealed && (
               <button
                 onClick={onCompile}
-                className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3.5 text-[14px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3.5 text-[15px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
               >
                 Compile the 30-day experiment
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />

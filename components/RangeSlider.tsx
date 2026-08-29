@@ -28,7 +28,7 @@ export function RangeSlider({
   const fillPct = ((value - min) / (max - min)) * 100;
 
   return (
-    <div className="rounded-xl border border-line bg-canvas/60 p-3">
+    <div className="rounded-xl border border-line bg-canvas/55 p-3">
       <div className="flex items-center gap-3">
         <input
           type="range"
@@ -47,8 +47,8 @@ export function RangeSlider({
       </div>
       {(leftHint || rightHint) && (
         <div className="mt-1.5 flex justify-between">
-          <span className="text-[10px] text-zinc-600">{leftHint}</span>
-          <span className="text-[10px] text-zinc-600">{rightHint}</span>
+          <span className="text-[10px] text-ink-4">{leftHint}</span>
+          <span className="text-[10px] text-ink-4">{rightHint}</span>
         </div>
       )}
     </div>

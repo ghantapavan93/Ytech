@@ -60,7 +60,7 @@ export function PageContents({
     >
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
         <p className="micro-label">What is on this page</p>
-        <p className="text-[12px] text-zinc-500">{summary}</p>
+        <p className="text-[13px] text-ink-4">{summary}</p>
       </div>
 
       <div className="mt-4 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
@@ -76,14 +76,14 @@ export function PageContents({
             >
               <span
                 className={`mono-num shrink-0 text-[13px] font-semibold tabular-nums ${
-                  on ? "text-cyan-300" : "text-zinc-500"
+                  on ? "text-cyan-300" : "text-ink-4"
                 }`}
               >
                 {e.count}
               </span>
               <span
-                className={`text-[12.5px] leading-tight ${
-                  on ? "text-zinc-100" : "text-zinc-400 group-hover:text-zinc-200"
+                className={`text-[13px] leading-tight ${
+                  on ? "text-ink-1" : "text-ink-3 group-hover:text-ink-1"
                 }`}
               >
                 {e.label}

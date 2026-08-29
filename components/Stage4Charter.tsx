@@ -36,9 +36,9 @@ const SAFEGUARD_LABEL: Record<Levers["apprenticeshipSafeguard"], string> = {
 function Row({ k, v, strong }: { k: string; v: string; strong?: boolean }) {
   return (
     <div className="flex items-baseline justify-between gap-6 py-1.5">
-      <span className="text-[11px] uppercase tracking-[0.1em] text-neutral-500">{k}</span>
+      <span className="text-[11.5px] uppercase tracking-[0.1em] text-neutral-500">{k}</span>
       <span
-        className={`mono-num text-right text-[12.5px] ${
+        className={`mono-num text-right text-[13px] ${
           strong ? "font-semibold text-neutral-900" : "text-neutral-700"
         }`}
       >
@@ -82,8 +82,8 @@ export function Stage4Charter({
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="micro-label">Stage 04 · The deliverable</p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-zinc-100 sm:text-3xl">
-              Not a deployment. <span className="text-zinc-500">A 30-day experiment.</span>
+            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-ink-1 sm:text-3xl">
+              Not a deployment. <span className="text-ink-4">A 30-day experiment.</span>
             </h2>
           </div>
           <div className="print-hidden flex flex-wrap gap-2">
@@ -92,10 +92,10 @@ export function Stage4Charter({
                 key={p.id}
                 onClick={() => onPreset(p)}
                 title={p.tagline}
-                className={`rounded-lg border px-3 py-1.5 text-[12px] font-medium transition-all ${
+                className={`rounded-lg border px-3 py-1.5 text-[13px] font-medium transition-all ${
                   activePresetId === p.id
-                    ? "border-cyan-400/60 bg-cyan-500/15 text-cyan-200"
-                    : "border-line text-zinc-400 hover:border-line-strong hover:text-zinc-200"
+                    ? "border-cyan-400/55 bg-cyan-500/12 text-cyan-200"
+                    : "border-line text-ink-3 hover:border-line-strong hover:text-ink-1"
                 }`}
               >
                 {p.label}
@@ -118,12 +118,12 @@ export function Stage4Charter({
                 <h3 className="mt-2 text-xl font-bold tracking-tight text-neutral-900">
                   30-Day Experiment Charter
                 </h3>
-                <p className="mt-1 text-[12px] text-neutral-500">
+                <p className="mt-1 text-[13px] text-neutral-500">
                   Spec-QA agent · Atlas Structural &amp; Civil (synthetic case)
                 </p>
               </div>
               <div className="text-right">
-                <p className="mono-num text-[11px] text-neutral-500">Assumption hash</p>
+                <p className="mono-num text-[11.5px] text-neutral-500">Assumption hash</p>
                 <p className="mono-num text-[13px] font-bold tracking-wider text-neutral-900">
                   {hash}
                 </p>
@@ -138,7 +138,7 @@ export function Stage4Charter({
 
             <div className="grid gap-x-10 sm:grid-cols-2">
               <div className="pt-4">
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-neutral-900">
+                <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-neutral-900">
                   Ownership &amp; scope
                 </p>
                 <Row k="Accountable owner" v="Structural Practice Leader (PE)" strong />
@@ -148,7 +148,7 @@ export function Stage4Charter({
               </div>
 
               <div className="pt-4">
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-neutral-900">
+                <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-neutral-900">
                   Governed architecture
                 </p>
                 <Row k="Pricing" v={PRICING_LABEL[levers.pricingModel]} />
@@ -161,7 +161,7 @@ export function Stage4Charter({
               </div>
 
               <div className="border-t border-neutral-200 pt-4">
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-neutral-900">
+                <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-neutral-900">
                   Verifiable targets
                 </p>
                 <Row
@@ -178,10 +178,10 @@ export function Stage4Charter({
               </div>
 
               <div className="border-t border-neutral-200 pt-4">
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-neutral-900">
+                <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-neutral-900">
                   Deterministic stop conditions
                 </p>
-                <p className="mt-2 text-[12px] leading-relaxed text-neutral-700">
+                <p className="mt-2 text-[13px] leading-relaxed text-neutral-700">
                   Halt immediately and redesign if{" "}
                   <span className="font-semibold">
                     PE exception handling exceeds {peStopThreshold}h per package
@@ -195,10 +195,10 @@ export function Stage4Charter({
             </div>
 
             <div className="mt-5 border-t border-neutral-200 pt-4">
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-neutral-900">
+              <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-neutral-900">
                 Recommendation
               </p>
-              <p className="mt-1.5 text-[12.5px] leading-relaxed text-neutral-700">
+              <p className="mt-1.5 text-[13px] leading-relaxed text-neutral-700">
                 {recommendationCopy}
               </p>
             </div>
@@ -232,7 +232,7 @@ export function Stage4Charter({
           <div className="print-hidden flex flex-col gap-5">
             <div className="card p-6">
               <p className="micro-label">Export</p>
-              <p className="mt-3 text-[13px] leading-relaxed text-zinc-400">
+              <p className="mt-3 text-[13px] leading-relaxed text-ink-3">
                 The charter prints as a clean one-page executive artifact, ready
                 for a board packet, an SOW appendix, or a cohort workshop.
               </p>
@@ -246,7 +246,7 @@ export function Stage4Charter({
                 </button>
                 <button
                   onClick={onReset}
-                  className="inline-flex items-center gap-2 rounded-xl border border-line px-4 py-2.5 text-[13px] font-medium text-zinc-300 transition-colors hover:border-line-strong hover:text-zinc-100"
+                  className="inline-flex items-center gap-2 rounded-xl border border-line px-4 py-2.5 text-[13px] font-medium text-ink-2 transition-colors hover:border-line-strong hover:text-ink-1"
                 >
                   <RotateCcw size={15} />
                   Reset wind tunnel
@@ -254,18 +254,18 @@ export function Stage4Charter({
               </div>
             </div>
 
-            <div className="card border-cyan-500/20 bg-cyan-500/[0.04] p-6">
+            <div className="card border-cyan-500/25 bg-cyan-500/[0.06] p-6">
               <div className="flex items-center gap-2 text-cyan-300">
                 <FlaskConical size={14} />
                 <p className="micro-label !text-cyan-300/80">Reusable pattern created</p>
               </div>
-              <p className="mono-num mt-3 text-[12px] leading-relaxed text-zinc-400">
+              <p className="mono-num mt-3 text-[13px] leading-relaxed text-ink-3">
                 small-aec-firm · t&amp;m-dominant · pe-gated-workflow ·{" "}
                 {out.systemStatus === "OPTIMAL_GOVERNANCE"
                   ? "governed-retuning-accepted"
                   : "operating-model-rejection"}
               </p>
-              <p className="mt-3 text-[12px] leading-relaxed text-zinc-500">
+              <p className="mt-3 text-[13px] leading-relaxed text-ink-4">
                 This run just compiled one anonymized evidence node, the seed of
                 something no general model has.
               </p>
@@ -275,7 +275,7 @@ export function Stage4Charter({
                     .getElementById("stage-5")
                     ?.scrollIntoView({ behavior: "smooth", block: "start" })
                 }
-                className="mt-4 inline-flex items-center gap-2 text-[12.5px] font-semibold text-cyan-300 transition-colors hover:text-cyan-200"
+                className="mt-4 inline-flex items-center gap-2 text-[13px] font-semibold text-cyan-300 transition-colors hover:text-cyan-200"
               >
                 Explore Horizon Two
                 <span aria-hidden>↓</span>

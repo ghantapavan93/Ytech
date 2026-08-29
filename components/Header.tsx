@@ -33,10 +33,10 @@ export function Header({ out, showVerdict, onWatch }: HeaderProps) {
     <header className="print-hidden sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur-xl">
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-4 px-5">
         <div className="flex items-baseline gap-3">
-          <span className="text-[14px] font-bold tracking-[-0.01em] text-zinc-100">
+          <span className="text-[15px] font-bold tracking-[-0.01em] text-ink-1">
             VALUE&nbsp;SHIFT
           </span>
-          <span className="hidden font-mono text-[11px] text-zinc-600 lg:block">
+          <span className="hidden font-mono text-[11.5px] text-ink-4 lg:block">
             // AEC AI Economics Wind Tunnel
           </span>
         </div>
@@ -45,7 +45,7 @@ export function Header({ out, showVerdict, onWatch }: HeaderProps) {
           <button
             onClick={() => setStage(true)}
             title="Present full screen"
-            className="hidden items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11px] font-medium text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200 sm:inline-flex"
+            className="hidden items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-ink-4 transition-colors hover:border-line-strong hover:text-ink-1 sm:inline-flex"
           >
             <Presentation size={11} />
             <span className="hidden sm:inline">Stage</span>
@@ -67,7 +67,7 @@ export function Header({ out, showVerdict, onWatch }: HeaderProps) {
               <Ticker
                 value={out.deltaMargin}
                 format={(n) => `${fmtMoney(n, { sign: true })}/mo`}
-                className={`text-[12px] font-semibold ${sys.text}`}
+                className={`text-[13px] font-semibold ${sys.text}`}
               />
             </div>
           )}

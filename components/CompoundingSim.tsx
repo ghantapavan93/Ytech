@@ -92,7 +92,7 @@ export function CompoundingSim() {
           </div>
           <div>
             <p className="micro-label">Workflows stress-tested per engagement</p>
-            <div className="mt-2 grid grid-cols-3 gap-1.5 rounded-xl border border-line bg-canvas/60 p-1.5">
+            <div className="mt-2 grid grid-cols-3 gap-1.5 rounded-xl border border-line bg-canvas/55 p-1.5">
               {[1, 2, 3].map((w) => (
                 <button
                   key={w}
@@ -100,8 +100,8 @@ export function CompoundingSim() {
                   aria-pressed={w === workflows}
                   className={`rounded-lg px-3 py-2 text-[13px] font-medium transition-all ${
                     w === workflows
-                      ? "bg-cyan-500/10 text-cyan-200 shadow-[inset_0_0_0_1px_rgba(6,182,212,0.45)]"
-                      : "text-zinc-400 hover:bg-white/[0.04]"
+                      ? "bg-cyan-500/12 text-cyan-200 shadow-[inset_0_0_0_1px_rgba(6,182,212,0.45)]"
+                      : "text-ink-3 hover:bg-white/[0.06]"
                   }`}
                 >
                   {w}
@@ -116,7 +116,7 @@ export function CompoundingSim() {
               <Ticker
                 value={sim.year3Nodes}
                 format={(n) => `${Math.round(n)}`}
-                className="mt-1 block text-xl font-semibold text-zinc-100"
+                className="mt-1 block text-xl font-semibold text-ink-1"
               />
             </div>
             <div>
@@ -132,12 +132,12 @@ export function CompoundingSim() {
               <Ticker
                 value={sim.cellsFilled}
                 format={(n) => `${Math.round(n)}/${GRID_CELLS}`}
-                className="mt-1 block text-xl font-semibold text-zinc-100"
+                className="mt-1 block text-xl font-semibold text-ink-1"
               />
             </div>
           </div>
 
-          <p className="text-[11px] leading-relaxed text-zinc-600">
+          <p className="text-[11.5px] leading-relaxed text-ink-4">
             Toy model, labeled as such: 36 archetype cells (3 size bands × 3
             pricing regimes × 4 workflow classes). Breadth, which cells hold
             evidence, grows with each engagement's workflows and saturates;
@@ -151,7 +151,7 @@ export function CompoundingSim() {
         <div className="p-6">
           <div className="flex items-baseline justify-between">
             <p className="micro-label">Share of “firms like yours” answerable from evidence</p>
-            <p className="mono-num text-[10px] text-zinc-600">36 months</p>
+            <p className="mono-num text-[10px] text-ink-4">36 months</p>
           </div>
           <div className="mt-3">
             <svg viewBox="0 0 100 56" className="w-full" role="img" aria-label="Coverage over 36 months: instrument-owning firm compounds; blank-page consultancy stays flat">
@@ -208,7 +208,7 @@ export function CompoundingSim() {
                 </g>
               ))}
             </svg>
-            <div className="mt-1 flex justify-between font-mono text-[9px] text-zinc-600">
+            <div className="mt-1 flex justify-between font-mono text-[10px] text-ink-4">
               <span>start</span>
               <span>year 1</span>
               <span>year 2</span>
@@ -216,11 +216,11 @@ export function CompoundingSim() {
             </div>
           </div>
           <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1.5">
-            <span className="flex items-center gap-2 text-[11px] text-zinc-400">
+            <span className="flex items-center gap-2 text-[11.5px] text-ink-3">
               <span className="h-[3px] w-5 rounded-full bg-cyan-400" />
               Owns the instrument, every run deposits a node
             </span>
-            <span className="flex items-center gap-2 text-[11px] text-zinc-500">
+            <span className="flex items-center gap-2 text-[11.5px] text-ink-4">
               <span className="h-[3px] w-5 rounded-full bg-zinc-600" style={{ opacity: 0.8 }} />
               Blank-page consultancy, each engagement starts at zero
             </span>

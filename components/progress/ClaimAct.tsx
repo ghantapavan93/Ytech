@@ -29,12 +29,12 @@ export function ClaimAct({
 
       <div className="mt-6 grid items-start gap-8 md:grid-cols-[1.1fr_1fr]">
         <div>
-          <p className="text-[34px] font-semibold leading-[1.05] tracking-[-0.03em] sm:text-[44px]">
-            <span className={traced ? "text-zinc-600" : "claim-figure"}>
+          <p className="text-[32px] font-semibold leading-[1.05] tracking-[-0.03em] sm:text-[44px]">
+            <span className={traced ? "text-ink-4" : "claim-figure"}>
               {CLAIM.headlineValue}
               {CLAIM.headlineUnit} {CLAIM.headlineLabel}.
             </span>
-            <span className="mt-1 block text-zinc-300">
+            <span className="mt-1 block text-ink-2">
               Is that progress, or only{" "}
               <span
                 className="underline decoration-[3px] underline-offset-[6px]"
@@ -46,7 +46,7 @@ export function ClaimAct({
             </span>
           </p>
 
-          <p className="mt-6 max-w-xl text-[14.5px] leading-relaxed text-zinc-400">
+          <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-ink-3">
             Atlas Structural &amp; Civil runs an AI-assisted specification-QA
             workflow across
             twenty packages a month. It is dramatically faster, and every
@@ -63,15 +63,15 @@ export function ClaimAct({
               >
                 <button
                   onClick={onStart}
-                  className="group inline-flex items-center gap-2.5 rounded-xl border border-line-strong bg-surface-1 px-5 py-3 text-[14px] font-medium text-zinc-100 transition-colors hover:border-white/25 hover:bg-surface-2"
+                  className="group inline-flex items-center gap-2.5 rounded-xl border border-line-strong bg-surface-1 px-5 py-3 text-[15px] font-medium text-ink-1 transition-colors hover:border-white/25 hover:bg-surface-2"
                 >
                   What changed for the business?
                   <ArrowDown
                     size={15}
-                    className="text-zinc-500 transition-transform group-hover:translate-y-0.5"
+                    className="text-ink-4 transition-transform group-hover:translate-y-0.5"
                   />
                 </button>
-                <p className="mt-3 text-[12.5px] text-zinc-600">
+                <p className="mt-3 text-[13px] text-ink-4">
                   Follow the released time through the firm.
                 </p>
               </motion.div>

@@ -35,11 +35,11 @@ interface Slide {
 }
 
 const TONE: Record<Slide["tone"], { figure: string; kicker: string }> = {
-  claim: { figure: "claim-figure", kicker: "text-zinc-500" },
-  warn: { figure: "text-warn", kicker: "text-warn/70" },
-  crit: { figure: "text-crit", kicker: "text-crit/70" },
-  ok: { figure: "text-ok", kicker: "text-ok/70" },
-  plain: { figure: "text-zinc-100", kicker: "text-zinc-500" },
+  claim: { figure: "claim-figure", kicker: "text-ink-4" },
+  warn: { figure: "text-warn", kicker: "text-warn/80" },
+  crit: { figure: "text-crit", kicker: "text-crit/80" },
+  ok: { figure: "text-ok", kicker: "text-ok/80" },
+  plain: { figure: "text-ink-1", kicker: "text-ink-4" },
 };
 
 function useSlides(): Slide[] {
@@ -169,12 +169,12 @@ export function StageMode({ onClose }: { onClose: () => void }) {
       aria-label="Stage presentation"
     >
       <div className="flex items-center justify-between px-6 py-4 sm:px-10">
-        <span className="text-[11px] font-bold tracking-[0.2em] text-zinc-700">
+        <span className="text-[11.5px] font-bold tracking-[0.2em] text-ink-4">
           VALUE&nbsp;SHIFT
         </span>
         <button
           onClick={onClose}
-          className="inline-flex items-center gap-2 rounded-lg border border-line px-3 py-1.5 text-[11px] text-zinc-600 transition-colors hover:border-line-strong hover:text-zinc-300"
+          className="inline-flex items-center gap-2 rounded-lg border border-line px-3 py-1.5 text-[11.5px] text-ink-4 transition-colors hover:border-line-strong hover:text-ink-2"
         >
           <X size={12} />
           esc
@@ -209,7 +209,7 @@ export function StageMode({ onClose }: { onClose: () => void }) {
             )}
 
             <p
-              className={`mt-6 font-semibold leading-[1.1] tracking-[-0.03em] text-zinc-100 ${
+              className={`mt-6 font-semibold leading-[1.1] tracking-[-0.03em] text-ink-1 ${
                 slide.figure
                   ? "text-[6vw] sm:text-[4vw] lg:text-[3.1vw]"
                   : "text-[7vw] sm:text-[5vw] lg:text-[3.9vw]"
@@ -219,7 +219,7 @@ export function StageMode({ onClose }: { onClose: () => void }) {
             </p>
 
             {slide.note && (
-              <p className="mt-7 max-w-3xl text-[3.4vw] leading-relaxed text-zinc-500 sm:text-[2vw] lg:text-[1.35vw]">
+              <p className="mt-7 max-w-3xl text-[3.4vw] leading-relaxed text-ink-4 sm:text-[2vw] lg:text-[1.35vw]">
                 {slide.note}
               </p>
             )}
@@ -240,7 +240,7 @@ export function StageMode({ onClose }: { onClose: () => void }) {
             />
           ))}
         </div>
-        <p className="mono-num text-[11px] text-zinc-700">
+        <p className="mono-num text-[11.5px] text-ink-4">
           {index + 1} / {slides.length} · space to advance
         </p>
       </div>

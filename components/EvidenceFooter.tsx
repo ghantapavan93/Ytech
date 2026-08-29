@@ -79,10 +79,10 @@ export function EvidenceFooter() {
 
         <div className="mt-14 grid gap-5 border-t border-line pt-10 lg:grid-cols-2">
           <div className="card p-6">
-            <h3 className="text-[13px] font-semibold text-zinc-200">
+            <h3 className="text-[13px] font-semibold text-ink-1">
               The thesis, made operable
             </h3>
-            <p className="mt-3 text-[12.5px] leading-relaxed text-zinc-400">
+            <p className="mt-3 text-[13px] leading-relaxed text-ink-3">
               YegaTech's argument, <em>AI won't disrupt AEC; organizations
               that redesign work will</em>, and their observation that
               &ldquo;everyone is experimenting. Everyone is learning. But very
@@ -95,10 +95,10 @@ export function EvidenceFooter() {
           </div>
 
           <div className="card p-6">
-            <h3 className="text-[13px] font-semibold text-zinc-200">
+            <h3 className="text-[13px] font-semibold text-ink-1">
               What this is not
             </h3>
-            <p className="mt-3 text-[12.5px] leading-relaxed text-zinc-400">
+            <p className="mt-3 text-[13px] leading-relaxed text-ink-3">
               Not an ROI predictor, not a dashboard, not an agent registry.
               Every figure is synthetic and editable; every calculation is
               deterministic TypeScript with no AI-generated numbers. The
@@ -119,47 +119,47 @@ export function EvidenceFooter() {
             >
               <ExternalLink
                 size={11}
-                className="translate-y-[1px] text-zinc-600 transition-colors group-hover:text-cyan-400"
+                className="translate-y-[1px] text-ink-4 transition-colors group-hover:text-cyan-400"
               />
-              <span className="text-[12px] leading-relaxed text-zinc-500 transition-colors group-hover:text-zinc-300">
+              <span className="text-[13px] leading-relaxed text-ink-4 transition-colors group-hover:text-ink-2">
                 {c.label}
-                <span className="text-zinc-600"> · {c.source}</span>
+                <span className="text-ink-4"> · {c.source}</span>
               </span>
             </a>
           ))}
         </div>
 
         <div className="mt-10 flex flex-col gap-2 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[11px] text-zinc-600">
+          <p className="text-[11.5px] text-ink-4">
             Built by Pavan Kalyan as a working prototype in the spirit of
             YegaTech's research. Independent work, not affiliated with or
             endorsed by YegaTech.{" "}
             <Link
               href="/run"
-              className="text-zinc-400 underline decoration-zinc-700 underline-offset-2 transition-colors hover:text-zinc-200"
+              className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
             >
               The run →
             </Link>{" "}
             <Link
               href="/vision"
-              className="text-zinc-400 underline decoration-zinc-700 underline-offset-2 transition-colors hover:text-zinc-200"
+              className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
             >
               The vision →
             </Link>{" "}
             <Link
               href="/thesis"
-              className="text-zinc-400 underline decoration-zinc-700 underline-offset-2 transition-colors hover:text-zinc-200"
+              className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
             >
               The receipts →
             </Link>{" "}
             <Link
               href="/"
-              className="text-zinc-400 underline decoration-zinc-700 underline-offset-2 transition-colors hover:text-zinc-200"
+              className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
             >
               The engine →
             </Link>
           </p>
-          <p className="mono-num text-[11px] text-zinc-600">
+          <p className="mono-num text-[11.5px] text-ink-4">
             deterministic engine v1 · 137 invariant tests
           </p>
         </div>

@@ -69,7 +69,7 @@ export function EvidenceCharterSheet({ result }: { result: ProgressResult }) {
           <p className="paper-label">
             Value Shift · Proof of Progress · synthetic case
           </p>
-          <h3 className="mt-2.5 text-2xl font-semibold leading-[1.12] tracking-[-0.02em] sm:text-[30px]">
+          <h3 className="mt-2.5 text-2xl font-semibold leading-[1.12] tracking-[-0.02em] sm:text-[32px]">
             30-day specification-QA
             <br />
             evidence charter
@@ -77,7 +77,7 @@ export function EvidenceCharterSheet({ result }: { result: ProgressResult }) {
         </div>
         <button
           onClick={() => window.print()}
-          className="print-hidden inline-flex items-center gap-2 rounded-md border border-black/15 px-3 py-2 text-[12px] font-medium text-[#2c2c30] transition-colors hover:border-black/35 hover:bg-black/[0.04]"
+          className="print-hidden inline-flex items-center gap-2 rounded-md border border-black/12 px-3 py-2 text-[13px] font-medium text-[#2c2c30] transition-colors hover:border-black/40 hover:bg-black/[0.06]"
         >
           <Printer size={13} />
           Print / save PDF
@@ -119,10 +119,10 @@ export function EvidenceCharterSheet({ result }: { result: ProgressResult }) {
       {/* the finding, in the words the room will repeat */}
       <div className="paper-rule mt-6 border-t pt-6">
         <p className="paper-label">Finding</p>
-        <p className="mt-2.5 max-w-3xl text-[17px] font-medium leading-[1.45] tracking-[-0.01em] sm:text-[19px]">
+        <p className="mt-2.5 max-w-3xl text-[19px] font-medium leading-[1.45] tracking-[-0.01em] sm:text-[19px]">
           {result.headline}
         </p>
-        <p className="mt-3 max-w-3xl text-[13.5px] leading-relaxed text-[#4a4a50]">
+        <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#4a4a50]">
           {result.because}
         </p>
       </div>
@@ -135,10 +135,10 @@ export function EvidenceCharterSheet({ result }: { result: ProgressResult }) {
             <dl className="mt-3 space-y-3">
               {g.fields.map((label) => (
                 <div key={label}>
-                  <dt className="text-[12px] font-semibold text-[#2c2c30]">
+                  <dt className="text-[13px] font-semibold text-[#2c2c30]">
                     {label}
                   </dt>
-                  <dd className="mt-0.5 text-[12.5px] leading-relaxed text-[#55555c]">
+                  <dd className="mt-0.5 text-[13px] leading-relaxed text-[#55555c]">
                     {byLabel.get(label)}
                   </dd>
                 </div>
@@ -154,7 +154,7 @@ export function EvidenceCharterSheet({ result }: { result: ProgressResult }) {
           <p className="paper-label">Open before this can scale</p>
           <ol className="mt-3 space-y-1.5">
             {result.toScale.map((s, i) => (
-              <li key={s} className="flex gap-3 text-[12.5px] leading-relaxed">
+              <li key={s} className="flex gap-3 text-[13px] leading-relaxed">
                 <span className="paper-mono shrink-0 text-[#63636b]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -166,12 +166,12 @@ export function EvidenceCharterSheet({ result }: { result: ProgressResult }) {
       )}
 
       <div className="paper-rule mt-8 flex flex-wrap items-end justify-between gap-4 border-t pt-5">
-        <p className="max-w-md text-[10.5px] leading-relaxed text-[#63636b]">
+        <p className="max-w-md text-[10px] leading-relaxed text-[#63636b]">
           Synthetic worked example. Every figure is computed from published
           consultant fee and utilization data through a deterministic model,
           with no language model anywhere in the decision path.
         </p>
-        <p className="text-right text-[12px] font-semibold text-[#2c2c30]">
+        <p className="text-right text-[13px] font-semibold text-[#2c2c30]">
           A pilot is not a result.
           <br />
           <span className="font-normal text-[#55555c]">

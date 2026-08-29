@@ -28,13 +28,13 @@ export function ProgressHandoff({ show }: { show: boolean }) {
         <div className="grid items-center gap-8 md:grid-cols-[1.4fr_1fr]">
           <div>
             <p className="micro-label">The next question</p>
-            <h2 className="mt-4 max-w-2xl text-2xl font-semibold leading-[1.14] tracking-[-0.025em] text-zinc-100 sm:text-3xl">
+            <h2 className="mt-4 max-w-2xl text-2xl font-semibold leading-[1.14] tracking-[-0.025em] text-ink-1 sm:text-3xl">
               This charter was written before the pilot ran.
-              <span className="block text-zinc-500">
+              <span className="block text-ink-4">
                 Thirty days later, someone has to tell a board what happened.
               </span>
             </h2>
-            <p className="mt-5 max-w-xl text-[14.5px] leading-relaxed text-zinc-400">
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-3">
               The report will say the agent ran 500 times, task time fell 42
               percent, and adoption reached 80 percent. All true, all activity.
               Proof of Progress traces that claim down seven links and stops at
@@ -42,12 +42,12 @@ export function ProgressHandoff({ show }: { show: boolean }) {
             </p>
             <Link
               href="/progress"
-              className="group mt-7 inline-flex items-center gap-2.5 rounded-xl border border-line-strong bg-surface-1 px-5 py-3 text-[14px] font-medium text-zinc-100 transition-colors hover:border-white/25 hover:bg-surface-2"
+              className="group mt-7 inline-flex items-center gap-2.5 rounded-xl border border-line-strong bg-surface-1 px-5 py-3 text-[15px] font-medium text-ink-1 transition-colors hover:border-white/25 hover:bg-surface-2"
             >
               Open Proof of Progress
               <ArrowRight
                 size={15}
-                className="text-zinc-500 transition-transform group-hover:translate-x-0.5"
+                className="text-ink-4 transition-transform group-hover:translate-x-0.5"
               />
             </Link>
           </div>
@@ -67,11 +67,11 @@ export function ProgressHandoff({ show }: { show: boolean }) {
               ].map((row) => (
                 <li key={row.name} className="flex items-center gap-3">
                   <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${row.tone}`} />
-                  <span className="text-[12.5px] text-zinc-400">{row.name}</span>
+                  <span className="text-[13px] text-ink-3">{row.name}</span>
                 </li>
               ))}
             </ol>
-            <p className="mt-5 border-t border-line pt-4 text-[12.5px] leading-relaxed text-zinc-500">
+            <p className="mt-5 border-t border-line pt-4 text-[13px] leading-relaxed text-ink-4">
               Two links were never measured. That is enough to block the
               conclusion, whatever the other five say.
             </p>

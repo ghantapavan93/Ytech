@@ -19,11 +19,11 @@ export default function AgentPage() {
           <div className="flex items-baseline gap-3">
             <Link
               href="/"
-              className="text-[14px] font-bold tracking-[-0.01em] text-zinc-100 transition-colors hover:text-white"
+              className="text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
             >
               VALUE&nbsp;SHIFT
             </Link>
-            <span className="hidden font-mono text-[11px] text-zinc-600 sm:block">
+            <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // The Working Agent
             </span>
           </div>
@@ -31,7 +31,7 @@ export default function AgentPage() {
             <CommandHint />
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-ink-4 transition-colors hover:border-line-strong hover:text-ink-1"
             >
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
@@ -45,14 +45,14 @@ export default function AgentPage() {
           <div className="hero-decor" aria-hidden />
           <p className="micro-label fade-up">An agent that knows what it is not</p>
           <h1
-            className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-zinc-100 sm:text-5xl"
+            className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-ink-1 sm:text-5xl"
             style={{ animationDelay: "80ms" }}
           >
             It does the preparation.
-            <span className="block text-zinc-500">You keep the judgment.</span>
+            <span className="block text-ink-4">You keep the judgment.</span>
           </h1>
           <p
-            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-400"
+            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-ink-3"
             style={{ animationDelay: "160ms" }}
           >
             Type what needs doing before your next meeting. It routes the task
@@ -61,7 +61,7 @@ export default function AgentPage() {
             the calls it will not make for you.
           </p>
           <p
-            className="fade-up mt-4 max-w-2xl text-[13px] leading-relaxed text-zinc-500"
+            className="fade-up mt-4 max-w-2xl text-[13px] leading-relaxed text-ink-4"
             style={{ animationDelay: "220ms" }}
           >
             It does not write in anyone's voice and it does not pretend to be
@@ -81,7 +81,7 @@ export default function AgentPage() {
           <AgentConsole />
         </section>
 
-        <p className="mt-12 text-[11px] leading-relaxed text-zinc-600">
+        <p className="mt-12 text-[11.5px] leading-relaxed text-ink-4">
           Built by Pavan Kalyan as an independent prototype, not affiliated
           with YegaTech. The five jobs were chosen from publicly described
           consulting work: firm diagnosis, speaking, advising on what to build,

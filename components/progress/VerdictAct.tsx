@@ -56,12 +56,12 @@ export function VerdictAct({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.35 }}
-            className="mt-3 max-w-3xl text-2xl font-semibold leading-[1.14] tracking-[-0.025em] text-zinc-100 sm:text-4xl"
+            className="mt-3 max-w-3xl text-2xl font-semibold leading-[1.14] tracking-[-0.025em] text-ink-1 sm:text-4xl"
           >
             {result.headline}
           </motion.h2>
         </AnimatePresence>
-        <p className="mt-5 max-w-2xl text-[14.5px] leading-relaxed text-zinc-400">
+        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-3">
           {result.because}
         </p>
 
@@ -79,9 +79,9 @@ export function VerdictAct({
             {result.toScale.map((s) => (
               <li
                 key={s}
-                className="flex gap-2.5 text-[13.5px] leading-relaxed text-zinc-300"
+                className="flex gap-2.5 text-[15px] leading-relaxed text-ink-2"
               >
-                <CircleDashed size={14} className="mt-[3px] shrink-0 text-zinc-600" />
+                <CircleDashed size={14} className="mt-[3px] shrink-0 text-ink-4" />
                 <span>{s}</span>
               </li>
             ))}
@@ -100,15 +100,15 @@ export function VerdictAct({
         <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
           <button
             onClick={onAdvance}
-            className="group inline-flex items-center gap-2.5 rounded-xl border border-line-strong bg-surface-1 px-5 py-3 text-[14px] font-medium text-zinc-100 transition-colors hover:border-white/25 hover:bg-surface-2"
+            className="group inline-flex items-center gap-2.5 rounded-xl border border-line-strong bg-surface-1 px-5 py-3 text-[15px] font-medium text-ink-1 transition-colors hover:border-white/25 hover:bg-surface-2"
           >
             Thirty days later, add the evidence
             <ArrowDown
               size={15}
-              className="text-zinc-500 transition-transform group-hover:translate-y-0.5"
+              className="text-ink-4 transition-transform group-hover:translate-y-0.5"
             />
           </button>
-          <p className="max-w-xs text-[12.5px] leading-relaxed text-zinc-600">
+          <p className="max-w-xs text-[13px] leading-relaxed text-ink-4">
             This is where a dashboard redraws a chart. Watch what happens here
             instead.
           </p>

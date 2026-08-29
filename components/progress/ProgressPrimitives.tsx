@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 export function SectionRail({ n, title }: { n: string; title: string }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="mono-num text-[11px] font-semibold text-zinc-600">{n}</span>
+      <span className="mono-num text-[11.5px] font-semibold text-ink-4">{n}</span>
       <span className="h-px w-6 bg-line-strong" />
       <span className="micro-label">{title}</span>
     </div>
@@ -25,20 +25,20 @@ export function Reading({ metric }: { metric: LayerMetric }) {
       ? "text-ok"
       : metric.direction === "bad"
         ? "text-crit"
-        : "text-zinc-300";
+        : "text-ink-2";
 
   return (
     <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 border-y border-line py-2.5">
-      <span className="text-[11px] uppercase tracking-[0.13em] text-zinc-600">
+      <span className="text-[11.5px] uppercase tracking-[0.13em] text-ink-4">
         {metric.label}
       </span>
       <span className="flex items-baseline gap-2">
         {metric.before && (
           <>
-            <span className="mono-num reading-before text-[15px] text-zinc-600">
+            <span className="mono-num reading-before text-[15px] text-ink-4">
               {metric.before}
             </span>
-            <ArrowRight size={11} className="text-zinc-700" />
+            <ArrowRight size={11} className="text-ink-4" />
           </>
         )}
         <span className={`mono-num text-[19px] font-semibold ${tone}`}>
@@ -46,7 +46,7 @@ export function Reading({ metric }: { metric: LayerMetric }) {
         </span>
       </span>
       {metric.delta && (
-        <span className="text-[12px] text-zinc-500">{metric.delta}</span>
+        <span className="text-[13px] text-ink-4">{metric.delta}</span>
       )}
     </div>
   );
@@ -64,11 +64,11 @@ export function Tally({
   return (
     <span className="inline-flex items-baseline gap-1.5 rounded-lg border border-line bg-canvas/40 px-2.5 py-1.5">
       <span
-        className={`mono-num text-[15px] font-semibold ${n === 0 ? "text-zinc-600" : tone}`}
+        className={`mono-num text-[15px] font-semibold ${n === 0 ? "text-ink-4" : tone}`}
       >
         {n}
       </span>
-      <span className="text-[11.5px] text-zinc-500">{label}</span>
+      <span className="text-[11.5px] text-ink-4">{label}</span>
     </span>
   );
 }

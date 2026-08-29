@@ -63,12 +63,12 @@ export function TheRun() {
         {/* The argument */}
         <div className="md:pt-4">
           <div className="flex items-center gap-3">
-            <span className="mono-num text-[11px] font-semibold text-zinc-600">
+            <span className="mono-num text-[11.5px] font-semibold text-ink-4">
               {current.n}
             </span>
             <span className="h-px w-6 bg-line-strong" />
             <span className="micro-label">{current.kicker}</span>
-            <span className="mono-num ml-auto text-[11px] text-zinc-700">
+            <span className="mono-num ml-auto text-[11.5px] text-ink-4">
               {act + 1} / {ACTS.length}
             </span>
           </div>
@@ -81,10 +81,10 @@ export function TheRun() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h2 className="mt-5 text-2xl font-semibold leading-[1.14] tracking-[-0.028em] text-zinc-100 sm:text-[32px]">
+              <h2 className="mt-5 text-2xl font-semibold leading-[1.14] tracking-[-0.028em] text-ink-1 sm:text-[32px]">
                 {current.headline}
               </h2>
-              <p className="mt-5 max-w-xl text-[14.5px] leading-relaxed text-zinc-400">
+              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-3">
                 {current.body}
               </p>
             </motion.div>
@@ -93,12 +93,12 @@ export function TheRun() {
           {!epilogue && (
             <button
               onClick={advance}
-              className="group mt-7 inline-flex items-center gap-2.5 rounded-xl border border-line-strong bg-surface-1 px-5 py-3 text-[14px] font-medium text-zinc-100 transition-colors hover:border-white/25 hover:bg-surface-2"
+              className="group mt-7 inline-flex items-center gap-2.5 rounded-xl border border-line-strong bg-surface-1 px-5 py-3 text-[15px] font-medium text-ink-1 transition-colors hover:border-white/25 hover:bg-surface-2"
             >
               {current.advance ?? "See what it produces"}
               <ArrowRight
                 size={15}
-                className="text-zinc-500 transition-transform group-hover:translate-x-0.5"
+                className="text-ink-4 transition-transform group-hover:translate-x-0.5"
               />
             </button>
           )}
@@ -139,7 +139,7 @@ export function TheRun() {
             className="mt-16 scroll-mt-20"
           >
             <div className="flex items-center gap-3">
-              <span className="mono-num text-[11px] font-semibold text-zinc-600">
+              <span className="mono-num text-[11.5px] font-semibold text-ink-4">
                 07
               </span>
               <span className="h-px w-6 bg-line-strong" />
@@ -151,16 +151,16 @@ export function TheRun() {
 
             <div className="mt-14 border-t border-line pt-10">
               <div className="flex items-center gap-3">
-                <span className="mono-num text-[11px] font-semibold text-zinc-600">
+                <span className="mono-num text-[11.5px] font-semibold text-ink-4">
                   08
                 </span>
                 <span className="h-px w-6 bg-line-strong" />
                 <span className="micro-label">Six weeks later</span>
               </div>
-              <h2 className="mt-5 max-w-3xl text-2xl font-semibold leading-[1.14] tracking-[-0.025em] text-zinc-100 sm:text-[32px]">
+              <h2 className="mt-5 max-w-3xl text-2xl font-semibold leading-[1.14] tracking-[-0.025em] text-ink-1 sm:text-[32px]">
                 The agent still works. The authorization does not.
               </h2>
-              <p className="mt-5 max-w-2xl text-[14.5px] leading-relaxed text-zinc-400">
+              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-3">
                 The owner who signed the charter left. Review ran past the budget
                 it was approved against. A new contract narrowed the data the
                 workflow was cleared for. Nothing about the tool changed, and the
@@ -174,14 +174,14 @@ export function TheRun() {
                 <DivergenceTrack applied={[]} week={6} />
               </div>
 
-              <p className="mt-12 max-w-3xl text-xl font-medium leading-[1.35] tracking-[-0.02em] text-zinc-200 sm:text-2xl">
+              <p className="mt-12 max-w-3xl text-xl font-medium leading-[1.35] tracking-[-0.02em] text-ink-1 sm:text-2xl">
                 Your dashboard tells the board that AI is growing. This tells the
                 board whether the business moved.
               </p>
 
               <button
                 onClick={restart}
-                className="mt-8 inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 text-[12.5px] text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+                className="mt-8 inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 text-[13px] text-ink-4 transition-colors hover:border-line-strong hover:text-ink-1"
               >
                 <RotateCcw size={12} />
                 Run it again

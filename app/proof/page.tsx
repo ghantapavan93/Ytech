@@ -18,11 +18,11 @@ export default function ProofPage() {
           <div className="flex items-baseline gap-3">
             <Link
               href="/"
-              className="text-[14px] font-bold tracking-[-0.01em] text-zinc-100 transition-colors hover:text-white"
+              className="text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
             >
               VALUE&nbsp;SHIFT
             </Link>
-            <span className="hidden font-mono text-[11px] text-zinc-600 sm:block">
+            <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // The Proof Office
             </span>
           </div>
@@ -30,7 +30,7 @@ export default function ProofPage() {
             <CommandHint />
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-ink-4 transition-colors hover:border-line-strong hover:text-ink-1"
             >
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
@@ -46,16 +46,16 @@ export default function ProofPage() {
             The layer after the decision
           </p>
           <h1
-            className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-zinc-100 sm:text-5xl"
+            className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-ink-1 sm:text-5xl"
             style={{ animationDelay: "80ms" }}
           >
             Decisions expire.
-            <span className="block text-zinc-500">
+            <span className="block text-ink-4">
               Almost nothing in consulting is built to notice.
             </span>
           </h1>
           <p
-            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-400"
+            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-ink-3"
             style={{ animationDelay: "160ms" }}
           >
             A recommendation gets written once and then treated as permanent,
@@ -66,7 +66,7 @@ export default function ProofPage() {
             that only watches the tool.
           </p>
           <p
-            className="fade-up mt-4 max-w-2xl text-[13px] leading-relaxed text-zinc-500"
+            className="fade-up mt-4 max-w-2xl text-[13px] leading-relaxed text-ink-4"
             style={{ animationDelay: "220ms" }}
           >
             So an authorization here is not a verdict. It is a verdict plus the
@@ -84,27 +84,27 @@ export default function ProofPage() {
             <p className="micro-label">Why this is the harder half</p>
             <div className="mt-4 grid gap-5 sm:grid-cols-2">
               <div>
-                <h3 className="text-[14px] font-semibold text-zinc-200">
+                <h3 className="text-[15px] font-semibold text-ink-1">
                   What a normal review asks
                 </h3>
-                <p className="mt-2 text-[12.5px] leading-relaxed text-zinc-400">
+                <p className="mt-2 text-[13px] leading-relaxed text-ink-3">
                   Is the agent still working? Almost always yes, which is why
                   quarterly reviews so often conclude that everything is fine
                   right up until something is very much not fine.
                 </p>
               </div>
               <div>
-                <h3 className="text-[14px] font-semibold text-zinc-200">
+                <h3 className="text-[15px] font-semibold text-ink-1">
                   What this asks instead
                 </h3>
-                <p className="mt-2 text-[12.5px] leading-relaxed text-zinc-400">
+                <p className="mt-2 text-[13px] leading-relaxed text-ink-3">
                   Is the thing that justified the decision still true? That is
                   a question about the firm, not the software, and it is the
                   one a licensed professional actually has to answer.
                 </p>
               </div>
             </div>
-            <p className="mt-5 border-t border-line pt-5 text-[12.5px] leading-relaxed text-zinc-400">
+            <p className="mt-5 border-t border-line pt-5 text-[13px] leading-relaxed text-ink-3">
               Repairing a broken condition does not restore the clearance. That
               is deliberate, and it is enforced in the engine rather than
               suggested in the copy. Fixing what broke earns you a bounded
@@ -116,10 +116,10 @@ export default function ProofPage() {
         </section>
 
         <section className="mt-6">
-          <div className="card flex flex-col items-start justify-between gap-5 border-cyan-500/20 bg-cyan-500/[0.04] p-7 sm:flex-row sm:items-center">
+          <div className="card flex flex-col items-start justify-between gap-5 border-cyan-500/25 bg-cyan-500/[0.06] p-7 sm:flex-row sm:items-center">
             <div>
               <p className="micro-label !text-cyan-300/80">Where this sits</p>
-              <p className="mt-2 max-w-xl text-[14px] leading-relaxed text-zinc-300">
+              <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-ink-2">
                 The wind tunnel asks whether a workflow should be tested. The
                 decision record asks whether evidence arrived. This asks
                 whether the authorization still stands, which is the only one
@@ -128,7 +128,7 @@ export default function ProofPage() {
             </div>
             <Link
               href="/record"
-              className="group inline-flex shrink-0 items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[14px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
+              className="group inline-flex shrink-0 items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[15px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
             >
               See the decision records
               <ArrowRight
@@ -137,7 +137,7 @@ export default function ProofPage() {
               />
             </Link>
           </div>
-          <p className="mt-8 text-[11px] leading-relaxed text-zinc-600">
+          <p className="mt-8 text-[11.5px] leading-relaxed text-ink-4">
             One synthetic case, computed by a deterministic engine whose
             invariants are covered by the test suite. No real firm and no real
             engagement is

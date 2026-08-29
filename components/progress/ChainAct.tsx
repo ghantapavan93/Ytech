@@ -29,7 +29,7 @@ export function ChainAct({
     <section>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <SectionRail n="02" title="The task got faster. Did the firm?" />
-        <p className="mono-num text-[11.5px] text-zinc-600">
+        <p className="mono-num text-[11.5px] text-ink-4">
           {shownCount} / {layers.length} links traced
         </p>
       </div>
@@ -64,22 +64,22 @@ export function ChainAct({
                   }`}
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                    <p className="text-[13.5px] font-semibold text-zinc-100">
+                    <p className="text-[15px] font-semibold text-ink-1">
                       {layer.name}
                     </p>
                     <p className={`micro-label ${shown ? st.text : ""}`}>
                       {shown ? st.word : "Not yet traced"}
                     </p>
                   </div>
-                  <p className="mt-0.5 text-[12px] italic text-zinc-500">
+                  <p className="mt-0.5 text-[13px] italic text-ink-4">
                     {layer.question}
                   </p>
                   {shown && <Reading metric={layer.metric} />}
-                  <p className="mt-2.5 text-[13.5px] leading-relaxed text-zinc-300">
+                  <p className="mt-2.5 text-[15px] leading-relaxed text-ink-2">
                     {layer.finding}
                   </p>
                   {shown && layer.state !== "proven" && (
-                    <p className="mt-2.5 border-l-2 border-line pl-3 text-[12.5px] leading-relaxed text-zinc-500">
+                    <p className="mt-2.5 border-l-2 border-line pl-3 text-[13px] leading-relaxed text-ink-4">
                       {layer.blocks}
                     </p>
                   )}

@@ -70,10 +70,10 @@ function Pills<T extends string>({
             key={o.value}
             onClick={() => onChange(o.value)}
             aria-pressed={o.value === value}
-            className={`rounded-lg px-3 py-1.5 text-[12.5px] font-medium transition-colors ${
+            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors ${
               o.value === value
-                ? "bg-cyan-500/15 text-cyan-200 shadow-[inset_0_0_0_1px_rgba(6,182,212,0.45)]"
-                : "border border-line text-zinc-400 hover:border-line-strong hover:text-zinc-200"
+                ? "bg-cyan-500/12 text-cyan-200 shadow-[inset_0_0_0_1px_rgba(6,182,212,0.45)]"
+                : "border border-line text-ink-3 hover:border-line-strong hover:text-ink-1"
             }`}
           >
             {o.label}
@@ -103,8 +103,8 @@ function Section({
   return (
     <div className="border-b border-line py-5 last:border-0">
       <div className="flex items-baseline justify-between gap-4">
-        <h3 className="text-[13.5px] font-semibold text-zinc-200">{title}</h3>
-        <span className="text-[11px] text-zinc-600">{hint}</span>
+        <h3 className="text-[15px] font-semibold text-ink-1">{title}</h3>
+        <span className="text-[11.5px] text-ink-4">{hint}</span>
       </div>
       <div className="mt-3 space-y-2.5">
         {visible.map((line) => {
@@ -118,23 +118,23 @@ function Section({
               transition={{ duration: 0.28 }}
               className={`group rounded-xl border p-3.5 transition-colors ${
                 kept
-                  ? "border-emerald-500/35 bg-emerald-500/[0.05]"
+                  ? "border-emerald-500/40 bg-emerald-500/[0.06]"
                   : "border-line bg-canvas/40"
               }`}
             >
-              <p className="text-[13px] leading-relaxed text-zinc-300">{line.text}</p>
+              <p className="text-[13px] leading-relaxed text-ink-2">{line.text}</p>
               <div className="mt-2.5 flex items-center justify-between gap-3">
                 {line.href ? (
                   <a
                     href={line.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[10.5px] text-zinc-600 transition-colors hover:text-zinc-400"
+                    className="text-[10px] text-ink-4 transition-colors hover:text-ink-3"
                   >
                     {line.source}
                   </a>
                 ) : (
-                  <span className="text-[10.5px] text-zinc-600">{line.source}</span>
+                  <span className="text-[10px] text-ink-4">{line.source}</span>
                 )}
                 <div className="print-hidden flex shrink-0 gap-1 opacity-0 transition-opacity group-hover:opacity-100 focus-within:opacity-100">
                   <button
@@ -142,8 +142,8 @@ function Section({
                     title="Keep this one"
                     className={`rounded-md p-1.5 transition-colors ${
                       kept
-                        ? "bg-emerald-500/15 text-emerald-400"
-                        : "text-zinc-600 hover:bg-white/[0.06] hover:text-zinc-300"
+                        ? "bg-emerald-500/12 text-emerald-400"
+                        : "text-ink-4 hover:bg-white/[0.06] hover:text-ink-2"
                     }`}
                   >
                     <Check size={12} />
@@ -151,7 +151,7 @@ function Section({
                   <button
                     onClick={() => onMark(line.id, "dropped")}
                     title="Not for this firm"
-                    className="rounded-md p-1.5 text-zinc-600 transition-colors hover:bg-white/[0.06] hover:text-rose-400"
+                    className="rounded-md p-1.5 text-ink-4 transition-colors hover:bg-white/[0.06] hover:text-rose-400"
                   >
                     <X size={12} />
                   </button>
@@ -163,14 +163,14 @@ function Section({
 
         {dropped.length > 0 && (
           <div className="print-hidden flex flex-wrap items-center gap-2 pt-1">
-            <span className="text-[10.5px] text-zinc-600">
+            <span className="text-[10px] text-ink-4">
               {dropped.length} set aside
             </span>
             {dropped.map((line) => (
               <button
                 key={line.id}
                 onClick={() => onMark(line.id, null)}
-                className="inline-flex items-center gap-1 rounded-md border border-line px-2 py-1 text-[10.5px] text-zinc-500 transition-colors hover:text-zinc-300"
+                className="inline-flex items-center gap-1 rounded-md border border-line px-2 py-1 text-[10px] text-ink-4 transition-colors hover:text-ink-2"
               >
                 <Undo2 size={9} />
                 bring back
@@ -258,7 +258,7 @@ export function PrepBoard() {
               value={firm.name}
               onChange={(e) => set("name", e.target.value)}
               placeholder="Name it, or leave blank"
-              className="mt-2 w-full rounded-lg border border-line bg-canvas/60 px-3 py-2 text-[13px] text-zinc-200 outline-none transition-colors placeholder:text-zinc-600 focus:border-cyan-500/50"
+              className="mt-2 w-full rounded-lg border border-line bg-canvas/55 px-3 py-2 text-[13px] text-ink-1 outline-none transition-colors placeholder:text-ink-4 focus:border-cyan-500/55"
             />
           </div>
 
@@ -279,17 +279,17 @@ export function PrepBoard() {
           <div>
             <div className="flex items-baseline justify-between">
               <p className="micro-label">Where you'd put them</p>
-              <span className="mono-num text-[11px] text-cyan-300">{score.toFixed(0)}</span>
+              <span className="mono-num text-[11.5px] text-cyan-300">{score.toFixed(0)}</span>
             </div>
             <div className="mt-2.5 space-y-3">
               {DIMENSIONS.map((d) => (
                 <div key={d.key}>
                   <div className="mb-1 flex items-baseline justify-between">
-                    <span className="text-[11.5px] text-zinc-400">
+                    <span className="text-[11.5px] text-ink-3">
                       {d.label}
-                      <span className="mono-num ml-1.5 text-[10px] text-zinc-600">{d.weight}</span>
+                      <span className="mono-num ml-1.5 text-[10px] text-ink-4">{d.weight}</span>
                     </span>
-                    <span className="mono-num text-[11px] text-zinc-500">
+                    <span className="mono-num text-[11.5px] text-ink-4">
                       {firm.maturity[d.key]}
                     </span>
                   </div>
@@ -325,10 +325,10 @@ export function PrepBoard() {
                     key={t.value}
                     onClick={() => toggleTrigger(t.value)}
                     aria-pressed={on}
-                    className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-[12.5px] transition-colors ${
+                    className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-[13px] transition-colors ${
                       on
-                        ? "bg-cyan-500/10 text-cyan-200 shadow-[inset_0_0_0_1px_rgba(6,182,212,0.35)]"
-                        : "text-zinc-400 hover:bg-white/[0.04]"
+                        ? "bg-cyan-500/12 text-cyan-200 shadow-[inset_0_0_0_1px_rgba(6,182,212,0.35)]"
+                        : "text-ink-3 hover:bg-white/[0.06]"
                     }`}
                   >
                     <span
@@ -346,7 +346,7 @@ export function PrepBoard() {
 
         <div className="card p-5">
           <p className="micro-label">Your edits</p>
-          <p className="mt-2 text-[12.5px] leading-relaxed text-zinc-400">
+          <p className="mt-2 text-[13px] leading-relaxed text-ink-3">
             {keptCount === 0 && droppedCount === 0
               ? "Keep the lines that sound like you. Set aside the ones that don't. The board remembers both, in this browser only."
               : `${keptCount} kept, ${droppedCount} set aside. Nothing leaves this browser.`}
@@ -354,7 +354,7 @@ export function PrepBoard() {
           {(keptCount > 0 || droppedCount > 0) && (
             <button
               onClick={() => setMarks({})}
-              className="mt-3 inline-flex items-center gap-1.5 text-[11.5px] text-zinc-500 transition-colors hover:text-zinc-300"
+              className="mt-3 inline-flex items-center gap-1.5 text-[11.5px] text-ink-4 transition-colors hover:text-ink-2"
             >
               <RotateCcw size={11} />
               clear edits
@@ -373,22 +373,22 @@ export function PrepBoard() {
         <div className="flex flex-wrap items-start justify-between gap-4 border-b border-line pb-5">
           <div>
             <p className="micro-label">Prep sheet</p>
-            <h2 className="mt-2 text-xl font-semibold tracking-[-0.02em] text-zinc-100">
+            <h2 className="mt-2 text-xl font-semibold tracking-[-0.02em] text-ink-1">
               {firm.name.trim() || "Unnamed firm"}
             </h2>
-            <p className="mt-1.5 text-[12.5px] text-zinc-500">
+            <p className="mt-1.5 text-[13px] text-ink-4">
               {SIZES.find((s) => s.value === firm.size)?.label} staff,{" "}
               {DISCIPLINES.find((d) => d.value === firm.discipline)?.label.toLowerCase()},{" "}
               {PRICINGS.find((p) => p.value === firm.pricing)?.label.toLowerCase()}
             </p>
           </div>
           <div className="text-left sm:text-right">
-            <p className="mono-num text-[11px] text-zinc-600">Where they sit</p>
+            <p className="mono-num text-[11.5px] text-ink-4">Where they sit</p>
             <p className="mt-1 text-lg font-semibold text-cyan-300">{sheet.stage}</p>
           </div>
         </div>
 
-        <p className="border-b border-line py-4 text-[13px] leading-relaxed text-zinc-400">
+        <p className="border-b border-line py-4 text-[13px] leading-relaxed text-ink-3">
           {sheet.stageNote}
         </p>
 
@@ -443,7 +443,7 @@ export function PrepBoard() {
             <Printer size={14} />
             Print for the meeting
           </button>
-          <p className="text-[11px] text-zinc-600">
+          <p className="text-[11.5px] text-ink-4">
             Every line above comes from something YegaTech has published. No model wrote them.
           </p>
         </div>

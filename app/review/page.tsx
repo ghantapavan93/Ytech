@@ -30,18 +30,18 @@ export const metadata: Metadata = {
 };
 
 const SEVERITY_STYLE: Record<ChargeSeverity, { text: string; bg: string }> = {
-  FATAL: { text: "text-rose-400", bg: "bg-rose-500/10" },
-  CORRECTABLE: { text: "text-amber-400", bg: "bg-amber-500/10" },
-  "REQUIRES VALIDATION": { text: "text-cyan-400", bg: "bg-cyan-500/10" },
-  "LOW RISK": { text: "text-zinc-400", bg: "bg-white/[0.06]" },
+  FATAL: { text: "text-rose-400", bg: "bg-rose-500/12" },
+  CORRECTABLE: { text: "text-amber-400", bg: "bg-amber-500/12" },
+  "REQUIRES VALIDATION": { text: "text-cyan-400", bg: "bg-cyan-500/12" },
+  "LOW RISK": { text: "text-ink-3", bg: "bg-white/[0.06]" },
 };
 
 const VERDICT_STYLE: Record<ConceptVerdict["verdict"], { text: string; bg: string }> = {
-  KILL: { text: "text-rose-400", bg: "bg-rose-500/10" },
-  PARK: { text: "text-zinc-400", bg: "bg-white/[0.06]" },
-  NARROW: { text: "text-amber-400", bg: "bg-amber-500/10" },
-  DEFER: { text: "text-amber-400", bg: "bg-amber-500/10" },
-  BUILD: { text: "text-emerald-400", bg: "bg-emerald-500/10" },
+  KILL: { text: "text-rose-400", bg: "bg-rose-500/12" },
+  PARK: { text: "text-ink-3", bg: "bg-white/[0.06]" },
+  NARROW: { text: "text-amber-400", bg: "bg-amber-500/12" },
+  DEFER: { text: "text-amber-400", bg: "bg-amber-500/12" },
+  BUILD: { text: "text-emerald-400", bg: "bg-emerald-500/12" },
 };
 
 const JUMP_LINKS = [
@@ -67,15 +67,15 @@ function SectionHeading({
 }) {
   return (
     <div id={id} className="scroll-mt-24">
-      <div className="flex items-center gap-2 text-zinc-500">
+      <div className="flex items-center gap-2 text-ink-4">
         {icon}
         <p className="micro-label">{kicker}</p>
       </div>
-      <h2 className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-zinc-100 sm:text-3xl">
+      <h2 className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-ink-1 sm:text-3xl">
         {title}
       </h2>
       {sub && (
-        <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-zinc-400">{sub}</p>
+        <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink-3">{sub}</p>
       )}
     </div>
   );
@@ -95,11 +95,11 @@ export default function ReviewPage() {
           <div className="flex items-baseline gap-3">
             <Link
               href="/"
-              className="text-[14px] font-bold tracking-[-0.01em] text-zinc-100 transition-colors hover:text-white"
+              className="text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
             >
               VALUE&nbsp;SHIFT
             </Link>
-            <span className="hidden font-mono text-[11px] text-zinc-600 sm:block">
+            <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // The Kill Review
             </span>
           </div>
@@ -107,7 +107,7 @@ export default function ReviewPage() {
             <CommandHint />
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-ink-4 transition-colors hover:border-line-strong hover:text-ink-1"
             >
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
@@ -123,14 +123,14 @@ export default function ReviewPage() {
             Adversarial product review · nine phases · zero presumption of value
           </p>
           <h1
-            className="fade-up mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-zinc-100 sm:text-5xl"
+            className="fade-up mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-ink-1 sm:text-5xl"
             style={{ animationDelay: "80ms" }}
           >
             We tried to kill this product
-            <span className="block text-zinc-500">before we built it.</span>
+            <span className="block text-ink-4">before we built it.</span>
           </h1>
           <p
-            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-400"
+            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-ink-3"
             style={{ animationDelay: "160ms" }}
           >
             Every earlier concept entered this review with no presumption of
@@ -140,7 +140,7 @@ export default function ReviewPage() {
             tunnel applies to AI agents got applied to the wind tunnel first.
           </p>
           <p
-            className="fade-up mt-4 max-w-2xl text-[14px] leading-relaxed text-zinc-500"
+            className="fade-up mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-4"
             style={{ animationDelay: "200ms" }}
           >
             It is published for one reason. You have killed more bad AI ideas
@@ -157,7 +157,7 @@ export default function ReviewPage() {
               <a
                 key={l.href}
                 href={l.href}
-                className="rounded-lg border border-line px-3 py-1.5 text-[12px] font-medium text-zinc-400 transition-colors hover:border-line-strong hover:text-zinc-200"
+                className="rounded-lg border border-line px-3 py-1.5 text-[13px] font-medium text-ink-3 transition-colors hover:border-line-strong hover:text-ink-1"
               >
                 {l.label}
               </a>
@@ -184,10 +184,10 @@ export default function ReviewPage() {
                 key={row.q}
                 className="grid gap-1.5 px-6 py-4 sm:grid-cols-[240px_1fr] sm:gap-8"
               >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500">
+                <p className="text-[11.5px] font-semibold uppercase tracking-[0.12em] text-ink-4">
                   {row.q}
                 </p>
-                <p className="text-[13px] leading-relaxed text-zinc-300">{row.a}</p>
+                <p className="text-[13px] leading-relaxed text-ink-2">{row.a}</p>
               </div>
             ))}
           </div>
@@ -208,16 +208,16 @@ export default function ReviewPage() {
               return (
                 <div key={c.charge} className="card p-5">
                   <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-[13.5px] font-semibold leading-snug text-zinc-200">
+                    <h3 className="text-[15px] font-semibold leading-snug text-ink-1">
                       {c.charge}
                     </h3>
                     <span
-                      className={`mono-num shrink-0 rounded-md px-2 py-1 text-[9px] font-bold tracking-[0.12em] ${s.text} ${s.bg}`}
+                      className={`mono-num shrink-0 rounded-md px-2 py-1 text-[10px] font-bold tracking-[0.12em] ${s.text} ${s.bg}`}
                     >
                       {c.severity}
                     </span>
                   </div>
-                  <p className="mt-2.5 text-[12.5px] leading-relaxed text-zinc-500">
+                  <p className="mt-2.5 text-[13px] leading-relaxed text-ink-4">
                     {c.detail}
                   </p>
                 </div>
@@ -227,7 +227,7 @@ export default function ReviewPage() {
 
           {/* Graveyard */}
           <div className="mt-10">
-            <div className="flex items-center gap-2 text-zinc-500">
+            <div className="flex items-center gap-2 text-ink-4">
               <Skull size={14} />
               <p className="micro-label">The concept graveyard, every idea, sentenced</p>
             </div>
@@ -244,10 +244,10 @@ export default function ReviewPage() {
                     >
                       {g.verdict}
                     </span>
-                    <p className="w-56 shrink-0 text-[13px] font-semibold text-zinc-200">
+                    <p className="w-56 shrink-0 text-[13px] font-semibold text-ink-1">
                       {g.concept}
                     </p>
-                    <p className="text-[12.5px] leading-relaxed text-zinc-500">{g.reason}</p>
+                    <p className="text-[13px] leading-relaxed text-ink-4">{g.reason}</p>
                   </div>
                 );
               })}
@@ -268,14 +268,14 @@ export default function ReviewPage() {
             {HARD_TESTS.map((t) => (
               <div key={t.name} className="card p-5">
                 <div className="flex items-center justify-between gap-4">
-                  <h3 className="text-[13.5px] font-semibold text-zinc-200">{t.name}</h3>
-                  <span className="mono-num flex items-center gap-1.5 rounded-md bg-emerald-500/10 px-2 py-1 text-[9px] font-bold tracking-[0.14em] text-emerald-400">
+                  <h3 className="text-[15px] font-semibold text-ink-1">{t.name}</h3>
+                  <span className="mono-num flex items-center gap-1.5 rounded-md bg-emerald-500/12 px-2 py-1 text-[10px] font-bold tracking-[0.14em] text-emerald-400">
                     <CheckCircle2 size={10} />
                     PASS
                   </span>
                 </div>
-                <p className="mt-1.5 text-[11.5px] italic text-zinc-600">{t.question}</p>
-                <p className="mt-2.5 text-[12.5px] leading-relaxed text-zinc-400">{t.answer}</p>
+                <p className="mt-1.5 text-[11.5px] italic text-ink-4">{t.question}</p>
+                <p className="mt-2.5 text-[13px] leading-relaxed text-ink-3">{t.answer}</p>
               </div>
             ))}
           </div>
@@ -305,41 +305,41 @@ export default function ReviewPage() {
                 </thead>
                 <tbody>
                   {TOURNAMENT.map((r) => (
-                    <tr key={r.criterion} className="border-b border-line/60">
-                      <td className="px-5 py-2.5 text-[12.5px] text-zinc-400">{r.criterion}</td>
-                      <td className="mono-num px-4 py-2.5 text-right text-[12.5px] text-zinc-500">
+                    <tr key={r.criterion} className="border-b border-line/55">
+                      <td className="px-5 py-2.5 text-[13px] text-ink-3">{r.criterion}</td>
+                      <td className="mono-num px-4 py-2.5 text-right text-[13px] text-ink-4">
                         {r.preflight}
                       </td>
-                      <td className="mono-num px-4 py-2.5 text-right text-[12.5px] text-zinc-500">
+                      <td className="mono-num px-4 py-2.5 text-right text-[13px] text-ink-4">
                         {r.greenlight}
                       </td>
                       <td
-                        className={`mono-num px-4 py-2.5 text-right text-[12.5px] font-semibold ${
-                          r.valueShift === 10 ? "text-cyan-300" : "text-zinc-300"
-                        } bg-cyan-500/[0.05]`}
+                        className={`mono-num px-4 py-2.5 text-right text-[13px] font-semibold ${
+                          r.valueShift === 10 ? "text-cyan-300" : "text-ink-2"
+                        } bg-cyan-500/[0.06]`}
                       >
                         {r.valueShift}
                       </td>
                     </tr>
                   ))}
-                  <tr className="bg-white/[0.02]">
-                    <td className="px-5 py-3.5 text-[13px] font-bold text-zinc-200">
+                  <tr className="bg-white/[0.03]">
+                    <td className="px-5 py-3.5 text-[13px] font-bold text-ink-1">
                       Total · 150 possible
                     </td>
-                    <td className="mono-num px-4 py-3.5 text-right text-[14px] font-bold text-zinc-400">
+                    <td className="mono-num px-4 py-3.5 text-right text-[15px] font-bold text-ink-3">
                       {TOURNAMENT_TOTALS.preflight}
                     </td>
-                    <td className="mono-num px-4 py-3.5 text-right text-[14px] font-bold text-zinc-400">
+                    <td className="mono-num px-4 py-3.5 text-right text-[15px] font-bold text-ink-3">
                       {TOURNAMENT_TOTALS.greenlight}
                     </td>
-                    <td className="mono-num bg-cyan-500/10 px-4 py-3.5 text-right text-[15px] font-bold text-cyan-300">
+                    <td className="mono-num bg-cyan-500/12 px-4 py-3.5 text-right text-[15px] font-bold text-cyan-300">
                       {TOURNAMENT_TOTALS.valueShift}
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p className="border-t border-line px-5 py-3.5 text-[11px] leading-relaxed text-zinc-600">
+            <p className="border-t border-line px-5 py-3.5 text-[11.5px] leading-relaxed text-ink-4">
               Winner: Value Shift, {TOURNAMENT_TOTALS.valueShift}/150. Greenlight
               survives as Horizon 3 (project-level AI clearance); Preflight stays
               parked. The scores are judgments, recorded here so they can be argued
@@ -361,12 +361,12 @@ export default function ReviewPage() {
             {BRUTAL_CONCLUSION.map((qa, i) => (
               <div key={qa.q} className="card p-5">
                 <div className="flex items-baseline gap-3">
-                  <span className="mono-num shrink-0 text-[11px] font-semibold text-cyan-400/80">
+                  <span className="mono-num shrink-0 text-[11.5px] font-semibold text-cyan-400/80">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="text-[13.5px] font-semibold text-zinc-200">{qa.q}</h3>
-                    <p className="mt-2 text-[12.5px] leading-relaxed text-zinc-400">{qa.a}</p>
+                    <h3 className="text-[15px] font-semibold text-ink-1">{qa.q}</h3>
+                    <p className="mt-2 text-[13px] leading-relaxed text-ink-3">{qa.a}</p>
                   </div>
                 </div>
               </div>
@@ -376,23 +376,23 @@ export default function ReviewPage() {
 
         {/* CTA back */}
         <section className="mt-16">
-          <div className="card flex flex-col items-start justify-between gap-5 border-cyan-500/20 bg-cyan-500/[0.04] p-7 sm:flex-row sm:items-center">
+          <div className="card flex flex-col items-start justify-between gap-5 border-cyan-500/25 bg-cyan-500/[0.06] p-7 sm:flex-row sm:items-center">
             <div>
               <p className="micro-label !text-cyan-300/80">The survivor</p>
-              <p className="mt-2 max-w-xl text-[14px] leading-relaxed text-zinc-300">
+              <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-ink-2">
                 One concept passed all eight tests and won the tournament. It is
                 not a document, it runs.
               </p>
             </div>
             <Link
               href="/"
-              className="group inline-flex shrink-0 items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[14px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
+              className="group inline-flex shrink-0 items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[15px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
             >
               Enter the wind tunnel
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
-          <p className="mt-8 text-[11px] text-zinc-600">
+          <p className="mt-8 text-[11.5px] text-ink-4">
             Built by Pavan Kalyan. Independent work, not affiliated with or
             endorsed by YegaTech. Scores and verdicts are the author's recorded
             judgments; external facts cited on the instrument page were verified

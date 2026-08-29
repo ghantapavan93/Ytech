@@ -57,23 +57,23 @@ function Rung({
       onClick={onClick}
       aria-pressed={active}
       className={`group flex w-full items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors sm:gap-4 ${
-        active ? "bg-white/[0.05]" : "hover:bg-white/[0.025]"
+        active ? "bg-white/[0.06]" : "hover:bg-white/[0.03]"
       }`}
     >
       <span
-        className="w-[74px] shrink-0 text-[12px] font-semibold uppercase tracking-[0.08em] sm:w-[86px]"
+        className="w-[74px] shrink-0 text-[13px] font-semibold uppercase tracking-[0.08em] sm:w-[86px]"
         style={{ color: hex }}
       >
         {STATE_LABEL[state]}
       </span>
 
-      <span className="mono-num w-6 shrink-0 text-right text-[19px] font-semibold text-zinc-100 sm:text-[22px]">
+      <span className="mono-num w-6 shrink-0 text-right text-[19px] font-semibold text-ink-1 sm:text-[19px]">
         {count}
       </span>
 
       {/* The track is drawn full width so the shortfall is as visible as
           the bar. Without it these read as four bars rather than a drop. */}
-      <span className="relative h-[22px] min-w-0 flex-1 overflow-hidden rounded-sm border border-dashed border-white/[0.09] sm:h-[26px]">
+      <span className="relative h-[22px] min-w-0 flex-1 overflow-hidden rounded-sm border border-dashed border-white/[0.10] sm:h-[26px]">
         <motion.span
           className="absolute inset-y-0 left-0 block"
           style={{ backgroundColor: hex, opacity: 0.3, borderRight: `2px solid ${hex}` }}
@@ -83,7 +83,7 @@ function Rung({
         />
       </span>
 
-      <span className="hidden w-[15rem] shrink-0 text-[11.5px] leading-tight text-zinc-500 lg:block">
+      <span className="hidden w-[15rem] shrink-0 text-[11.5px] leading-tight text-ink-4 lg:block">
         {STATE_MEANING[state]}
       </span>
     </button>
@@ -114,13 +114,13 @@ function RecordCard({
     >
       <div className="flex items-start justify-between gap-4 border-b border-line p-5">
         <div>
-          <h3 className="text-[14px] font-semibold text-zinc-200">{record.workflow}</h3>
-          <p className="mt-1 text-[11.5px] text-zinc-500">
+          <h3 className="text-[15px] font-semibold text-ink-1">{record.workflow}</h3>
+          <p className="mt-1 text-[11.5px] text-ink-4">
             {record.archetype} · bills {record.pricing} · {record.month}
           </p>
         </div>
         <span
-          className="mono-num shrink-0 rounded-md px-2 py-1 text-[9.5px] font-bold tracking-[0.12em]"
+          className="mono-num shrink-0 rounded-md px-2 py-1 text-[10px] font-bold tracking-[0.12em]"
           style={{ color: hex, background: `${hex}1a` }}
         >
           {STATE_LABEL[record.state].toUpperCase()}
@@ -130,36 +130,36 @@ function RecordCard({
       <div className="space-y-3.5 p-5">
         <div>
           <p className="micro-label">They believed</p>
-          <p className="mt-1 text-[12.5px] leading-relaxed text-zinc-400">{record.belief}</p>
+          <p className="mt-1 text-[13px] leading-relaxed text-ink-3">{record.belief}</p>
         </div>
         <div>
           <p className="micro-label">What surfaced</p>
-          <p className="mt-1 text-[12.5px] leading-relaxed text-zinc-300">
+          <p className="mt-1 text-[13px] leading-relaxed text-ink-2">
             {record.contradiction}
           </p>
         </div>
         <div className="grid gap-3.5 sm:grid-cols-2">
           <div>
             <p className="micro-label">Decision</p>
-            <p className="mt-1 text-[12.5px] text-zinc-400">
+            <p className="mt-1 text-[13px] text-ink-3">
               {DECISION_LABEL[record.decision]}
             </p>
           </div>
           <div>
             <p className="micro-label">Owner</p>
-            <p className="mt-1 text-[12.5px] text-zinc-400">{record.owner}</p>
+            <p className="mt-1 text-[13px] text-ink-3">{record.owner}</p>
           </div>
         </div>
         <div>
           <p className="micro-label">What would settle it</p>
-          <p className="mt-1 text-[12.5px] leading-relaxed text-zinc-400">
+          <p className="mt-1 text-[13px] leading-relaxed text-ink-3">
             {record.evidenceRequired}
           </p>
         </div>
         {record.outcome && (
-          <div className="rounded-xl border border-line bg-canvas/50 p-3.5">
+          <div className="rounded-xl border border-line bg-canvas/55 p-3.5">
             <p className="micro-label">What happened</p>
-            <p className="mt-1 text-[12.5px] leading-relaxed text-zinc-300">
+            <p className="mt-1 text-[13px] leading-relaxed text-ink-2">
               {record.outcome}
             </p>
           </div>
@@ -168,8 +168,8 @@ function RecordCard({
 
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line px-5 py-3.5">
         <span
-          className={`inline-flex items-center gap-1.5 text-[11px] ${
-            eligible ? "text-emerald-400" : "text-zinc-600"
+          className={`inline-flex items-center gap-1.5 text-[11.5px] ${
+            eligible ? "text-emerald-400" : "text-ink-4"
           }`}
         >
           {eligible ? <ShieldCheck size={12} /> : <CircleSlash size={12} />}
@@ -181,7 +181,7 @@ function RecordCard({
           {!atTop && (
             <button
               onClick={onAdvance}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] text-zinc-300 transition-colors hover:border-line-strong hover:text-zinc-100"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] text-ink-2 transition-colors hover:border-line-strong hover:text-ink-1"
             >
               <ArrowUp size={11} />
               evidence arrived
@@ -190,7 +190,7 @@ function RecordCard({
           {record.state !== "retired" && (
             <button
               onClick={onRetire}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] text-zinc-500 transition-colors hover:border-rose-500/40 hover:text-rose-400"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] text-ink-4 transition-colors hover:border-rose-500/40 hover:text-rose-400"
             >
               <CircleSlash size={11} />
               stop it
@@ -225,10 +225,10 @@ export function DecisionRecords() {
         <div className="flex flex-wrap items-start justify-between gap-5">
           <div>
             <p className="micro-label">Portfolio, twelve synthetic decisions</p>
-            <h2 className="mt-2.5 max-w-2xl text-xl font-semibold leading-snug tracking-[-0.02em] text-zinc-100 sm:text-2xl">
+            <h2 className="mt-2.5 max-w-2xl text-xl font-semibold leading-snug tracking-[-0.02em] text-ink-1 sm:text-2xl">
               {headline(stats)}
             </h2>
-            <p className="mt-3 max-w-2xl text-[13px] leading-relaxed text-zinc-400">
+            <p className="mt-3 max-w-2xl text-[13px] leading-relaxed text-ink-3">
               A firm can run twelve pilots and be unable to prove anything
               about eleven of them. This is that problem drawn to scale. Move
               a decision up the ladder when evidence actually arrives, or stop
@@ -238,7 +238,7 @@ export function DecisionRecords() {
           {dirty && (
             <button
               onClick={() => setRecords(SEED_RECORDS)}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-[11.5px] text-zinc-400 transition-colors hover:text-zinc-200"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-[11.5px] text-ink-3 transition-colors hover:text-ink-1"
             >
               <RotateCcw size={11} />
               reset portfolio
@@ -267,7 +267,7 @@ export function DecisionRecords() {
           <button
             onClick={() => setFilter(filter === "retired" ? null : "retired")}
             className={`text-[11.5px] transition-colors ${
-              filter === "retired" ? "text-zinc-200" : "text-zinc-500 hover:text-zinc-300"
+              filter === "retired" ? "text-ink-1" : "text-ink-4 hover:text-ink-2"
             }`}
           >
             {stats.retired} retired, kept on purpose
@@ -301,7 +301,7 @@ export function DecisionRecords() {
       </div>
 
       {shown.length === 0 && (
-        <p className="card p-8 text-center text-[13px] text-zinc-500">
+        <p className="card p-8 text-center text-[13px] text-ink-4">
           Nothing in that state right now.
         </p>
       )}

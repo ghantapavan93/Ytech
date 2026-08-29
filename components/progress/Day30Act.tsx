@@ -42,7 +42,7 @@ export function Day30Act({
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <SectionRail n="05" title="Day 30, new readings" />
-          <p className="mt-2 max-w-2xl text-[14.5px] leading-relaxed text-zinc-400">
+          <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-ink-3">
             Turn on what the firm actually found. Each reading resolves one
             link, and the decision above rewrites itself. Two readings of the
             same link cannot both stand, so the newer one replaces the older.
@@ -51,7 +51,7 @@ export function Day30Act({
         {applied.length > 0 && (
           <button
             onClick={onClear}
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] text-ink-4 transition-colors hover:border-line-strong hover:text-ink-1"
           >
             <RotateCcw size={12} />
             Clear readings
@@ -70,8 +70,8 @@ export function Day30Act({
               className={`status-surface flex gap-3 rounded-xl border p-4 text-left ${
                 on
                   ? e.good
-                    ? "border-ok/35 bg-ok/[0.05]"
-                    : "border-crit/35 bg-crit/[0.05]"
+                    ? "border-ok/40 bg-ok/[0.06]"
+                    : "border-crit/40 bg-crit/[0.06]"
                   : "border-line bg-surface-1 hover:border-line-strong"
               }`}
             >
@@ -79,8 +79,8 @@ export function Day30Act({
                 className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors ${
                   on
                     ? e.good
-                      ? "border-ok bg-ok/20 text-ok"
-                      : "border-crit bg-crit/20 text-crit"
+                      ? "border-ok bg-ok/25 text-ok"
+                      : "border-crit bg-crit/25 text-crit"
                     : "border-line-strong text-transparent"
                 }`}
               >
@@ -93,13 +93,13 @@ export function Day30Act({
               </span>
               <span className="min-w-0">
                 <span
-                  className={`block text-[13.5px] font-medium ${
-                    on ? "text-zinc-100" : "text-zinc-300"
+                  className={`block text-[15px] font-medium ${
+                    on ? "text-ink-1" : "text-ink-2"
                   }`}
                 >
                   {e.label}
                 </span>
-                <span className="mt-1 block text-[12.5px] leading-relaxed text-zinc-500">
+                <span className="mt-1 block text-[13px] leading-relaxed text-ink-4">
                   {e.detail}
                 </span>
               </span>
@@ -113,16 +113,16 @@ export function Day30Act({
         <ol className="mt-3.5 space-y-2.5">
           {log.map((entry, i) => (
             <li key={`${entry.decision}-${i}`} className="flex items-start gap-3">
-              <span className="mono-num mt-[3px] w-5 shrink-0 text-[11px] text-zinc-600">
+              <span className="mono-num mt-[3px] w-5 shrink-0 text-[11.5px] text-ink-4">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span className="min-w-0">
                 <span
-                  className={`text-[13.5px] font-medium ${DECISION_STYLE[entry.decision].text}`}
+                  className={`text-[15px] font-medium ${DECISION_STYLE[entry.decision].text}`}
                 >
                   {DECISION_LABEL[entry.decision]}
                 </span>
-                <span className="block text-[12.5px] text-zinc-500">
+                <span className="block text-[13px] text-ink-4">
                   {entry.cause}
                 </span>
               </span>
@@ -130,7 +130,7 @@ export function Day30Act({
           ))}
         </ol>
         {log.length === 1 && (
-          <p className="mt-4 flex items-start gap-2 border-t border-line pt-3.5 text-[12.5px] leading-relaxed text-zinc-600">
+          <p className="mt-4 flex items-start gap-2 border-t border-line pt-3.5 text-[13px] leading-relaxed text-ink-4">
             <CircleSlash size={13} className="mt-[3px] shrink-0" />
             Nothing has changed the decision yet. It does not move on
             sentiment, only on a reading.
@@ -139,13 +139,13 @@ export function Day30Act({
       </div>
 
       <div className="mt-10 border-t border-line pt-8">
-        <p className="max-w-3xl text-xl font-medium leading-[1.35] tracking-[-0.02em] text-zinc-200 sm:text-2xl">
+        <p className="max-w-3xl text-xl font-medium leading-[1.35] tracking-[-0.02em] text-ink-1 sm:text-2xl">
           Your dashboard tells the board that AI is growing. This tells the
           board whether the business moved.
         </p>
         <button
           onClick={onReset}
-          className="mt-6 inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 text-[12.5px] text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+          className="mt-6 inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 text-[13px] text-ink-4 transition-colors hover:border-line-strong hover:text-ink-1"
         >
           <RotateCcw size={12} />
           Run it again from the green dashboard

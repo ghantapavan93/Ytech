@@ -30,7 +30,7 @@ export function SegmentedControl<T extends string>({
     <div
       role="radiogroup"
       aria-label={ariaLabel}
-      className="grid gap-1.5 rounded-xl border border-line bg-canvas/60 p-1.5 sm:grid-cols-1"
+      className="grid gap-1.5 rounded-xl border border-line bg-canvas/55 p-1.5 sm:grid-cols-1"
     >
       {options.map((opt) => {
         const active = opt.value === value;
@@ -43,9 +43,9 @@ export function SegmentedControl<T extends string>({
             className={`group flex items-baseline justify-between gap-3 rounded-lg px-3 py-2 text-left transition-all duration-200 ${
               active
                 ? opt.hazard
-                  ? "bg-rose-500/15 shadow-[inset_0_0_0_1px_rgba(244,63,94,0.5)]"
-                  : "bg-cyan-500/10 shadow-[inset_0_0_0_1px_rgba(6,182,212,0.45)]"
-                : "hover:bg-white/[0.04]"
+                  ? "bg-rose-500/12 shadow-[inset_0_0_0_1px_rgba(244,63,94,0.5)]"
+                  : "bg-cyan-500/12 shadow-[inset_0_0_0_1px_rgba(6,182,212,0.45)]"
+                : "hover:bg-white/[0.06]"
             }`}
           >
             <span
@@ -54,15 +54,15 @@ export function SegmentedControl<T extends string>({
                   ? opt.hazard
                     ? "text-rose-300"
                     : "text-cyan-200"
-                  : "text-zinc-400 group-hover:text-zinc-200"
+                  : "text-ink-3 group-hover:text-ink-1"
               }`}
             >
               {opt.label}
             </span>
             {opt.detail && (
               <span
-                className={`mono-num text-[11px] ${
-                  active ? "text-zinc-300" : "text-zinc-600"
+                className={`mono-num text-[11.5px] ${
+                  active ? "text-ink-2" : "text-ink-4"
                 }`}
               >
                 {opt.detail}

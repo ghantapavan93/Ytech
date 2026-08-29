@@ -18,11 +18,11 @@ export default function RecordPage() {
           <div className="flex items-baseline gap-3">
             <Link
               href="/"
-              className="text-[14px] font-bold tracking-[-0.01em] text-zinc-100 transition-colors hover:text-white"
+              className="text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
             >
               VALUE&nbsp;SHIFT
             </Link>
-            <span className="hidden font-mono text-[11px] text-zinc-600 sm:block">
+            <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // Decision Record
             </span>
           </div>
@@ -30,7 +30,7 @@ export default function RecordPage() {
             <CommandHint />
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11.5px] font-medium text-ink-4 transition-colors hover:border-line-strong hover:text-ink-1"
             >
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
@@ -44,16 +44,16 @@ export default function RecordPage() {
           <div className="hero-decor" aria-hidden />
           <p className="micro-label fade-up">The part everyone skips</p>
           <h1
-            className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-zinc-100 sm:text-5xl"
+            className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-ink-1 sm:text-5xl"
             style={{ animationDelay: "80ms" }}
           >
             Deciding is the easy half.
-            <span className="block text-zinc-500">
+            <span className="block text-ink-4">
               Finding out whether you were right is the half that gets skipped.
             </span>
           </h1>
           <p
-            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-400"
+            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-ink-3"
             style={{ animationDelay: "160ms" }}
           >
             The wind tunnel produces a decision. The prep board produces a
@@ -63,7 +63,7 @@ export default function RecordPage() {
             about any of them.
           </p>
           <p
-            className="fade-up mt-4 max-w-2xl text-[13px] leading-relaxed text-zinc-500"
+            className="fade-up mt-4 max-w-2xl text-[13px] leading-relaxed text-ink-4"
             style={{ animationDelay: "220ms" }}
           >
             So each decision has a rung to climb. Claimed means somebody said
@@ -79,10 +79,10 @@ export default function RecordPage() {
         </section>
 
         <section className="mt-12">
-          <div className="card flex flex-col items-start justify-between gap-5 border-cyan-500/20 bg-cyan-500/[0.04] p-7 sm:flex-row sm:items-center">
+          <div className="card flex flex-col items-start justify-between gap-5 border-cyan-500/25 bg-cyan-500/[0.06] p-7 sm:flex-row sm:items-center">
             <div>
               <p className="micro-label !text-cyan-300/80">Where the loop closes</p>
-              <p className="mt-2 max-w-xl text-[14px] leading-relaxed text-zinc-300">
+              <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-ink-2">
                 Verified records are the only ones that reach the pattern
                 library. That is what makes the next engagement start further
                 ahead than this one did.
@@ -90,7 +90,7 @@ export default function RecordPage() {
             </div>
             <Link
               href="/engine#stage-5"
-              className="group inline-flex shrink-0 items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[14px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
+              className="group inline-flex shrink-0 items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[15px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
             >
               See the pattern library
               <ArrowRight
@@ -99,7 +99,7 @@ export default function RecordPage() {
               />
             </Link>
           </div>
-          <p className="mt-8 text-[11px] leading-relaxed text-zinc-600">
+          <p className="mt-8 text-[11.5px] leading-relaxed text-ink-4">
             Twelve synthetic records, written to show the shape of the
             problem. No real firm is named and no real engagement is
             represented. Built by Pavan Kalyan as an independent prototype,

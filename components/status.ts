@@ -28,7 +28,7 @@ export const PILLAR_STYLE: Record<PillarStatus, StatusStyle> = {
     hex: "#f43f5e",
     text: "text-rose-400",
     border: "border-rose-500/40",
-    bgTint: "bg-rose-500/[0.07]",
+    bgTint: "bg-rose-500/[0.10]",
     chipLabel: "CRITICAL",
   },
 };
@@ -57,7 +57,7 @@ export const SYSTEM_STYLE: Record<
     hex: "#f43f5e",
     text: "text-rose-400",
     border: "border-rose-500/40",
-    bgTint: "bg-rose-500/[0.07]",
+    bgTint: "bg-rose-500/[0.10]",
     chipLabel: "CRITICAL REJECTION",
     verdict: "THE TECHNOLOGY WORKED. THE OPERATING SYSTEM REJECTED IT.",
   },
