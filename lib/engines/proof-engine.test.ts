@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  buildDecisionAt,
   CONDITIONS,
   evaluate,
   REMEDIES,
@@ -171,5 +172,50 @@ describe("every condition can explain itself", () => {
   it("keeps critical conditions to the ones that genuinely void", () => {
     const critical = CONDITIONS.filter((c) => c.critical).map((c) => c.id).sort();
     expect(critical).toEqual(["data-boundary", "owner", "review-budget"]);
+  });
+});
+
+describe("the record at a given week", () => {
+  it("shows a clean authorization on day 30", () => {
+    const r = evaluate(buildDecisionAt(0, []));
+    expect(r.expired).toBe(false);
+    expect(r.broken).toHaveLength(0);
+  });
+
+  it("has three critical conditions broken by week 6", () => {
+    const r = evaluate(buildDecisionAt(6, []));
+    expect(r.expired).toBe(true);
+    expect(r.broken.filter((b) => b.condition.critical)).toHaveLength(3);
+  });
+
+  it("cannot repair a condition in the past", () => {
+    // Every remedy applied, but standing at week 6, changes nothing.
+    const all = REMEDIES.map((r) => r.id);
+    expect(evaluate(buildDecisionAt(6, all)).expired).toBe(true);
+  });
+
+  it("returns a retest rather than the old clearance once remedies land", () => {
+    const all = REMEDIES.map((r) => r.id);
+    const repaired = evaluate(buildDecisionAt(8, all));
+    expect(repaired.expired).toBe(false);
+    // The one-way door: never back to the status it was authorized at.
+    expect(repaired.status).toBe("test");
+    expect(repaired.status).not.toBe("scale");
+  });
+
+  it("ignores a remedy id that does not exist", () => {
+    expect(() => buildDecisionAt(8, ["not-a-remedy"])).not.toThrow();
+    expect(evaluate(buildDecisionAt(8, ["not-a-remedy"])).expired).toBe(true);
+  });
+});
+
+describe("a clean test and a retest are not the same fact", () => {
+  it("separates them even though the status matches", () => {
+    const clean = evaluate(buildDecisionAt(0, []));
+    const retest = evaluate(buildDecisionAt(8, REMEDIES.map((r) => r.id)));
+
+    expect(clean.status).toBe(retest.status);
+    expect(clean.everExpired).toBe(false);
+    expect(retest.everExpired).toBe(true);
   });
 });

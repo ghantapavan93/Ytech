@@ -159,6 +159,13 @@ export interface ProofResult {
   holding: Condition[];
   /** True when the authorization is void regardless of agent performance. */
   expired: boolean;
+  /**
+   * True when a critical condition has broken at any point in the record,
+   * even if it has since been repaired. A clean bounded test and a bounded
+   * retest earned back after expiry are the same status but not the same
+   * fact, and only this distinguishes them.
+   */
+  everExpired: boolean;
   /** The sentence the interface leads with. */
   headline: string;
   /** What has to happen before anything scales. */
@@ -237,7 +244,7 @@ export function evaluate(decision: LivingDecision): ProofResult {
     );
   }
 
-  return { status, broken, holding, expired, headline, required };
+  return { status, broken, holding, expired, everExpired, headline, required };
 }
 
 /**
@@ -326,3 +333,50 @@ export const SPEC_QA_DECISION: LivingDecision = {
     },
   ],
 };
+
+/** The three points on the record the interface lets you stand at. */
+export const TIMELINE_WEEKS = [0, 6, 8] as const;
+
+export const WEEK_LABEL: Record<number, string> = {
+  0: "Day 30, test passed",
+  6: "Week 6",
+  8: "After remedies",
+};
+
+/**
+ * The record as it stood in a given week, with any remedies applied.
+ *
+ * This used to live inside the page component, which meant nothing else
+ * could ask what the authorization looked like at a week it was not
+ * currently showing. Reading the divergence between the agent and the
+ * authorization needs all three weeks at once, so the construction belongs
+ * here beside the rules it obeys.
+ *
+ * Remedies only exist from week 8. Before then, applying one changes
+ * nothing, which is the point: you cannot repair a condition in the past.
+ */
+export function buildDecisionAt(
+  week: number,
+  appliedRemedyIds: string[],
+): LivingDecision {
+  const history = SPEC_QA_DECISION.events.filter(
+    (e) => e.week <= Math.min(week, 6),
+  );
+
+  const remedies: EvidenceEvent[] =
+    week >= 8
+      ? appliedRemedyIds
+          .map((id) => REMEDIES.find((r) => r.id === id))
+          .filter((r): r is Remedy => r !== undefined)
+          .map((r) => ({
+            id: `remedy-${r.id}`,
+            week: 8,
+            headline: r.label,
+            detail: r.detail,
+            breaks: [],
+            restores: r.restores,
+          }))
+      : [];
+
+  return { ...SPEC_QA_DECISION, events: [...history, ...remedies] };
+}

@@ -1,47 +1,26 @@
 "use client";
 
 import {
+  buildDecisionAt,
   CONDITIONS,
   evaluate,
   REMEDIES,
-  SPEC_QA_DECISION,
   STATUS_LABEL,
-  type EvidenceEvent,
-  type LivingDecision,
+  TIMELINE_WEEKS,
+  WEEK_LABEL,
 } from "@/lib/engines/proof-engine";
 import { AnimatePresence, motion } from "framer-motion";
-import { Activity, Check, ShieldOff, Undo2, X } from "lucide-react";
+import { Check, ShieldOff, Undo2, X } from "lucide-react";
+import { DivergenceTrack } from "./DivergenceTrack";
 import { useMemo, useState } from "react";
 
-const WEEKS = [0, 6, 8] as const;
-const WEEK_LABEL: Record<number, string> = {
-  0: "Day 30, test passed",
-  6: "Week 6",
-  8: "After remedies",
-};
+const WEEKS = TIMELINE_WEEKS;
 
 export function ProofOffice() {
   const [week, setWeek] = useState<number>(0);
   const [applied, setApplied] = useState<string[]>([]);
 
-  const decision: LivingDecision = useMemo(() => {
-    const base = SPEC_QA_DECISION.events.filter((e) => e.week <= Math.min(week, 6));
-    const remedyEvents: EvidenceEvent[] =
-      week >= 8
-        ? applied.map((id) => {
-            const r = REMEDIES.find((x) => x.id === id)!;
-            return {
-              id: `remedy-${r.id}`,
-              week: 8,
-              headline: r.label,
-              detail: r.detail,
-              breaks: [],
-              restores: r.restores,
-            };
-          })
-        : [];
-    return { ...SPEC_QA_DECISION, events: [...base, ...remedyEvents] };
-  }, [week, applied]);
+  const decision = useMemo(() => buildDecisionAt(week, applied), [week, applied]);
 
   const result = useMemo(() => evaluate(decision), [decision]);
   const visibleEvents = decision.events.filter((e) => e.breaks.length > 0 || e.week === 0);
@@ -94,28 +73,17 @@ export function ProofOffice() {
         )}
       </div>
 
-      {/* The two facts, side by side. This pairing is the whole idea. */}
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div className="status-surface card border-emerald-500/35 bg-emerald-500/[0.05] p-6">
-          <div className="flex items-center gap-2 text-emerald-400">
-            <Activity size={14} />
-            <p className="micro-label !text-emerald-400/90">The agent</p>
-          </div>
-          <p className="mt-3 text-2xl font-semibold text-emerald-400">
-            Performing
-          </p>
-          <p className="mt-2 text-[12.5px] leading-relaxed text-zinc-400">
-            Same task time, same accuracy, same acceptance cases as the day it
-            was approved. Nothing about the tool has changed.
-          </p>
-        </div>
+      <DivergenceTrack applied={applied} week={week} />
 
+      {/* The sentence for the week you are standing in. */}
+      <AnimatePresence mode="wait">
         <motion.div
-          key={result.expired ? "void" : "valid"}
+          key={result.headline}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.35 }}
-          className={`status-surface card p-6 ${
+          className={`status-surface card p-5 sm:p-6 ${
             result.expired
               ? "border-rose-500/40 bg-rose-500/[0.06]"
               : result.broken.length > 0
@@ -133,24 +101,15 @@ export function ProofOffice() {
             }`}
           >
             <ShieldOff size={14} />
-            <p className="micro-label !text-current">The authorization</p>
+            <p className="micro-label !text-current">
+              {result.expired ? "Expired" : STATUS_LABEL[result.status]}
+            </p>
           </div>
-          <p
-            className={`mt-3 text-2xl font-semibold ${
-              result.expired
-                ? "text-rose-400"
-                : result.broken.length > 0
-                  ? "text-amber-400"
-                  : "text-emerald-400"
-            }`}
-          >
-            {result.expired ? "Expired" : STATUS_LABEL[result.status]}
-          </p>
-          <p className="mt-2 text-[12.5px] leading-relaxed text-zinc-400">
+          <p className="mt-3 max-w-2xl text-[15px] font-medium leading-relaxed text-zinc-100">
             {result.headline}
           </p>
         </motion.div>
-      </div>
+      </AnimatePresence>
 
       {/* Conditions */}
       <div className="card overflow-hidden">
