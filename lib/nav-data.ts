@@ -31,12 +31,28 @@ export const GROUP_LABEL: Record<Group, string> = {
 
 export const NAV_ITEMS: NavItem[] = [
   {
+    href: "/run",
+    name: "The run",
+    blurb: "One load travelling through a firm that cannot carry it, in six acts.",
+    group: "instrument",
+    keywords: [
+      "load path",
+      "acts",
+      "walkthrough",
+      "composed",
+      "story",
+      "reroute",
+      "buckle",
+      "structure",
+    ],
+    primary: true,
+  },
+  {
     href: "/",
     name: "The wind tunnel",
     blurb: "Run a technically perfect agent through the operating model that has to absorb it.",
     group: "instrument",
     keywords: ["value shift", "home", "economics", "levers", "charter", "pricing", "review gate"],
-    primary: true,
   },
   {
     href: "/progress",
