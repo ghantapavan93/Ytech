@@ -74,6 +74,25 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
+    href: "/refusal",
+    name: "The number it will not sign",
+    blurb:
+      "Every operating model ranked by the number a dashboard would celebrate. The best three are refused.",
+    group: "instrument",
+    keywords: [
+      "refusal",
+      "refuse",
+      "gaming",
+      "gameable",
+      "dashboard",
+      "metric",
+      "manage the number",
+      "stop condition",
+      "ranking",
+      "liability",
+    ],
+  },
+  {
     href: "/demand",
     name: "What the shortage is worth",
     blurb:

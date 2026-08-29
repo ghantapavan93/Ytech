@@ -55,9 +55,14 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   /* zinc-500 measured 4.09:1 on the canvas and 3.80:1 on surface-1, both
-     under the 4.5:1 WCAG AA floor for text this size. This clears it on
-     every surface the label is used on. */
-  color: #82828c;
+     under the 4.5:1 WCAG AA floor for text this size.
+
+     #82828c replaced it and cleared the canvas and the plain card, but the
+     label is also used inside tinted status surfaces, where an emerald or
+     amber wash lifts the background: measured against every background this
+     label actually sits on, its worst case was 4.45. This is ink-4, which
+     measures 4.95 in that same worst case and keeps the greys to four. */
+  color: var(--color-ink-4);
 }
 
 .card {
