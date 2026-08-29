@@ -52,9 +52,20 @@ describe("search finds the obvious things", () => {
     expect(searchNav("wndtnl").length).toBeGreaterThan(0);
   });
 
-  it("returns everything when the query is empty", () => {
-    expect(searchNav("")).toHaveLength(NAV_ITEMS.length);
-    expect(searchNav("   ")).toHaveLength(NAV_ITEMS.length);
+  it("offers only the path when the query is empty", () => {
+    const listed = NAV_ITEMS.filter((i) => i.listed !== false);
+    expect(searchNav("")).toHaveLength(listed.length);
+    expect(searchNav("   ")).toHaveLength(listed.length);
+    expect(listed.length).toBeLessThan(NAV_ITEMS.length);
+  });
+
+  it("still finds an unlisted route when someone asks for it by name", () => {
+    // Unlisted is not hidden. The work is intact and the URL resolves; it
+    // is simply not put in front of a reader who has not asked for it.
+    expect(first("kill review")).toBe("/review");
+    expect(first("capability stack")).toBe("/stack");
+    expect(first("prep board")).toBe("/prep");
+    expect(first("working agent")).toBe("/agent");
   });
 
   it("returns nothing rather than guessing on nonsense", () => {

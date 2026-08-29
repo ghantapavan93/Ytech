@@ -135,10 +135,10 @@ export function EvidenceFooter() {
             YegaTech's research. Independent work, not affiliated with or
             endorsed by YegaTech.{" "}
             <Link
-              href="/progress"
+              href="/run"
               className="text-zinc-400 underline decoration-zinc-700 underline-offset-2 transition-colors hover:text-zinc-200"
             >
-              Proof of Progress →
+              The run →
             </Link>{" "}
             <Link
               href="/vision"
@@ -153,10 +153,10 @@ export function EvidenceFooter() {
               The receipts →
             </Link>{" "}
             <Link
-              href="/review"
+              href="/"
               className="text-zinc-400 underline decoration-zinc-700 underline-offset-2 transition-colors hover:text-zinc-200"
             >
-              The kill review →
+              The engine →
             </Link>
           </p>
           <p className="mono-num text-[11px] text-zinc-600">

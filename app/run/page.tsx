@@ -70,7 +70,46 @@ export default function RunPage() {
           <TheRun />
         </section>
 
-        <p className="mx-auto w-full max-w-6xl px-5 pb-16 text-[11px] leading-relaxed text-zinc-600">
+        {/* Three ways out, and no more. Everything the run absorbed is
+            still there for anyone who goes looking; none of it is offered
+            to a reader who has just watched the argument land. */}
+        <section className="mx-auto w-full max-w-6xl border-t border-line px-5 pt-10">
+          <p className="micro-label">If you want to check it</p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                href: "/thesis",
+                title: "Inspect the evidence",
+                body: "Every claim behind this, quoted and dated, mapped to the mechanism it drives.",
+              },
+              {
+                href: "/",
+                title: "Inspect the engine",
+                body: "The levers, the assumption ledger, and every number open to editing.",
+              },
+              {
+                href: "/vision",
+                title: "See where this could go",
+                body: "What one instrument becomes across a cohort, written as a proposal.",
+              },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="group rounded-xl border border-line bg-surface-1 p-5 transition-colors hover:border-line-strong hover:bg-surface-2"
+              >
+                <p className="text-[13.5px] font-semibold text-zinc-200 transition-colors group-hover:text-zinc-100">
+                  {l.title}
+                </p>
+                <p className="mt-1.5 text-[12.5px] leading-relaxed text-zinc-500">
+                  {l.body}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <p className="mx-auto w-full max-w-6xl px-5 pb-16 pt-12 text-[11px] leading-relaxed text-zinc-600">
           Built by Pavan Kalyan as an independent prototype, not affiliated with
           YegaTech. Atlas Structural &amp; Civil is synthetic, calibrated against
           published consultant fee and utilization data. No real firm and no real

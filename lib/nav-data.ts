@@ -21,6 +21,16 @@ export interface NavItem {
   keywords: string[];
   /** Shown in the header for the two or three that earn it. */
   primary?: boolean;
+  /**
+   * Offered on the path, or reachable only if you already know it exists.
+   *
+   * The run now carries the whole argument, so everything it absorbed is
+   * unlisted rather than deleted: the work is intact and the URLs still
+   * resolve, they are simply not put in front of a first-time reader. An
+   * explicit search still finds them, which is the difference between
+   * unlisted and hidden.
+   */
+  listed?: boolean;
 }
 
 export const GROUP_LABEL: Record<Group, string> = {
@@ -45,10 +55,10 @@ export const NAV_ITEMS: NavItem[] = [
       "buckle",
       "structure",
     ],
-    primary: true,
   },
   {
     href: "/",
+    primary: true,
     name: "The wind tunnel",
     blurb: "Run a technically perfect agent through the operating model that has to absorb it.",
     group: "instrument",
@@ -56,6 +66,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     href: "/progress",
+    listed: false,
     name: "Proof of Progress",
     blurb: "Trace a green pilot down seven links until it stops being able to prove anything.",
     group: "instrument",
@@ -70,18 +81,18 @@ export const NAV_ITEMS: NavItem[] = [
       "bounded experiment",
       "unproven",
     ],
-    primary: true,
   },
   {
     href: "/proof",
+    listed: false,
     name: "The Proof Office",
     blurb: "Decisions expire. Watch an authorization go void while the agent keeps working.",
     group: "instrument",
     keywords: ["expire", "recommission", "conditions", "owner", "living decision", "void"],
-    primary: true,
   },
   {
     href: "/agent",
+    listed: false,
     name: "The working agent",
     blurb: "Type a task. It does the preparation and hands the judgment back.",
     group: "instrument",
@@ -89,13 +100,15 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     href: "/prep",
+    listed: false,
     name: "The prep board",
-    blurb: "Fifteen minutes before a client call, with the method already loaded.",
+    blurb: "Fifteen minutes before a client call, sourced from published writing.",
     group: "instrument",
     keywords: ["meeting", "firm", "questions", "contradiction", "sheet"],
   },
   {
     href: "/record",
+    listed: false,
     name: "Decision records",
     blurb: "Claimed, observed, verified, sustained. Most decisions never leave the first rung.",
     group: "instrument",
@@ -103,6 +116,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     href: "/thesis",
+    primary: true,
     name: "The receipts",
     blurb: "Every mechanism mapped to the published claim it operationalizes.",
     group: "evidence",
@@ -110,6 +124,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     href: "/stack",
+    listed: false,
     name: "The capability stack",
     blurb: "Ten layers, eight priced offers, and what the whole category cannot say.",
     group: "evidence",
@@ -117,6 +132,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     href: "/review",
+    listed: false,
     name: "The kill review",
     blurb: "The adversarial review that killed four earlier ideas before this one survived.",
     group: "evidence",
@@ -124,6 +140,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     href: "/vision",
+    primary: true,
     name: "The vision",
     blurb: "First principles and a working compounding simulator. Written as a proposal.",
     group: "evidence",
@@ -161,7 +178,12 @@ export function scoreItem(item: NavItem, query: string): number {
 }
 
 export function searchNav(query: string): NavItem[] {
-  return NAV_ITEMS.map((item) => ({ item, score: scoreItem(item, query) }))
+  // With no query, offer the path. With a query, search everything, because
+  // someone typing "kill review" knows what they are looking for.
+  const pool = query.trim() ? NAV_ITEMS : NAV_ITEMS.filter((i) => i.listed !== false);
+
+  return pool
+    .map((item) => ({ item, score: scoreItem(item, query) }))
     .filter((r) => r.score > 0)
     .sort((a, b) => b.score - a.score)
     .map((r) => r.item);

@@ -50,7 +50,9 @@ export default function PrepPage() {
             style={{ animationDelay: "80ms" }}
           >
             Fifteen minutes before the call,
-            <span className="block text-zinc-500">with your own method already loaded.</span>
+            <span className="block text-zinc-500">
+              built from what YegaTech has published.
+            </span>
           </h1>
           <p
             className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-400"
