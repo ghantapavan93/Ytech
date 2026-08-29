@@ -41,7 +41,7 @@ export const GROUP_LABEL: Record<Group, string> = {
 
 export const NAV_ITEMS: NavItem[] = [
   {
-    href: "/run",
+    href: "/",
     name: "The run",
     blurb: "One load travelling through a firm that cannot carry it, in six acts.",
     group: "instrument",
@@ -57,7 +57,7 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
-    href: "/",
+    href: "/engine",
     primary: true,
     name: "The wind tunnel",
     blurb: "Run a technically perfect agent through the operating model that has to absorb it.",
@@ -147,7 +147,7 @@ export const NAV_ITEMS: NavItem[] = [
     keywords: ["future", "moat", "learning rate", "stack", "horizon", "services"],
   },
   {
-    href: "/?run=1",
+    href: "/engine?run=1",
     name: "Watch the 90-second run",
     blurb: "The instrument performs the whole argument by itself, live.",
     group: "action",

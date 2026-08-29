@@ -45,7 +45,7 @@ export function Header({ out, showVerdict, onWatch }: HeaderProps) {
           <button
             onClick={() => setStage(true)}
             title="Present full screen"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11px] font-medium text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+            className="hidden items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11px] font-medium text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200 sm:inline-flex"
           >
             <Presentation size={11} />
             <span className="hidden sm:inline">Stage</span>

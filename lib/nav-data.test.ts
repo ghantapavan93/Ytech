@@ -41,11 +41,11 @@ describe("search finds the obvious things", () => {
   it("matches on what a page is about, not just its title", () => {
     expect(first("expire")).toBe("/proof");
     expect(first("adversarial")).toBe("/review");
-    expect(first("autopilot")).toBe("/?run=1");
+    expect(first("autopilot")).toBe("/engine?run=1");
   });
 
   it("finds the wind tunnel by its old product name", () => {
-    expect(first("value shift")).toBe("/");
+    expect(first("value shift")).toBe("/engine");
   });
 
   it("survives a badly typed query", () => {

@@ -89,7 +89,7 @@ export default function RecordPage() {
               </p>
             </div>
             <Link
-              href="/#stage-5"
+              href="/engine#stage-5"
               className="group inline-flex shrink-0 items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[14px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
             >
               See the pattern library

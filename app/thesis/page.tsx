@@ -673,7 +673,7 @@ export default function ThesisPage() {
               </p>
             </div>
             <Link
-              href="/?run=1"
+              href="/engine?run=1"
               className="group inline-flex shrink-0 items-center gap-2.5 rounded-xl bg-zinc-100 px-5 py-3 text-[14px] font-semibold text-zinc-950 transition-all hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(6,182,212,0.6)]"
             >
               Watch it run

@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
    * The build now gets its own directory, so the two never touch.
    */
   distDir: process.env.NEXT_DIST_DIR ?? ".next",
+
+  // The run used to live at /run before it became the landing page. Anyone
+  // holding that link still lands in the right place.
+  async redirects() {
+    return [{ source: "/run", destination: "/", permanent: true }];
+  },
 };
 
 export default nextConfig;

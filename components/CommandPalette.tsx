@@ -247,7 +247,7 @@ export function CommandHint() {
       <span className="hidden text-[11.5px] text-zinc-500 transition-colors group-hover:text-zinc-300 sm:inline">
         Search
       </span>
-      <kbd className="mono-num rounded border border-line px-1 text-[10px] text-zinc-600">
+      <kbd className="mono-num hidden rounded border border-line px-1 text-[10px] text-zinc-600 sm:inline">
         {mac ? "⌘" : "Ctrl"}K
       </kbd>
     </button>

@@ -1,166 +1,113 @@
-"use client";
+import { CommandHint } from "@/components/CommandPalette";
+import { TheRun } from "@/components/run/TheRun";
+import type { Metadata } from "next";
+import Link from "next/link";
 
-import { Autopilot } from "@/components/Autopilot";
-import { EvidenceFooter } from "@/components/EvidenceFooter";
-import { ProgressHandoff } from "@/components/ProgressHandoff";
-import { Header } from "@/components/Header";
-import { useAutopilot } from "@/components/useAutopilot";
-import { Stage1Illusion } from "@/components/Stage1Illusion";
-import { Stage2Shockwave } from "@/components/Stage2Shockwave";
-import { Stage3Levers } from "@/components/Stage3Levers";
-import { Stage4Charter } from "@/components/Stage4Charter";
-import { Stage5Horizon } from "@/components/Stage5Horizon";
-import {
-  ATLAS_BASELINE,
-  NAIVE_DEPLOYMENT,
-  runEngine,
-  type FirmBaseline,
-  type Levers,
-} from "@/lib/engines/engine";
-import { PRESETS, sameLevers, type Preset } from "@/lib/presets";
-import { useCallback, useEffect, useMemo, useState } from "react";
+export const metadata: Metadata = {
+  title: "Value Shift · A working agent, and the firm that cannot carry it",
+  description:
+    "One causal load travelling through an AEC firm. The agent works, the operating system rejects it, leadership changes three conditions, and the result is still a bounded experiment rather than a deployment.",
+};
 
-/**
- * The wind tunnel is a staged narrative:
- *   1. The illusion  , a technically perfect agent run.
- *   2. The shockwave , the same result propagated through the firm.
- *   3. The levers    , leadership re-tunes the operating system, live.
- *   4. The charter   , a bounded 30-day experiment, not a deployment.
- * Stages stay mounted once revealed so the whole story scrolls.
- */
-export default function Home() {
-  const [base, setBase] = useState<FirmBaseline>(ATLAS_BASELINE);
-  const [levers, setLevers] = useState<Levers>(NAIVE_DEPLOYMENT);
-  const [stage, setStage] = useState(1);
-
-  const out = useMemo(() => runEngine(base, levers), [base, levers]);
-  const activePresetId = useMemo(
-    () => PRESETS.find((p) => sameLevers(p.levers, levers))?.id ?? null,
-    [levers]);
-
-  // Fixed comparison point: the same speedup dropped into an untouched
-  // operating model, so "this configuration" always has a fair naive twin.
-  const naiveOut = useMemo(
-    () => runEngine(base, { ...NAIVE_DEPLOYMENT, aiSpeedupPct: levers.aiSpeedupPct }),
-    [base, levers.aiSpeedupPct]);
-
-  const reveal = (next: number, anchor: string) => {
-    setStage((s) => Math.max(s, next));
-    // Wait one frame so the newly mounted section exists before scrolling.
-    setTimeout(() => {
-      document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 80);
-  };
-
-  // Functional updates so rapid interactions (fast presenters, double-fires)
-  // can never clobber each other inside one React batch.
-  const handleLeverChange = useCallback(
-    <K extends keyof Levers>(key: K, value: Levers[K]) =>
-      setLevers((prev) => ({ ...prev, [key]: value })),
-    []);
-
-  const handleBaseChange = useCallback(
-    <K extends keyof FirmBaseline>(key: K, value: FirmBaseline[K]) =>
-      setBase((prev) => ({ ...prev, [key]: value })),
-    []);
-
-  const handlePreset = (preset: Preset) => setLevers({ ...preset.levers });
-
-  const handleReset = () => {
-    setBase(ATLAS_BASELINE);
-    setLevers(NAIVE_DEPLOYMENT);
-    document.getElementById("stage-2")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  // The self-running 90-second demonstration. It presses the same state
-  // setters a human presenter would, every number stays engine-computed.
-  const pilot = useAutopilot({
-    reset: () => {
-      setBase(ATLAS_BASELINE);
-      setLevers(NAIVE_DEPLOYMENT);
-      setStage(1);
-    },
-    revealStage: (n) => setStage((s) => Math.max(s, n)),
-    setLever: handleLeverChange,
-    setBase: handleBaseChange,
-  });
-
-  // Shareable auto-play: /?run=1 starts the scripted run on load
-  // (/?run=fast is the accelerated QA variant).
-  const { start: startPilot } = pilot;
-  useEffect(() => {
-    const run = new URLSearchParams(window.location.search).get("run");
-    if (!run) return;
-    const t = setTimeout(() => startPilot(run === "fast" ? 6 : 1), 900);
-    return () => clearTimeout(t);
-  }, [startPilot]);
-
-  // Deep links: /#stage-N auto-reveals the gated stages up to N, then
-  // scrolls there, so the thesis and review pages can point into the
-  // middle of the narrative.
-  useEffect(() => {
-    const match = window.location.hash.match(/^#stage-([2-5])$/);
-    if (!match) return;
-    const target = Number(match[1]);
-    // Stage 5 mounts together with stage 4.
-    setStage((s) => Math.max(s, Math.min(target, 4)));
-    const t = setTimeout(() => {
-      document
-        .getElementById(`stage-${target}`)
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 350);
-    return () => clearTimeout(t);
-  }, []);
-
+export default function RunPage() {
   return (
     <div className="min-h-screen">
-      <Header out={out} showVerdict={stage >= 2} onWatch={() => pilot.start()} />
+      <header className="sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur-xl">
+        <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-4 px-5">
+          <div className="flex items-baseline gap-3">
+            <Link
+              href="/"
+              className="text-[14px] font-bold tracking-[-0.01em] text-zinc-100 transition-colors hover:text-white"
+            >
+              VALUE&nbsp;SHIFT
+            </Link>
+            <span className="hidden font-mono text-[11px] text-zinc-600 sm:block">
+              // The instrument
+            </span>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <CommandHint />
+          </div>
+        </div>
+      </header>
+
       <main>
-        <Stage1Illusion
-          aiSpeedupPct={levers.aiSpeedupPct}
-          revealed={stage >= 2}
-          onSimulate={() => reveal(2, "stage-2")}
-          onWatch={() => pilot.start()}
-        />
-        {stage >= 2 && (
-          <Stage2Shockwave
-            out={out}
-            levers={levers}
-            aiSpeedupPct={levers.aiSpeedupPct}
-            retuneRevealed={stage >= 3}
-            onRetune={() => reveal(3, "stage-3")}
-          />
-        )}
-        {stage >= 3 && (
-          <Stage3Levers
-            base={base}
-            levers={levers}
-            out={out}
-            naiveOut={naiveOut}
-            onLeverChange={handleLeverChange}
-            onBaseChange={handleBaseChange}
-            charterRevealed={stage >= 4}
-            onCompile={() => reveal(4, "stage-4")}
-          />
-        )}
-        {stage >= 4 && (
-          <>
-            <Stage4Charter
-              base={base}
-              levers={levers}
-              out={out}
-              presets={PRESETS}
-              activePresetId={activePresetId}
-              onPreset={handlePreset}
-              onReset={handleReset}
-            />
-            <Stage5Horizon base={base} levers={levers} out={out} />
-          </>
-        )}
+        <section className="relative mx-auto w-full max-w-6xl px-5 pt-16 sm:pt-20">
+          <div className="hero-decor" aria-hidden />
+          <p className="micro-label fade-up">
+            One load, one structure, six acts
+          </p>
+          <h1
+            className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-zinc-100 sm:text-5xl"
+            style={{ animationDelay: "80ms" }}
+          >
+            Watch a working agent
+            <span className="block text-zinc-500">
+              travel through a firm that cannot carry it.
+            </span>
+          </h1>
+          <p
+            className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-400"
+            style={{ animationDelay: "160ms" }}
+          >
+            The drawing on the right is the firm&rsquo;s operating system read
+            as a load path. Released capacity enters at the top and reaches
+            business value only where something carries it. Every act
+            recomputes the same deterministic model, so the structure responds
+            rather than being redrawn.
+          </p>
+        </section>
+
+        <section className="mt-12 sm:mt-14">
+          <TheRun />
+        </section>
+
+        {/* Three ways out, and no more. Everything the run absorbed is
+            still there for anyone who goes looking; none of it is offered
+            to a reader who has just watched the argument land. */}
+        <section className="mx-auto w-full max-w-6xl border-t border-line px-5 pt-10">
+          <p className="micro-label">If you want to check it</p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                href: "/thesis",
+                title: "Inspect the evidence",
+                body: "Every claim behind this, quoted and dated, mapped to the mechanism it drives.",
+              },
+              {
+                href: "/engine",
+                title: "Inspect the engine",
+                body: "The levers, the assumption ledger, and every number open to editing.",
+              },
+              {
+                href: "/vision",
+                title: "See where this could go",
+                body: "What one instrument becomes across a cohort, written as a proposal.",
+              },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="group rounded-xl border border-line bg-surface-1 p-5 transition-colors hover:border-line-strong hover:bg-surface-2"
+              >
+                <p className="text-[13.5px] font-semibold text-zinc-200 transition-colors group-hover:text-zinc-100">
+                  {l.title}
+                </p>
+                <p className="mt-1.5 text-[12.5px] leading-relaxed text-zinc-500">
+                  {l.body}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <p className="mx-auto w-full max-w-6xl px-5 pb-16 pt-12 text-[11px] leading-relaxed text-zinc-600">
+          Built by Pavan Kalyan as an independent prototype, not affiliated with
+          YegaTech. Atlas Structural &amp; Civil is synthetic, calibrated against
+          published consultant fee and utilization data. No real firm and no real
+          engagement is represented.
+        </p>
       </main>
-      <ProgressHandoff show={stage >= 4} />
-      <EvidenceFooter />
-      <Autopilot pilot={pilot} />
     </div>
   );
 }
