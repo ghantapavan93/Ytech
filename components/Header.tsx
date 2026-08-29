@@ -2,7 +2,10 @@
 
 import type { EngineOutput } from "@/lib/engines/engine";
 import { fmtMoney } from "@/lib/format";
+import { useState } from "react";
 import { WatchRunButton } from "./Autopilot";
+import { StageMode } from "./StageMode";
+import { Presentation } from "lucide-react";
 import { CommandHint } from "./CommandPalette";
 import { SYSTEM_STYLE } from "./status";
 import { Ticker } from "./Ticker";
@@ -24,6 +27,7 @@ interface HeaderProps {
  */
 export function Header({ out, showVerdict, onWatch }: HeaderProps) {
   const sys = SYSTEM_STYLE[out.systemStatus];
+  const [stage, setStage] = useState(false);
 
   return (
     <header className="print-hidden sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur-xl">
@@ -38,6 +42,14 @@ export function Header({ out, showVerdict, onWatch }: HeaderProps) {
         </div>
 
         <div className="flex items-center gap-2.5">
+          <button
+            onClick={() => setStage(true)}
+            title="Present full screen"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-[11px] font-medium text-zinc-500 transition-colors hover:border-line-strong hover:text-zinc-200"
+          >
+            <Presentation size={11} />
+            <span className="hidden sm:inline">Stage</span>
+          </button>
           <WatchRunButton onStart={onWatch} compact />
           <CommandHint />
           {showVerdict && (
@@ -61,6 +73,7 @@ export function Header({ out, showVerdict, onWatch }: HeaderProps) {
           )}
         </div>
       </div>
+      {stage && <StageMode onClose={() => setStage(false)} />}
     </header>
   );
 }
