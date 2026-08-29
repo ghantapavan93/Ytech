@@ -1,4 +1,5 @@
 import { ThesisBipartiteDiagram } from "@/components/diagram/ThesisBipartiteDiagram";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { CommandHint } from "@/components/CommandPalette";
 import { PageContents, type ContentsEntry } from "@/components/PageContents";
 import {
@@ -146,6 +147,7 @@ export default function ThesisPage() {
             >
               VALUE&nbsp;SHIFT
             </Link>
+            <SyntheticBadge />
             <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // The Receipts
             </span>

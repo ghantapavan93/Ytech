@@ -1,6 +1,7 @@
 "use client";
 
 import type { EngineOutput } from "@/lib/engines/engine";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { fmtMoney } from "@/lib/format";
 import { useState } from "react";
 import { WatchRunButton } from "./Autopilot";
@@ -36,6 +37,7 @@ export function Header({ out, showVerdict, onWatch }: HeaderProps) {
           <span className="hit-24 text-[15px] font-bold tracking-[-0.01em] text-ink-1">
             VALUE&nbsp;SHIFT
           </span>
+          <SyntheticBadge />
           <span className="hidden font-mono text-[11.5px] text-ink-4 lg:block">
             // AEC AI Economics Wind Tunnel
           </span>

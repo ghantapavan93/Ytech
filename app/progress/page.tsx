@@ -1,6 +1,7 @@
 import { ProgressChainDiagram } from "@/components/diagram/ProgressChainDiagram";
 import { CommandHint } from "@/components/CommandPalette";
 import { ProofOfProgress } from "@/components/ProofOfProgress";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -23,6 +24,7 @@ export default function ProgressPage() {
             >
               VALUE&nbsp;SHIFT
             </Link>
+            <SyntheticBadge />
             <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // Proof of Progress
             </span>

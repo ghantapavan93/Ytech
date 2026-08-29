@@ -1,4 +1,5 @@
 import { ReviewSurvivorDiagram } from "@/components/diagram/ReviewSurvivorDiagram";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { CommandHint } from "@/components/CommandPalette";
 import {
   BRUTAL_CONCLUSION,
@@ -99,6 +100,7 @@ export default function ReviewPage() {
             >
               VALUE&nbsp;SHIFT
             </Link>
+            <SyntheticBadge />
             <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // The Kill Review
             </span>

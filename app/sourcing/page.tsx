@@ -1,6 +1,7 @@
 import { CommandHint } from "@/components/CommandPalette";
 import { SourcingBoard } from "@/components/SourcingBoard";
 import { OPERATING_SWING } from "@/components/sourcing/sourcing-data";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -26,6 +27,7 @@ export default function SourcingPage() {
             >
               VALUE&nbsp;SHIFT
             </Link>
+            <SyntheticBadge />
             <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // Build it or buy it
             </span>

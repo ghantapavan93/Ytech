@@ -1,6 +1,7 @@
 import { CommandHint } from "@/components/CommandPalette";
 import { TenXScreen } from "@/components/TenXScreen";
 import { TriageBoard } from "@/components/TriageBoard";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -23,6 +24,7 @@ export default function TriagePage() {
             >
               VALUE&nbsp;SHIFT
             </Link>
+            <SyntheticBadge />
             <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // Which workflow
             </span>

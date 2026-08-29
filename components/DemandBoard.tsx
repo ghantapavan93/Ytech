@@ -91,6 +91,16 @@ export function DemandBoard() {
           the industry is in and the unstated premise under every pilot result
           being measured this year.
         </p>
+        <p className="mt-2.5 text-[13px] leading-relaxed text-ink-4">
+          <span className="font-medium text-ink-2">
+            Scenario attribution, not causal identification.
+          </span>{" "}
+          Moving this dial says what the model does under a different market.
+          It is not evidence that any share of an observed result was caused by
+          the labour market, and no arrangement of this page could be. Doing
+          that needs firm data across a demand cycle, which is a study rather
+          than an instrument.
+        </p>
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2">

@@ -6,6 +6,7 @@ import {
   runEngine,
 } from "@/lib/engines/engine";
 import { fmtMoney } from "@/lib/format";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { PRESETS } from "@/lib/presets";
 import { motion } from "framer-motion";
 import { SNAP } from "@/lib/motion";
@@ -173,6 +174,7 @@ export function StageMode({ onClose }: { onClose: () => void }) {
         <span className="hit-24 text-[11.5px] font-bold tracking-[0.2em] text-ink-4">
           VALUE&nbsp;SHIFT
         </span>
+        <SyntheticBadge />
         <button
           onClick={onClose}
           className="inline-flex items-center gap-2 rounded-lg border border-line px-3 py-1.5 text-[11.5px] text-ink-4 transition-colors hover:border-line-strong hover:text-ink-2"

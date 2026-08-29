@@ -10,10 +10,16 @@ describe("the route list", () => {
     }
   });
 
-  it("offers exactly three ways to check the run", () => {
-    // primary no longer drives the header. It marks the evidence, the
-    // engine and the future: the three exits under the run, and no more.
-    expect(NAV_ITEMS.filter((i) => i.primary)).toHaveLength(3);
+  it("offers exactly three ways in, and names them", () => {
+    /*
+     * primary marks the three doors under the run, which are the only
+     * navigation a first-time reader is given: the room to watch it in, the
+     * evidence to check it against, and the engineer view to argue with it.
+     * The count is not the point on its own; a fourth door is how a clear
+     * entrance quietly becomes a menu, so the identities are pinned too.
+     */
+    const doors = NAV_ITEMS.filter((i) => i.primary).map((i) => i.href).sort();
+    expect(doors).toEqual(["/engineer", "/room", "/thesis"]);
   });
 
   it("has no duplicate destinations", () => {

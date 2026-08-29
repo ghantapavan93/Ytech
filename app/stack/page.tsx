@@ -1,4 +1,5 @@
 import { CommandHint } from "@/components/CommandPalette";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { StackDiagram } from "@/components/diagram/StackDiagram";
 import {
   FLOOR_CASES,
@@ -57,6 +58,7 @@ export default function StackPage() {
             >
               VALUE&nbsp;SHIFT
             </Link>
+            <SyntheticBadge />
             <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // The Capability Stack
             </span>

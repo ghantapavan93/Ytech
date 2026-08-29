@@ -1,4 +1,5 @@
 import { CommandHint } from "@/components/CommandPalette";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { ACT_COUNT_WORD } from "@/components/run/act-data";
 import { TheRun } from "@/components/run/TheRun";
 import type { Metadata } from "next";
@@ -22,6 +23,7 @@ export default function RunPage() {
             >
               VALUE&nbsp;SHIFT
             </Link>
+            <SyntheticBadge />
             <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // The instrument
             </span>
@@ -77,50 +79,48 @@ export default function RunPage() {
           looking and none of it is offered here.
         */}
         <section className="mx-auto w-full max-w-6xl border-t border-line px-5 pt-10">
-          <p className="micro-label">What you would ask next</p>
-          <ul className="mt-4 divide-y divide-line border-y border-line">
+          <p className="micro-label">Three ways in, and no more</p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
             {[
               {
-                href: "/refusal",
-                q: "Isn't this just a number people will learn to manage?",
-                a: "Every operating model ranked. The best three are refused.",
-              },
-              {
-                href: "/demand",
-                q: "How much of this is the labour market rather than the firm?",
-                a: "More than half of it, at today's market. The dial is here.",
+                href: "/room",
+                title: "Run the room",
+                body: "One screen, five minutes, one decision. The version that runs in front of people.",
+                lead: true,
               },
               {
                 href: "/thesis",
-                q: "Where does any of this come from?",
-                a: "Every claim, quoted and dated, against the mechanism it drives.",
+                title: "Inspect the evidence",
+                body: "Every claim quoted and dated, including where this argument is weakest.",
               },
               {
-                href: "/engine",
-                q: "Can I change the assumptions?",
-                a: "The levers, the ledger, and every number open to editing.",
-              },
-              {
-                href: "/vision",
-                q: "What would this be worth more than once?",
-                a: "What one instrument becomes across a cohort.",
+                href: "/engineer",
+                title: "Engineer view",
+                body: "The formulas, the decision rules, the full baseline and every invariant.",
               },
             ].map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="group flex flex-col gap-1 py-3.5 transition-colors sm:flex-row sm:items-baseline sm:gap-6"
-                >
-                  <span className="text-[15px] font-medium text-ink-2 transition-colors group-hover:text-ink-1 sm:w-[46%] sm:shrink-0">
-                    {l.q}
-                  </span>
-                  <span className="text-[13px] leading-relaxed text-ink-4 transition-colors group-hover:text-ink-3">
-                    {l.a}
-                  </span>
-                </Link>
-              </li>
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`group rounded-xl border p-5 transition-colors ${
+                  l.lead
+                    ? "border-line-strong bg-surface-2 hover:border-white/25"
+                    : "border-line bg-surface-1 hover:border-line-strong hover:bg-surface-2"
+                }`}
+              >
+                <p className="text-[15px] font-semibold text-ink-1">{l.title}</p>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-ink-4">
+                  {l.body}
+                </p>
+              </Link>
             ))}
-          </ul>
+          </div>
+          <p className="mt-4 text-[13px] leading-relaxed text-ink-4">
+            The workflow triage, the sourcing screen, the refusal ranking and
+            the demand dial are all still here and all still reachable, from
+            search or from the pages above. None of them is offered to somebody
+            who has just watched the argument land.
+          </p>
         </section>
 
         <p className="mx-auto w-full max-w-6xl px-5 pb-16 pt-12 text-[11.5px] leading-relaxed text-ink-4">

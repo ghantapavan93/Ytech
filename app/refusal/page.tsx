@@ -8,6 +8,7 @@ import {
   COST_OF_REFUSING,
   VERDICT_LABEL,
 } from "@/lib/engines/configurations";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -35,6 +36,7 @@ export default function RefusalPage() {
             >
               VALUE&nbsp;SHIFT
             </Link>
+            <SyntheticBadge />
             <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // The number it will not sign
             </span>

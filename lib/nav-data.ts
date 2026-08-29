@@ -74,6 +74,24 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
+    href: "/room",
+    primary: true,
+    name: "Run the room",
+    blurb:
+      "One screen, five minutes, one decision. The version that runs in front of people.",
+    group: "instrument",
+    keywords: ["room","present","keynote","live","demo","session","five minutes","executive","full screen"],
+  },
+  {
+    href: "/engineer",
+    primary: true,
+    name: "Engineer view",
+    blurb:
+      "The formulas, the decision rules, the full baseline and every invariant the suite holds them to.",
+    group: "instrument",
+    keywords: ["engineer","formulas","arithmetic","invariants","tests","audit","assumptions","baseline","rules"],
+  },
+  {
     href: "/sourcing",
     name: "Build it or buy it",
     blurb:
@@ -134,7 +152,6 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     href: "/engine",
-    primary: true,
     name: "The wind tunnel",
     blurb: "Run a technically perfect agent through the operating model that has to absorb it.",
     group: "instrument",
@@ -216,7 +233,6 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     href: "/vision",
-    primary: true,
     name: "The vision",
     blurb: "First principles and a working compounding simulator. Written as a proposal.",
     group: "evidence",

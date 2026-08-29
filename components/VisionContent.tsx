@@ -1,6 +1,7 @@
 "use client";
 
 import { VisionLatticeDiagram } from "./diagram/VisionLatticeDiagram";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { CommandHint } from "./CommandPalette";
 import {
   FIRST_PRINCIPLES,
@@ -89,6 +90,7 @@ export function VisionContent() {
             >
               VALUE&nbsp;SHIFT
             </Link>
+            <SyntheticBadge />
             <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // The Vision
             </span>

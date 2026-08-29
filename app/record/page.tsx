@@ -1,5 +1,6 @@
 import { CommandHint } from "@/components/CommandPalette";
 import { DecisionRecords } from "@/components/DecisionRecords";
+import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -22,6 +23,7 @@ export default function RecordPage() {
             >
               VALUE&nbsp;SHIFT
             </Link>
+            <SyntheticBadge />
             <span className="hidden font-mono text-[11.5px] text-ink-4 sm:block">
               // Decision Record
             </span>

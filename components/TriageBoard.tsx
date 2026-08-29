@@ -69,6 +69,16 @@ export function TriageBoard() {
         </div>
       </div>
 
+      {/*
+        The ordering rule, stated where the ordering is.
+
+        The obvious attack on any ranked list is that the weights encode
+        somebody preferences. The honest answer here is that there are no
+        weights: a verdict comes from boolean rules the row already shows, and
+        within a verdict the only tiebreak is hours a month. Saying so is
+        cheaper than defending a composite score, and it is the reason there
+        is no composite score.
+      */}
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <p className="micro-label">The list, in the order to spend attention</p>
         {dirty && (
@@ -199,6 +209,18 @@ export function TriageBoard() {
           );
         })}
       </div>
+
+      <p className="text-[13px] leading-relaxed text-ink-4">
+        <span className="font-medium text-ink-2">How this is ordered.</span>{" "}
+        Work that can be tested comes first, then work whose conditions need
+        changing, then work nobody can judge yet, then work too small to be
+        worth the question. Inside each of those, by hours a month and nothing
+        else. There is no score and no weighting: every verdict comes from the
+        yes-or-no answers the row already shows, so there is nowhere for a
+        preference to hide. Two workflows in the same class are ordered by
+        size alone, which is a fact about them rather than a judgement about
+        which matters more.
+      </p>
 
       <p className="border-l-2 border-line-strong pl-4 text-[13px] leading-relaxed text-ink-3">
         {cannotJudge > 0
