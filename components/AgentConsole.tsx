@@ -3,6 +3,7 @@
 import { PLAYS, runAgent, type AgentRun, type StepKind } from "@/lib/engines/agent-engine";
 import { getDrafter, MODE_NOTE } from "@/lib/engines/model-boundary";
 import { AnimatePresence, motion } from "framer-motion";
+import { SNAP } from "@/lib/motion";
 import {
   BookOpen,
   CircleSlash,
@@ -125,14 +126,19 @@ export function AgentConsole() {
         </div>
       )}
 
-      <AnimatePresence mode="wait">
+      {/*
+        popLayout rather than wait. The console genuinely unmounts when a run
+        is cleared, so AnimatePresence still has a job, but "wait" made every
+        change of play sit through the previous one leaving first.
+      */}
+      <AnimatePresence mode="popLayout">
         {run && (
           <motion.div
             key={run.play.id + run.artifact.title}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
+            transition={SNAP}
             className="space-y-5"
           >
             {/* Routing, shown rather than hidden */}

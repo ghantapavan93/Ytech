@@ -10,6 +10,7 @@ import {
   type WorkflowCandidate,
 } from "@/lib/engines/triage-engine";
 import { AnimatePresence, motion } from "framer-motion";
+import { SETTLE } from "@/lib/motion";
 import { ChevronDown, RotateCcw } from "lucide-react";
 import { useMemo, useState } from "react";
 
@@ -42,9 +43,6 @@ const QUESTIONS: { key: keyof WorkflowCandidate; ask: string }[] = [
 ];
 
 const CYCLE: Answer[] = ["yes", "no", "unknown"];
-
-/** Shared with every other reveal on the site. */
-const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function TriageBoard() {
   const [answers, setAnswers] = useState<WorkflowCandidate[]>(CANDIDATES);
@@ -100,7 +98,7 @@ export function TriageBoard() {
                * timing.
                */
               layout="position"
-              transition={{ duration: 0.4, ease: EASE }}
+              transition={SETTLE}
               className={`status-surface rounded-xl border ${tone.border} ${tone.bg}`}
             >
               <button
@@ -138,7 +136,7 @@ export function TriageBoard() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25 }}
+                    transition={SETTLE}
                     className="overflow-hidden"
                   >
                     <div className="border-t border-line px-4 py-4">

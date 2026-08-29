@@ -5,7 +5,7 @@ import {
   GAP,
   GROSS_ANNUAL,
 } from "@/components/triage/screen-data";
-import { D, MONO, T, grow, motion, reveal, useReducedMotion } from "./svg-kit";
+import { EASE, D, MONO, T, grow, motion, reveal, useReducedMotion } from "./svg-kit";
 
 /**
  * One operational truth: the number that approves the project and the number
@@ -112,7 +112,7 @@ export function ScreenFigure() {
             : {
                 whileInView: { width: carriedW, x: ZERO - carriedW },
                 viewport: { once: true, margin: "-40px" },
-                transition: { delay: 0.3, duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+                transition: { delay: 0.3, duration: 0.7, ease: EASE },
               })}
         />
         <text

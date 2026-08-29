@@ -2,6 +2,7 @@
 
 import { DECISION_LABEL, EVIDENCE, type Evidence } from "@/lib/engines/progress-engine";
 import { motion } from "framer-motion";
+import { ENTER_EASE } from "@/lib/motion";
 import { Check, CircleSlash, RotateCcw, X } from "lucide-react";
 import type { RefObject } from "react";
 import { SectionRail } from "./ProgressPrimitives";
@@ -36,7 +37,7 @@ export function Day30Act({
       ref={sectionRef}
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.5, ease: ENTER_EASE }}
       className="scroll-mt-20"
     >
       <div className="flex flex-wrap items-start justify-between gap-3">

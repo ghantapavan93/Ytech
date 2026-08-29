@@ -7,6 +7,7 @@ import { ATLAS_BASELINE, runEngine } from "@/lib/engines/engine";
 import { evaluateProgress } from "@/lib/engines/progress-engine";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, RotateCcw } from "lucide-react";
+import { ENTER, SNAP } from "@/lib/motion";
 import { useMemo, useRef, useState } from "react";
 import { ACTS } from "./act-data";
 
@@ -18,9 +19,6 @@ import { ACTS } from "./act-data";
  * kind of thing that costs a page arguing for rigour more than it looks.
  */
 const beat = (n: number) => String(ACTS.length + n).padStart(2, "0");
-
-/** The curve every reveal on the site shares. */
-const EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
  * The run.
@@ -98,18 +96,28 @@ export function TheRun() {
             </span>
           </div>
 
-          <AnimatePresence mode="wait">
-            <motion.h2
-              key={act}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.35, ease: EASE }}
-              className="mt-5 text-2xl font-semibold leading-[1.14] tracking-[-0.028em] text-ink-1 sm:text-[32px]"
-            >
-              {current.headline}
-            </motion.h2>
-          </AnimatePresence>
+          {/*
+            No AnimatePresence here, which is the point.
+
+            With mode="wait" the incoming headline was held until the outgoing
+            one had finished leaving, so every act change cost 350ms of exit
+            before 350ms of entrance and a reader clicking through at their own
+            pace was queueing behind an animation. Apple puts it plainly: do
+            not make people wait out a motion they are going to see again, and
+            this one is seen eight times.
+
+            Remounting on the key swaps the text immediately and springs it in
+            from wherever it is, so a second click retargets instead of waiting.
+          */}
+          <motion.h2
+            key={act}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={SNAP}
+            className="mt-5 text-2xl font-semibold leading-[1.14] tracking-[-0.028em] text-ink-1 sm:text-[32px]"
+          >
+            {current.headline}
+          </motion.h2>
         </div>
 
         {/* The structure, carrying whatever the current act asks of it */}
@@ -118,18 +126,15 @@ export function TheRun() {
         </div>
 
         <div className="md:col-start-1 md:row-start-2">
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={act}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.35, ease: EASE }}
-              className="max-w-xl text-[15px] leading-relaxed text-ink-3"
-            >
-              {current.body}
-            </motion.p>
-          </AnimatePresence>
+          <motion.p
+            key={act}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={SNAP}
+            className="max-w-xl text-[15px] leading-relaxed text-ink-3"
+          >
+            {current.body}
+          </motion.p>
 
           {!epilogue && (
             <button
@@ -183,7 +188,7 @@ export function TheRun() {
             ref={endRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={ENTER}
             className="mt-16 scroll-mt-20"
           >
             <div className="flex items-center gap-3">

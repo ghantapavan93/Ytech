@@ -1,7 +1,8 @@
 "use client";
 
 import { DECISION_LABEL, type ProgressResult } from "@/lib/engines/progress-engine";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { SNAP, ENTER_EASE } from "@/lib/motion";
 import { ArrowDown, CircleDashed } from "lucide-react";
 import type { RefObject } from "react";
 import { EvidenceCharterSheet } from "./EvidenceCharterSheet";
@@ -33,7 +34,7 @@ export function VerdictAct({
       ref={sectionRef}
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.55, ease: ENTER_EASE }}
       className="scroll-mt-20"
     >
       <SectionRail n="03" title="The verdict" />
@@ -49,18 +50,15 @@ export function VerdictAct({
         <p className={`micro-label ${ds.text}`}>
           {DECISION_LABEL[result.decision]}
         </p>
-        <AnimatePresence mode="wait">
-          <motion.h2
+        <motion.h2
             key={result.headline}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.35 }}
+            transition={SNAP}
             className="mt-3 max-w-3xl text-2xl font-semibold leading-[1.14] tracking-[-0.025em] text-ink-1 sm:text-4xl"
           >
             {result.headline}
           </motion.h2>
-        </AnimatePresence>
         <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-3">
           {result.because}
         </p>

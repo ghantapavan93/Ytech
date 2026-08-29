@@ -2,6 +2,7 @@
 
 import type { Layer, LayerState } from "@/lib/engines/progress-engine";
 import { motion } from "framer-motion";
+import { ENTER_EASE } from "@/lib/motion";
 
 /**
  * The spine that runs down the evidence chain.
@@ -22,7 +23,7 @@ const STATE_HEX: Record<LayerState, string> = {
   unknown: "#f59e0b",
 };
 
-const EASE = [0.16, 1, 0.3, 1] as const;
+const EASE = ENTER_EASE;
 
 export function ChainSpine({
   layers,

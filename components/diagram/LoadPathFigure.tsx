@@ -18,8 +18,9 @@
  */
 
 import { motion, useReducedMotion } from "framer-motion";
+import { ENTER_EASE } from "@/lib/motion";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
+const EASE = ENTER_EASE;
 
 const C = {
   claim: "#cdf94a",

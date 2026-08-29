@@ -7,6 +7,7 @@ import {
   evaluate,
 } from "@/lib/engines/proof-engine";
 import { motion } from "framer-motion";
+import { ENTER_EASE } from "@/lib/motion";
 import { useMemo } from "react";
 
 /**
@@ -155,7 +156,7 @@ function Track({
               <motion.span
                 initial={false}
                 animate={{ scale: n.week === current ? 1.25 : 1 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.3, ease: ENTER_EASE }}
                 className={`h-[21px] w-[21px] rounded-full ring-4 ring-canvas`}
                 style={{ background: TONE[n.tone].hex }}
               />

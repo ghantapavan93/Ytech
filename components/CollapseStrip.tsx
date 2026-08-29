@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
+import { ENTER_EASE } from "@/lib/motion";
 import { useRef } from "react";
 
 /**
@@ -97,7 +98,7 @@ export function CollapseStrip() {
                       transition={{
                         duration: 0.9,
                         delay: bandIndex * 0.25 + i * 0.14,
-                        ease: [0.16, 1, 0.3, 1],
+                        ease: ENTER_EASE,
                       }}
                     />
                   </div>

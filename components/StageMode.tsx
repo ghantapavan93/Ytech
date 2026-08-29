@@ -7,7 +7,8 @@ import {
 } from "@/lib/engines/engine";
 import { fmtMoney } from "@/lib/format";
 import { PRESETS } from "@/lib/presets";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { SNAP } from "@/lib/motion";
 import { X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
@@ -185,13 +186,11 @@ export function StageMode({ onClose }: { onClose: () => void }) {
         className="flex flex-1 cursor-pointer items-center px-8 sm:px-16 lg:px-24"
         onClick={next}
       >
-        <AnimatePresence mode="wait">
-          <motion.div
+        <motion.div
             key={index}
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={SNAP}
             className="w-full max-w-5xl"
           >
             <p
@@ -224,7 +223,6 @@ export function StageMode({ onClose }: { onClose: () => void }) {
               </p>
             )}
           </motion.div>
-        </AnimatePresence>
       </div>
 
       <div className="flex items-center justify-between px-6 py-5 sm:px-10">

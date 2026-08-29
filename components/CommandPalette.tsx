@@ -8,6 +8,7 @@ import {
   type NavItem,
 } from "@/lib/nav-data";
 import { AnimatePresence, motion } from "framer-motion";
+import { ENTER_EASE } from "@/lib/motion";
 import { CornerDownLeft, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -127,7 +128,7 @@ export function CommandPalette() {
             initial={{ opacity: 0, y: -8, scale: 0.985 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.985 }}
-            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.18, ease: ENTER_EASE }}
             className="relative w-full max-w-xl overflow-hidden rounded-2xl border border-line-strong bg-surface-1 shadow-[0_28px_90px_-20px_rgba(0,0,0,0.9)]"
           >
             <div className="flex items-center gap-3 border-b border-line px-4">

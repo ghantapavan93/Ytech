@@ -16,6 +16,7 @@ import {
   type EvidenceState,
 } from "@/lib/engines/record-engine";
 import { AnimatePresence, motion } from "framer-motion";
+import { ENTER_EASE } from "@/lib/motion";
 import { ArrowUp, CircleSlash, RotateCcw, ShieldCheck } from "lucide-react";
 import { useMemo, useState } from "react";
 
@@ -79,7 +80,7 @@ function Rung({
           style={{ backgroundColor: hex, opacity: 0.3, borderRight: `2px solid ${hex}` }}
           initial={false}
           animate={{ width: `${pct}%` }}
-          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.55, ease: ENTER_EASE }}
         />
       </span>
 

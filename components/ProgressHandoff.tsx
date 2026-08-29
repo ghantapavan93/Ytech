@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ENTER_EASE } from "@/lib/motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -21,7 +22,7 @@ export function ProgressHandoff({ show }: { show: boolean }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, ease: ENTER_EASE }}
       className="print-hidden border-t border-line"
     >
       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">

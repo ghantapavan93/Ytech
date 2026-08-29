@@ -2,6 +2,7 @@
 
 import type { Layer } from "@/lib/engines/progress-engine";
 import { motion } from "framer-motion";
+import { ENTER_EASE } from "@/lib/motion";
 import { ChainSpine } from "./ChainSpine";
 import { Reading, SectionRail } from "./ProgressPrimitives";
 import { STATE_STYLE } from "./progress-style";
@@ -50,7 +51,7 @@ export function ChainAct({
                   y: shown ? 0 : 6,
                   filter: shown ? "blur(0px)" : "blur(2px)",
                 }}
-                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.45, ease: ENTER_EASE }}
                 className="relative"
               >
                 <span

@@ -6,7 +6,7 @@ import {
   BEST_SIGNED_RANK,
   CONFIGURATIONS,
 } from "@/lib/engines/configurations";
-import { D, MONO, T, motion, reveal, useReducedMotion } from "./svg-kit";
+import { EASE, D, MONO, T, motion, reveal, useReducedMotion } from "./svg-kit";
 
 /**
  * One operational truth: the top of this ranking is refused.
@@ -94,7 +94,7 @@ export function RefusalFigure() {
                     transition: {
                       delay: 0.1 + i * 0.022,
                       duration: 0.6,
-                      ease: [0.16, 1, 0.3, 1],
+                      ease: EASE,
                     },
                   })}
             />

@@ -15,9 +15,11 @@
  */
 
 import { motion, useReducedMotion, type Transition } from "framer-motion";
+import { ENTER_EASE } from "@/lib/motion";
 import type { ReactNode } from "react";
 
-export const EASE = [0.16, 1, 0.3, 1] as const;
+/** The one curve, defined in lib/motion and re-exported so figures share it. */
+export const EASE = ENTER_EASE;
 
 /** State means the same thing in every drawing on the site. */
 export const D = {

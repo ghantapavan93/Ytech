@@ -11,6 +11,7 @@ import {
   VISION_RESTRAINTS,
 } from "@/lib/content/vision-data";
 import { motion, useScroll, useSpring } from "framer-motion";
+import { ENTER_EASE } from "@/lib/motion";
 import {
   ArrowLeft,
   ArrowRight,
@@ -52,7 +53,7 @@ function SectionHead({
   sub?: string;
 }) {
   return (
-    <motion.div {...reveal} transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
+    <motion.div {...reveal} transition={{ duration: 0.55, ease: ENTER_EASE }}>
       <div className="flex items-center gap-2 text-ink-4">
         {icon}
         <p className="micro-label">{kicker}</p>
@@ -162,7 +163,7 @@ export function VisionContent() {
                 key={p.n}
                 className="card p-6"
                 {...reveal}
-                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: ENTER_EASE }}
               >
                 <span className="mono-num text-[11.5px] font-semibold text-cyan-400/80">{p.n}</span>
                 <h3 className="mt-2 text-[15px] font-semibold text-ink-1">{p.title}</h3>
@@ -197,7 +198,7 @@ export function VisionContent() {
                   key={s.stage}
                   className="card grid gap-4 p-6 sm:grid-cols-[64px_1fr_auto]"
                   {...reveal}
-                  transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.5, delay: i * 0.07, ease: ENTER_EASE }}
                 >
                   <span className="mono-num text-2xl font-bold text-ink-4">{s.stage}</span>
                   <div>
@@ -300,7 +301,7 @@ export function VisionContent() {
                 key={q.quote}
                 className="card flex flex-col justify-between gap-4 p-6"
                 {...reveal}
-                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: ENTER_EASE }}
               >
                 <p className="text-[15px] italic leading-relaxed text-ink-2">
                   &ldquo;{q.quote}&rdquo;
@@ -343,7 +344,7 @@ export function VisionContent() {
                 key={s.name}
                 className="card flex flex-col gap-3 p-6"
                 {...reveal}
-                transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.5, delay: i * 0.05, ease: ENTER_EASE }}
               >
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-[15px] font-semibold text-ink-1">{s.name}</h3>

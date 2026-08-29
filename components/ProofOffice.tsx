@@ -10,6 +10,7 @@ import {
   WEEK_LABEL,
 } from "@/lib/engines/proof-engine";
 import { AnimatePresence, motion } from "framer-motion";
+import { SNAP } from "@/lib/motion";
 import { Check, ShieldOff, Undo2, X } from "lucide-react";
 import { ProofDivergenceDiagram } from "./diagram/ProofDivergenceDiagram";
 import { DivergenceTrack } from "./DivergenceTrack";
@@ -79,13 +80,11 @@ export function ProofOffice() {
       <ProofDivergenceDiagram applied={applied} />
 
       {/* The sentence for the week you are standing in. */}
-      <AnimatePresence mode="wait">
-        <motion.div
+      <motion.div
           key={result.headline}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.35 }}
+          transition={SNAP}
           className={`status-surface card p-5 sm:p-6 ${
             result.expired
               ? "border-rose-500/40 bg-rose-500/[0.06]"
@@ -112,7 +111,6 @@ export function ProofOffice() {
             {result.headline}
           </p>
         </motion.div>
-      </AnimatePresence>
 
       {/* Conditions */}
       <div className="card overflow-hidden">
