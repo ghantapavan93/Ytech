@@ -95,7 +95,7 @@ export function SvgFigure({
 }) {
   return (
     <figure className={`card overflow-hidden ${className}`}>
-      <div className="px-4 pt-5 sm:px-6">{children}</div>
+      <div className="figure-pan px-4 pt-5 sm:px-6">{children}</div>
       <figcaption className="mt-2 border-t border-line px-5 py-4">
         <p className="text-[13px] font-medium text-ink-2">{caption}</p>
         <p className="diagram-reading mt-1.5 text-[13px] leading-relaxed text-ink-4">

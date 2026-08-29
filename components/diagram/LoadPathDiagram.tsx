@@ -42,7 +42,7 @@ export function LoadPathDiagram({
 
   return (
     <figure className="card overflow-hidden">
-      <div className="px-4 pt-5 sm:px-6">
+      <div className="figure-pan px-4 pt-5 sm:px-6">
         <LoadPathFigure data={data} />
       </div>
 

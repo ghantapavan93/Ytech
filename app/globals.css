@@ -191,20 +191,43 @@ body {
 
 /* ---------- range input (tactile lever) ---------- */
 
+/*
+ * The lever looks like a 4px rail and behaves like a 28px one.
+ *
+ * The track used to be painted on the input itself, which made the whole
+ * control 4px tall. The thumb rendered outside it and looked grabbable, but
+ * the element a finger has to land on was the 4px strip. Painting the rail on
+ * the track pseudo-element instead frees the input to be tall enough to hit
+ * without changing anything you can see.
+ */
 input[type="range"].lever {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 4px;
-  border-radius: 999px;
-  background: linear-gradient(
+  height: 28px;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  /* Declared here so both vendor track pseudo-elements inherit it. */
+  --track: linear-gradient(
     to right,
     var(--color-live) 0%,
     var(--color-live) var(--fill, 0%),
     rgba(255, 255, 255, 0.12) var(--fill, 0%),
     rgba(255, 255, 255, 0.12) 100%
   );
-  outline: none;
+}
+
+input[type="range"].lever::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--track);
+}
+
+input[type="range"].lever::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--track);
 }
 
 input[type="range"].lever::-webkit-slider-thumb {
@@ -212,6 +235,8 @@ input[type="range"].lever::-webkit-slider-thumb {
   appearance: none;
   width: 18px;
   height: 18px;
+  /* Centres the 18px thumb on the 4px track: (4 - 18) / 2. */
+  margin-top: -7px;
   border-radius: 50%;
   background: #e4e4e7;
   border: 2px solid var(--color-live);
@@ -230,6 +255,7 @@ input[type="range"].lever::-moz-range-thumb {
   border-radius: 50%;
   background: #e4e4e7;
   border: 2px solid var(--color-live);
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.15);
   cursor: pointer;
 }
 
@@ -382,4 +408,55 @@ input[type="range"].lever::-moz-range-thumb {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/*
+ * A 24px hit area on a control that looks smaller.
+ *
+ * WCAG 2.2 asks for 24x24 CSS pixels. Several links here are deliberately
+ * small: the wordmark, and the source citations under each claim, which are
+ * set at 11.5px because they are provenance rather than navigation. Growing
+ * them would change the page; an absolutely positioned overlay grows only
+ * what a finger has to land on.
+ */
+.hit-24 {
+  position: relative;
+}
+
+.hit-24::after {
+  content: "";
+  position: absolute;
+  inset-inline: -2px;
+  top: 50%;
+  translate: 0 -50%;
+  height: max(100%, 24px);
+}
+
+/*
+ * A drawing stops shrinking before its labels stop being legible.
+ *
+ * Every figure here puts its labels inside the drawing rather than in a key
+ * beside it, which is what makes them readable at a glance. But an SVG scales
+ * its text with its viewBox, so the 440-unit load path squeezed into a 303px
+ * phone column rendered its smallest label at 5.1px against the 8.6px it is
+ * drawn for. Holding a minimum width keeps the drawing at its intended scale
+ * and lets the narrow case pan instead of collapse.
+ *
+ * Nothing is lost by choosing not to pan: every figure carries a written
+ * reading underneath that says the same thing in sentences.
+ *
+ * One requirement: a grid or flex ancestor needs min-width: 0. Their default
+ * automatic minimum size is their content, so without it the ancestor grows
+ * to the drawing's full width and the whole page scrolls sideways instead of
+ * the figure panning inside itself.
+ */
+.figure-pan {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+.figure-pan > svg {
+  min-width: 480px;
 }

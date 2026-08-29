@@ -19,7 +19,7 @@ export default function ProgressPage() {
           <div className="flex items-baseline gap-3">
             <Link
               href="/"
-              className="text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
+              className="hit-24 text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
             >
               VALUE&nbsp;SHIFT
             </Link>

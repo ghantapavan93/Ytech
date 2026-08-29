@@ -53,7 +53,7 @@ export default function StackPage() {
           <div className="flex items-baseline gap-3">
             <Link
               href="/"
-              className="text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
+              className="hit-24 text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
             >
               VALUE&nbsp;SHIFT
             </Link>
@@ -318,7 +318,14 @@ export default function StackPage() {
             {FLOOR_CASES.map((c) => (
               <div
                 key={c.n}
-                className={`card grid gap-5 p-6 lg:grid-cols-[1fr_1.15fr] ${
+                /*
+                  [&>*]:min-w-0 because a grid item will not shrink below its
+                  own min-content by default, and the item here holds a code
+                  block. The block scrolls itself, but the track sized to the
+                  unwrapped line anyway and pushed the page 97px wider than a
+                  phone at 375px.
+                */
+                className={`card grid gap-5 p-6 lg:grid-cols-[1fr_1.15fr] [&>*]:min-w-0 ${
                   c.exception ? "border-emerald-500/25 bg-emerald-500/[0.06]" : ""
                 }`}
               >

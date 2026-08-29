@@ -169,7 +169,7 @@ export function StageMode({ onClose }: { onClose: () => void }) {
       aria-label="Stage presentation"
     >
       <div className="flex items-center justify-between px-6 py-4 sm:px-10">
-        <span className="text-[11.5px] font-bold tracking-[0.2em] text-ink-4">
+        <span className="hit-24 text-[11.5px] font-bold tracking-[0.2em] text-ink-4">
           VALUE&nbsp;SHIFT
         </span>
         <button

@@ -66,7 +66,7 @@ export function TriageBoard() {
   return (
     <div className="space-y-5">
       <div className="card overflow-hidden">
-        <div className="px-4 pt-5 sm:px-6">
+        <div className="figure-pan px-4 pt-5 sm:px-6">
           <TriageFigure results={results} />
         </div>
       </div>

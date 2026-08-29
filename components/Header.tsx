@@ -33,7 +33,7 @@ export function Header({ out, showVerdict, onWatch }: HeaderProps) {
     <header className="print-hidden sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur-xl">
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-4 px-5">
         <div className="flex items-baseline gap-3">
-          <span className="text-[15px] font-bold tracking-[-0.01em] text-ink-1">
+          <span className="hit-24 text-[15px] font-bold tracking-[-0.01em] text-ink-1">
             VALUE&nbsp;SHIFT
           </span>
           <span className="hidden font-mono text-[11.5px] text-ink-4 lg:block">

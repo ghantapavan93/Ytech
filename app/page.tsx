@@ -1,4 +1,5 @@
 import { CommandHint } from "@/components/CommandPalette";
+import { ACT_COUNT_WORD } from "@/components/run/act-data";
 import { TheRun } from "@/components/run/TheRun";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -17,7 +18,7 @@ export default function RunPage() {
           <div className="flex items-baseline gap-3">
             <Link
               href="/"
-              className="text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
+              className="hit-24 text-[15px] font-bold tracking-[-0.01em] text-ink-1 transition-colors hover:text-white"
             >
               VALUE&nbsp;SHIFT
             </Link>
@@ -35,7 +36,7 @@ export default function RunPage() {
         <section className="relative mx-auto w-full max-w-6xl px-5 pt-16 sm:pt-20">
           <div className="hero-decor" aria-hidden />
           <p className="micro-label fade-up">
-            One load, one structure, six acts
+            One load, one structure, {ACT_COUNT_WORD} acts
           </p>
           <h1
             className="fade-up mt-5 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] text-ink-1 sm:text-5xl"
@@ -50,11 +51,13 @@ export default function RunPage() {
             className="fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-ink-3"
             style={{ animationDelay: "160ms" }}
           >
-            The drawing on the right is the firm&rsquo;s operating system read
-            as a load path. Released capacity enters at the top and reaches
-            business value only where something carries it. Every act
-            recomputes the same deterministic model, so the structure responds
-            rather than being redrawn.
+            The agent does everything it promised. Every technical test
+            passes, and the firm still ends the month worse off. The drawing
+            reads the firm&rsquo;s operating system as a load path: released
+            capacity enters at the top and reaches business value only where
+            something carries it. Four members decide whether it gets there,
+            and a pilot that changes one of them fails for reasons the pilot
+            cannot see.
           </p>
         </section>
 

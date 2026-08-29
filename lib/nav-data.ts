@@ -43,7 +43,7 @@ export const NAV_ITEMS: NavItem[] = [
   {
     href: "/",
     name: "The run",
-    blurb: "One load travelling through a firm that cannot carry it, in six acts.",
+    blurb: "One load travelling through a firm that cannot carry it, in eight acts.",
     group: "instrument",
     keywords: [
       "load path",

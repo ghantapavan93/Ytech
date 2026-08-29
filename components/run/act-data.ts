@@ -135,3 +135,16 @@ export const ACTS: Act[] = [
     levers: PRACTICE,
   },
 ];
+
+/**
+ * The count, spelled out.
+ *
+ * "One load, one structure, 8 acts" mixes words and numerals inside one
+ * phrase. Derived rather than typed, because the typed version said six for
+ * two acts longer than it was true.
+ */
+const NUMERALS = [
+  "zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
+  "nine", "ten", "eleven", "twelve",
+];
+export const ACT_COUNT_WORD = NUMERALS[ACTS.length] ?? String(ACTS.length);
