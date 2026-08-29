@@ -118,6 +118,18 @@ export default function TriagePage() {
             </Link>
             .
           </p>
+          <p className="mt-4 max-w-2xl text-[13px] leading-relaxed text-ink-4">
+            The question most firms reach for between those two steps is
+            whether to build the thing or buy it. It is a smaller question than
+            it looks, and it is not the cost question everyone treats it as.{" "}
+            <Link
+              href="/sourcing"
+              className="text-ink-2 underline decoration-zinc-700 underline-offset-2 transition-colors hover:text-ink-1"
+            >
+              Build it or buy it
+            </Link>
+            .
+          </p>
         </section>
 
         <p className="mt-12 text-[11.5px] leading-relaxed text-ink-4">

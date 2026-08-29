@@ -74,6 +74,26 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
+    href: "/sourcing",
+    name: "Build it or buy it",
+    blurb:
+      "A sourcing screen that asks about the size of the market rather than the size of the invoice.",
+    group: "instrument",
+    keywords: [
+      "build",
+      "buy",
+      "sourcing",
+      "vendor",
+      "off the shelf",
+      "in house",
+      "moat",
+      "market size",
+      "tam",
+      "subscription",
+      "maintain",
+    ],
+  },
+  {
     href: "/refusal",
     name: "The number it will not sign",
     blurb:
