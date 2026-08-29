@@ -465,3 +465,51 @@ input[type="range"].lever::-moz-range-thumb {
 .figure-pan > svg {
   min-width: 480px;
 }
+
+/*
+ * Numbers inside a drawing are tabular, always.
+ *
+ * Every figure here recomputes in place: 168h becomes 134h, 26.3h becomes
+ * 5.0h, 0% becomes 20%. With proportional digits the label shifts sideways
+ * on every change, because a 1 is narrower than a 4, and the whole drawing
+ * appears to twitch each time a lever moves. Tabular figures hold the
+ * column, which is also simply what a number in a technical drawing is.
+ */
+svg text {
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * Prose caps its measure in characters, not pixels.
+ *
+ * max-w-2xl and max-w-3xl are pixel widths, and body text here runs from
+ * 11.5px to 15px, so the same container gave 90 characters a line in one
+ * place and 130 in another. Measured across the site the typical wrapping
+ * paragraph sat at 100 characters and the engineer page at 130, against the
+ * 45 to 75 a line is comfortable to track.
+ *
+ * A ch cap scales with whatever size the text actually is, so one number is
+ * right everywhere. It only ever narrows: inside a card that is already
+ * narrower than the cap it does nothing at all.
+ *
+ * 64 rather than 75 because the ch unit is the width of a zero, which is
+ * wider than the average character in running text. Measured by counting
+ * real characters against rendered lines, 75ch came out at 85 characters and
+ * 64ch lands at roughly 72, inside the range a line is comfortable to track.
+ */
+main p,
+main li,
+figcaption p {
+  max-width: 64ch;
+}
+
+/*
+ * Opt out where full width is the point: a row of readings, a label beside a
+ * value, anything laid out rather than read.
+ */
+main .full-measure,
+main .full-measure p,
+main dl p,
+main p.micro-label {
+  max-width: none;
+}
