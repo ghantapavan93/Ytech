@@ -26,6 +26,15 @@ const STATE_HEX: Record<EvidenceState, string> = {
   retired: "#71717a",
 };
 
+/**
+ * One rung of the evidence ladder.
+ *
+ * These four counts describe a funnel: twelve decisions get claimed, fewer
+ * get observed, fewer still get verified, and almost none stay true. They
+ * used to sit in a four-column grid of cards, each with its own little bar
+ * scaled to its own card, which is exactly the layout that hides a funnel.
+ * Stacked on one shared track, the narrowing is the first thing you see.
+ */
 function Rung({
   state,
   count,
@@ -41,32 +50,41 @@ function Rung({
 }) {
   const hex = STATE_HEX[state];
   const pct = max === 0 ? 0 : (count / max) * 100;
+
   return (
     <button
       onClick={onClick}
       aria-pressed={active}
-      className={`w-full rounded-xl border p-4 text-left transition-colors ${
-        active ? "border-line-strong bg-white/[0.04]" : "border-line hover:bg-white/[0.02]"
+      className={`group flex w-full items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors sm:gap-4 ${
+        active ? "bg-white/[0.05]" : "hover:bg-white/[0.025]"
       }`}
     >
-      <div className="flex items-baseline justify-between gap-3">
-        <span className="text-[12.5px] font-semibold" style={{ color: hex }}>
-          {STATE_LABEL[state]}
-        </span>
-        <span className="mono-num text-[15px] font-semibold text-zinc-200">{count}</span>
-      </div>
-      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
-        <motion.div
-          className="h-full rounded-full"
-          style={{ backgroundColor: hex }}
+      <span
+        className="w-[74px] shrink-0 text-[12px] font-semibold uppercase tracking-[0.08em] sm:w-[86px]"
+        style={{ color: hex }}
+      >
+        {STATE_LABEL[state]}
+      </span>
+
+      <span className="mono-num w-6 shrink-0 text-right text-[19px] font-semibold text-zinc-100 sm:text-[22px]">
+        {count}
+      </span>
+
+      {/* The track is drawn full width so the shortfall is as visible as
+          the bar. Without it these read as four bars rather than a drop. */}
+      <span className="relative h-[22px] min-w-0 flex-1 overflow-hidden rounded-sm border border-dashed border-white/[0.09] sm:h-[26px]">
+        <motion.span
+          className="absolute inset-y-0 left-0 block"
+          style={{ backgroundColor: hex, opacity: 0.3, borderRight: `2px solid ${hex}` }}
           initial={false}
           animate={{ width: `${pct}%` }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
         />
-      </div>
-      <p className="mt-2 text-[10.5px] leading-relaxed text-zinc-600">
+      </span>
+
+      <span className="hidden w-[15rem] shrink-0 text-[11.5px] leading-tight text-zinc-500 lg:block">
         {STATE_MEANING[state]}
-      </p>
+      </span>
     </button>
   );
 }
@@ -227,7 +245,7 @@ export function DecisionRecords() {
           )}
         </div>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 space-y-1">
           {STATE_ORDER.map((s) => (
             <Rung
               key={s}
