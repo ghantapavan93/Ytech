@@ -1,7 +1,7 @@
 /**
  * The caveat, in the header rather than the footer.
  *
- * Atlas is calibrated against published DOT fee schedules and A&E benchmarks,
+ * Atlas takes its inputs from published DOT fee schedules and A&E benchmarks,
  * which makes it plausible. It does not make any figure here predictive for a
  * real firm, and the distance between those two things is exactly where an
  * instrument like this loses people's trust if it is coy about it.

@@ -1,4 +1,5 @@
 import { CommandHint } from "@/components/CommandPalette";
+import { FilmPlaceholder } from "@/components/FilmPlaceholder";
 import { RefusalFigure } from "@/components/diagram/RefusalFigure";
 import {
   BEST,
@@ -156,6 +157,16 @@ export default function RefusalPage() {
               );
             })}
           </div>
+        </section>
+
+        <section className="mt-12">
+          <FilmPlaceholder
+            eyebrow="Ninety seconds"
+            title="Try to break it."
+            supporting="Five things you can change, live, and what the instrument does with each."
+            runtime="1:30"
+            poster="refusal"
+          />
         </section>
 
         <section className="mt-14 border-t border-line pt-10">

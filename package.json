@@ -9,7 +9,10 @@
     "start": "set NEXT_DIST_DIR=.next-build&& next start",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "count:invariants": "node scripts/count-invariants.mjs",
+    "prebuild": "node scripts/count-invariants.mjs",
+    "pretest": "node scripts/count-invariants.mjs"
   },
   "dependencies": {
     "framer-motion": "^13.1.1",

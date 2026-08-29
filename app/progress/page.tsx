@@ -140,7 +140,7 @@ export default function ProgressPage() {
 
         <p className="mt-12 text-[11.5px] leading-relaxed text-ink-4">
           Built by Pavan Kalyan as an independent prototype, not affiliated with
-          YegaTech. The specification-QA case is synthetic and calibrated
+          YegaTech. The specification-QA case is synthetic, with inputs informed by published
           against published consultant fee and utilization data. It is a worked
           example of the method, not a claim about any real firm.
         </p>

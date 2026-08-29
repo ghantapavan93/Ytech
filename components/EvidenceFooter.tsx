@@ -71,7 +71,7 @@ const CITATIONS: Citation[] = [
  * Why this instrument exists, the intellectual grounding, the mapping onto
  * YegaTech's published frameworks, and the honesty statement.
  */
-export function EvidenceFooter() {
+export function EvidenceFooter({ invariantCount }: { invariantCount: number }) {
   return (
     <footer className="print-hidden border-t border-line">
       <div className="mx-auto w-full max-w-6xl px-5 py-14">
@@ -160,7 +160,7 @@ export function EvidenceFooter() {
             </Link>
           </p>
           <p className="mono-num text-[11.5px] text-ink-4">
-            deterministic engine v1 · 137 invariant tests
+            deterministic engine v1 · {invariantCount} invariant tests
           </p>
         </div>
       </div>

@@ -149,12 +149,12 @@ export function DemandBoard() {
       <p className="border-l-2 border-line-strong pl-4 text-[13px] leading-relaxed text-ink-3">
         {marketShare >= 1 ? (
           <>
-            At this market{" "}
+            In this synthetic scenario{" "}
             <span className="font-semibold text-ink-1">
-              {Math.round(marketShare)}% of the fixed-fee gain is the labour
-              market
+              {Math.round(marketShare)}% of the modelled fixed-fee gain depends
+              on assumed market demand
             </span>{" "}
-            rather than anything the firm designed, and the agent is identical
+            rather than on anything the firm designed, and the agent is identical
             at both ends of the dial. Billed hourly the same subsidy is the only
             thing between a bad month and a much worse one, and it was never
             going to make the month good.

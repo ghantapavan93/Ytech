@@ -185,7 +185,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     href: "/agent",
-    listed: false,
+listed: false,
     name: "The working agent",
     blurb: "Type a task. It does the preparation and hands the judgment back.",
     group: "instrument",
@@ -193,7 +193,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     href: "/prep",
-    listed: false,
+listed: false,
     name: "The prep board",
     blurb: "Fifteen minutes before a client call, sourced from published writing.",
     group: "instrument",

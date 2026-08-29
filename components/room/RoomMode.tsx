@@ -195,6 +195,10 @@ export function RoomMode() {
                     The firm ends the month {plain(opening.deltaMargin)} worse.
                   </span>
                 </h1>
+                <p className="mt-5 text-[12.5px] text-ink-4">
+                  Atlas Civil is a synthetic AEC scenario. Every result here is
+                  illustrative and editable, and none of it is a forecast.
+                </p>
                 <button
                   onClick={() => go(1)}
                   className="group mt-10 inline-flex items-center gap-2.5 rounded-xl border border-line-strong bg-surface-1 px-6 py-3.5 text-[16px] font-medium text-ink-1 transition-colors hover:border-white/25 hover:bg-surface-2"
@@ -412,6 +416,9 @@ function Reading({
     <div className="border-t border-line pt-2.5">
       <p className="micro-label">{label}</p>
       <p className={`mono-num mt-0.5 text-[22px] font-semibold ${c}`}>{value}</p>
+      <p className="mt-0.5 text-[10px] uppercase tracking-wide text-ink-4">
+        Synthetic scenario, not a forecast
+      </p>
     </div>
   );
 }

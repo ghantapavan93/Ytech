@@ -142,7 +142,7 @@ export const IDENTIFICATION: Identification[] = [
   },
   {
     q: "The exact moment they open it",
-    a: "Someone says “we have an agent that is 42% faster” or “we want to automate this workflow”, keynote prep, cohort kickoff, first strategy call.",
+    a: "Someone says “we have an agent that takes 42% less time” or “we want to automate this workflow”, keynote prep, cohort kickoff, first strategy call.",
   },
   {
     q: "What they currently do instead",

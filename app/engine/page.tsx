@@ -2,6 +2,7 @@
 
 import { Autopilot } from "@/components/Autopilot";
 import { EvidenceFooter } from "@/components/EvidenceFooter";
+import { INVARIANT_COUNT } from "@/lib/engines/invariants";
 import { ProgressHandoff } from "@/components/ProgressHandoff";
 import { Header } from "@/components/Header";
 import { useAutopilot } from "@/components/useAutopilot";
@@ -159,7 +160,7 @@ export default function Home() {
         )}
       </main>
       <ProgressHandoff show={stage >= 4} />
-      <EvidenceFooter />
+      <EvidenceFooter invariantCount={INVARIANT_COUNT} />
       <Autopilot pilot={pilot} />
     </div>
   );

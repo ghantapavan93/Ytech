@@ -203,7 +203,7 @@ export default function EngineerPage() {
             ))}
           </div>
           <p className="mt-4 max-w-3xl text-[13px] leading-relaxed text-ink-4">
-            Calibrated against published state DOT consultant fee schedules,
+            Inputs informed by published state DOT consultant fee schedules,
             which are the only non-vendor source that breaks staff hours out by
             class. Across nine Ohio DOT packages the preparer share averages
             72.8%; this model sits at 76.9%. That makes it plausible. It does
