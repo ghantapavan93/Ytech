@@ -1,6 +1,7 @@
 "use client";
 
 import { LoadPathDiagram } from "@/components/diagram/LoadPathDiagram";
+import { DivergenceTrack } from "@/components/DivergenceTrack";
 import { EvidenceCharterSheet } from "@/components/progress/EvidenceCharterSheet";
 import { ATLAS_BASELINE, runEngine } from "@/lib/engines/engine";
 import { evaluateProgress } from "@/lib/engines/progress-engine";
@@ -166,6 +167,12 @@ export function TheRun() {
                 decision that authorised it is void. Repairing every condition
                 earns one bounded retest, never the clearance it started with.
               </p>
+
+              {/* Shown rather than asserted. The paragraph above claims the
+                  two facts diverge; this is the record doing it. */}
+              <div className="mt-7">
+                <DivergenceTrack applied={[]} week={6} />
+              </div>
 
               <p className="mt-12 max-w-3xl text-xl font-medium leading-[1.35] tracking-[-0.02em] text-zinc-200 sm:text-2xl">
                 Your dashboard tells the board that AI is growing. This tells the
