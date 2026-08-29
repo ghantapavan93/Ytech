@@ -21,16 +21,19 @@ interface Stage3Props {
 }
 
 function LeverBlock({
+  id,
   step,
   title,
   children,
 }: {
+  /** Anchor, so the autopilot can bring this lever into view as it turns it. */
+  id?: string;
   step: string;
   title: string;
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div id={id} className="scroll-mt-24">
       <div className="mb-2 flex items-baseline gap-2.5">
         <span className="mono-num text-[11px] font-semibold text-cyan-400/80">{step}</span>
         <h3 className="text-[13px] font-semibold tracking-wide text-zinc-200">{title}</h3>
@@ -106,7 +109,7 @@ export function Stage3Levers({
         <div className="mt-8 grid gap-5 lg:grid-cols-[1.15fr_1fr]">
           {/* Levers */}
           <div className="card space-y-6 p-6">
-            <LeverBlock step="01" title="Contract pricing model">
+            <LeverBlock id="lever-pricing" step="01" title="Contract pricing model">
               <SegmentedControl
                 ariaLabel="Contract pricing model"
                 value={levers.pricingModel}
@@ -123,7 +126,7 @@ export function Stage3Levers({
               />
             </LeverBlock>
 
-            <LeverBlock step="02" title="Saved-capacity routing">
+            <LeverBlock id="lever-capacity" step="02" title="Saved-capacity routing">
               <RangeSlider
                 ariaLabel="Share of freed junior hours redeployed to backlog"
                 min={0}
@@ -137,7 +140,7 @@ export function Stage3Levers({
               />
             </LeverBlock>
 
-            <LeverBlock step="03" title="Review architecture">
+            <LeverBlock id="lever-review" step="03" title="Review architecture">
               <SegmentedControl
                 ariaLabel="PE review architecture"
                 value={levers.reviewArchitecture}
@@ -155,7 +158,7 @@ export function Stage3Levers({
               />
             </LeverBlock>
 
-            <LeverBlock step="04" title="Apprenticeship safeguard">
+            <LeverBlock id="lever-apprenticeship" step="04" title="Apprenticeship safeguard">
               <SegmentedControl
                 ariaLabel="Apprenticeship safeguard"
                 value={levers.apprenticeshipSafeguard}
@@ -233,7 +236,8 @@ export function Stage3Levers({
           {/* Live outcome */}
           <div className="flex flex-col gap-5">
             <div
-              className={`status-surface card p-6 ${sys.bgTint} ${sys.border}`}
+              id="verdict-governed"
+              className={`status-surface card scroll-mt-24 p-6 ${sys.bgTint} ${sys.border}`}
               style={{ boxShadow: `0 0 48px -18px ${sys.hex}66` }}
             >
               <div className="flex items-center justify-between">

@@ -94,7 +94,8 @@ export function Stage2Shockwave({ out, aiSpeedupPct, retuneRevealed, onRetune }:
 
         {/* Verdict banner */}
         <div
-          className={`verdict-glow card mt-5 flex flex-col gap-3 p-6 sm:flex-row sm:items-center sm:justify-between ${sys.bgTint}`}
+          id="verdict-naive"
+          className={`verdict-glow card mt-5 flex scroll-mt-24 flex-col gap-3 p-6 sm:flex-row sm:items-center sm:justify-between ${sys.bgTint}`}
           style={
             {
               "--glow-color": `${sys.hex}55`,
@@ -161,7 +162,7 @@ export function Stage2Shockwave({ out, aiSpeedupPct, retuneRevealed, onRetune }:
           </div>
 
           {/* Four pillars */}
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div id="pillars" className="grid scroll-mt-24 gap-4 sm:grid-cols-2">
             <PillarCard
               index={0}
               icon={<Landmark size={14} />}
