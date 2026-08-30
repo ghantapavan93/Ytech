@@ -1,6 +1,8 @@
 import { CommandHint } from "@/components/CommandPalette";
 import { SyntheticBadge } from "@/components/SyntheticBadge";
 import { ATLAS_BASELINE, NAIVE_DEPLOYMENT, runEngine } from "@/lib/engines/engine";
+import { GOVERNED_LEVERS } from "@/components/run/act-data";
+import { computeIndexLens } from "@/lib/engines/index-lens";
 import { INVARIANT_COUNT, SUITE, SUITE_FILE_COUNT } from "@/lib/engines/invariants";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
@@ -88,6 +90,11 @@ const RULES: { rule: string; because: string }[] = [
 
 export default function EngineerPage() {
   const naive = runEngine(ATLAS_BASELINE, NAIVE_DEPLOYMENT);
+  const naiveLens = computeIndexLens(naive, NAIVE_DEPLOYMENT);
+  const governedLens = computeIndexLens(
+    runEngine(ATLAS_BASELINE, GOVERNED_LEVERS),
+    GOVERNED_LEVERS,
+  );
 
   return (
     <div className="min-h-screen">
@@ -229,6 +236,63 @@ export default function EngineerPage() {
                 </div>
               ))}
           </div>
+        </section>
+
+        {/*
+          The one place this model touches somebody else published work, so
+          it is the one mapping most worth contesting and it belongs here
+          rather than only in a comment.
+        */}
+        <section className="mt-14">
+          <p className="micro-label">
+            The one borrowed scale, and where it stops
+          </p>
+          <p className="mt-3 text-[13px] leading-relaxed text-ink-4">
+            The four dimensions, their weights and the stage bands are read
+            from a published assessment scoring script and are not mine. The
+            mapping from wind-tunnel output onto its one-to-five scale is
+            mine, is deterministic, and is the part to argue with.
+          </p>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {[
+              { label: "Operating model untouched", lens: naiveLens },
+              { label: "Every lever this recommends", lens: governedLens },
+            ].map((c) => (
+              <div key={c.label} className="card p-5">
+                <p className="micro-label">{c.label}</p>
+                <p className="mono-num mt-1.5 text-[26px] font-semibold text-ink-1">
+                  {c.lens.scorePct.toFixed(1)}%
+                  <span className="ml-2 text-[13px] font-normal text-ink-3">
+                    {c.lens.stage}
+                  </span>
+                </p>
+                <dl className="mt-3.5 space-y-1 border-t border-line pt-3 text-[12.5px]">
+                  {c.lens.dimensions.map((d) => (
+                    <div key={d.name} className="flex justify-between gap-3">
+                      <dt className="text-ink-4">
+                        {d.name}{" "}
+                        <span className="mono-num text-[11px]">w {d.weight}</span>
+                      </dt>
+                      <dd className="mono-num text-ink-2">{d.rating} / 5</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-5 max-w-3xl border-l-2 border-line-strong pl-4 text-[13px] leading-relaxed text-ink-3">
+            Fixing every condition this instrument can reach moves the firm{" "}
+            <span className="font-semibold text-ink-1">
+              {(governedLens.scorePct - naiveLens.scorePct).toFixed(1)} points
+            </span>{" "}
+            and then stops, half a point short of the top band. Culture carries
+            a fifth of that scale and is held at a flat three throughout,
+            because this measures economics and will not score what it cannot
+            see. The remaining distance is not a gap in the model. It is the
+            part of the work that was never economic.
+          </p>
         </section>
 
         <section className="mt-14">
