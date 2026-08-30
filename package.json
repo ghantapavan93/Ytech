@@ -5,8 +5,11 @@
   "description": "Value Shift — the AEC AI Economics Wind Tunnel. A deterministic scenario-rehearsal instrument: propagate an AI workflow through a firm's fee model, incentives, review capacity, and talent system before deploying it.",
   "scripts": {
     "dev": "set NODE_PATH=%CD%\\node_modules&& next dev --turbopack",
-    "build": "set NODE_PATH=%CD%\\node_modules&& set NEXT_DIST_DIR=.next-build&& next build",
-    "start": "set NEXT_DIST_DIR=.next-build&& next start",
+    "build": "next build",
+    "build:local": "set NEXT_DIST_DIR=.next-build&& next build",
+    "prebuild:local": "node scripts/count-invariants.mjs",
+    "start": "next start",
+    "start:local": "set NEXT_DIST_DIR=.next-build&& next start",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
