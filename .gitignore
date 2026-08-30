@@ -26,3 +26,6 @@ DEMO.md
 
 # Next build output when NEXT_DIST_DIR is set
 .next-build/
+
+.vercel
+.env*
