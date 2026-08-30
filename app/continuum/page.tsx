@@ -28,7 +28,7 @@ export default function ContinuumPage() {
               // Continuum
             </span>
           </div>
-          <div className="flex items-center gap-2.5">
+          <nav aria-label="Site" className="flex items-center gap-2.5">
             <CommandHint />
             <Link
               href="/"
@@ -37,7 +37,7 @@ export default function ContinuumPage() {
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">The run</span>
             </Link>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -127,13 +127,15 @@ export default function ContinuumPage() {
           </p>
         </section>
 
+      </main>
+      <footer>
         <p className="mt-12 text-[11.5px] leading-relaxed text-ink-4">
           Built by Pavan Kalyan as an independent prototype, not affiliated with
           YegaTech. The position record here is assembled from public,
           attributed sources for demonstration; the approval shown is
           illustrative and nobody has approved anything.
         </p>
-      </main>
+      </footer>
     </div>
   );
 }

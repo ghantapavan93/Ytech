@@ -105,7 +105,7 @@ export default function ReviewPage() {
               // The Kill Review
             </span>
           </div>
-          <div className="flex items-center gap-2.5">
+          <nav aria-label="Site" className="flex items-center gap-2.5">
             <CommandHint />
             <Link
               href="/"
@@ -114,7 +114,7 @@ export default function ReviewPage() {
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
             </Link>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -394,14 +394,16 @@ export default function ReviewPage() {
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
-          <p className="mt-8 text-[11.5px] text-ink-4">
-            Built by Pavan Kalyan. Independent work, not affiliated with or
-            endorsed by YegaTech. Scores and verdicts are the author's recorded
-            judgments; external facts cited on the instrument page were verified
-            against primary sources.
-          </p>
         </section>
       </main>
+      <footer>
+        <p className="mt-8 text-[11.5px] text-ink-4">
+          Built by Pavan Kalyan. Independent work, not affiliated with or
+          endorsed by YegaTech. Scores and verdicts are the author's recorded
+          judgments; external facts cited on the instrument page were verified
+          against primary sources.
+        </p>
+      </footer>
     </div>
   );
 }

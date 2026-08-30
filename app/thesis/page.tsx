@@ -152,7 +152,7 @@ export default function ThesisPage() {
               // The Receipts
             </span>
           </div>
-          <div className="flex items-center gap-2.5">
+          <nav aria-label="Site" className="flex items-center gap-2.5">
             <CommandHint />
             <Link
               href="/"
@@ -161,7 +161,7 @@ export default function ThesisPage() {
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
             </Link>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -685,13 +685,15 @@ export default function ThesisPage() {
               />
             </Link>
           </div>
-          <p className="mt-8 text-[11.5px] text-ink-4">
-            Built by Pavan Kalyan. Independent work, not affiliated with or
-            endorsed by YegaTech. Quotes are 15 words or fewer, attributed and
-            linked; anything unverifiable was left out.
-          </p>
         </section>
       </main>
+      <footer>
+        <p className="mt-8 text-[11.5px] text-ink-4">
+          Built by Pavan Kalyan. Independent work, not affiliated with or
+          endorsed by YegaTech. Quotes are 15 words or fewer, attributed and
+          linked; anything unverifiable was left out.
+        </p>
+      </footer>
     </div>
   );
 }

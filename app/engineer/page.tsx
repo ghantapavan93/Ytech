@@ -112,7 +112,7 @@ export default function EngineerPage() {
               // Engineer view
             </span>
           </div>
-          <div className="flex items-center gap-2.5">
+          <nav aria-label="Site" className="flex items-center gap-2.5">
             <CommandHint />
             <Link
               href="/"
@@ -121,7 +121,7 @@ export default function EngineerPage() {
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">The run</span>
             </Link>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -327,13 +327,15 @@ export default function EngineerPage() {
           </p>
         </section>
 
+      </main>
+      <footer>
         <p className="mt-14 text-[11.5px] leading-relaxed text-ink-4">
           Built by Pavan Kalyan as an independent prototype, not affiliated with
           YegaTech. Atlas Structural &amp; Civil is synthetic. Illustrative
           economics, not a forecast: replace with firm evidence before any real
           decision.
         </p>
-      </main>
+      </footer>
     </div>
   );
 }

@@ -35,7 +35,7 @@ export default function DemandPage() {
               // What the shortage is worth
             </span>
           </div>
-          <div className="flex items-center gap-2.5">
+          <nav aria-label="Site" className="flex items-center gap-2.5">
             <CommandHint />
             <Link
               href="/"
@@ -44,7 +44,7 @@ export default function DemandPage() {
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">The run</span>
             </Link>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -126,6 +126,8 @@ export default function DemandPage() {
           </p>
         </section>
 
+      </main>
+      <footer>
         <p className="mt-12 text-[11.5px] leading-relaxed text-ink-4">
           Built by Pavan Kalyan as an independent prototype, not affiliated with
           YegaTech. Atlas Structural &amp; Civil is synthetic. The share of freed
@@ -133,7 +135,7 @@ export default function DemandPage() {
           figure, and the arithmetic downstream of it is the same deterministic
           engine every other page on this site runs on.
         </p>
-      </main>
+      </footer>
     </div>
   );
 }

@@ -29,9 +29,9 @@ export default function RunPage() {
               // The instrument
             </span>
           </div>
-          <div className="flex items-center gap-2.5">
+          <nav aria-label="Site" className="flex items-center gap-2.5">
             <CommandHint />
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -139,13 +139,15 @@ export default function RunPage() {
           </p>
         </section>
 
+      </main>
+      <footer>
         <p className="mx-auto w-full max-w-6xl px-5 pb-16 pt-12 text-[11.5px] leading-relaxed text-ink-4">
           Built by Pavan Kalyan as an independent prototype, not affiliated with
           YegaTech. Atlas Structural &amp; Civil is synthetic, with inputs informed by
           published consultant fee and utilization data. No real firm and no real
           engagement is represented.
         </p>
-      </main>
+      </footer>
     </div>
   );
 }

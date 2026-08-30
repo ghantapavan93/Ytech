@@ -28,7 +28,7 @@ export default function RecordPage() {
               // Decision Record
             </span>
           </div>
-          <div className="flex items-center gap-2.5">
+          <nav aria-label="Site" className="flex items-center gap-2.5">
             <CommandHint />
             <Link
               href="/"
@@ -37,7 +37,7 @@ export default function RecordPage() {
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
             </Link>
-          </div>
+          </nav>
         </div>
       </header>
 

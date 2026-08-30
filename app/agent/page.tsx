@@ -29,7 +29,7 @@ export default function AgentPage() {
               // The Working Agent
             </span>
           </div>
-          <div className="flex items-center gap-2.5">
+          <nav aria-label="Site" className="flex items-center gap-2.5">
             <CommandHint />
             <Link
               href="/"
@@ -38,7 +38,7 @@ export default function AgentPage() {
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
             </Link>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -83,13 +83,15 @@ export default function AgentPage() {
           <AgentConsole />
         </section>
 
+      </main>
+      <footer>
         <p className="mt-12 text-[11.5px] leading-relaxed text-ink-4">
           Built by Pavan Kalyan as an independent prototype, not affiliated
           with YegaTech. The five jobs were chosen from publicly described
           consulting work: firm diagnosis, speaking, advising on what to build,
           reviewing what was decided, and following up afterwards.
         </p>
-      </main>
+      </footer>
     </div>
   );
 }

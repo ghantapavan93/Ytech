@@ -130,35 +130,37 @@ export function EvidenceFooter({ invariantCount }: { invariantCount: number }) {
         </div>
 
         <div className="mt-10 flex flex-col gap-2 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[11.5px] text-ink-4">
-            Built by Pavan Kalyan as a working prototype in the spirit of
-            YegaTech's research. Independent work, not affiliated with or
-            endorsed by YegaTech.{" "}
-            <Link
-              href="/run"
-              className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
-            >
-              The run →
-            </Link>{" "}
-            <Link
-              href="/vision"
-              className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
-            >
-              The vision →
-            </Link>{" "}
-            <Link
-              href="/thesis"
-              className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
-            >
-              The receipts →
-            </Link>{" "}
-            <Link
-              href="/"
-              className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
-            >
-              The engine →
-            </Link>
-          </p>
+          <footer>
+            <p className="text-[11.5px] text-ink-4">
+              Built by Pavan Kalyan as a working prototype in the spirit of
+              YegaTech's research. Independent work, not affiliated with or
+              endorsed by YegaTech.{" "}
+              <Link
+                href="/run"
+                className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
+              >
+                The run →
+              </Link>{" "}
+              <Link
+                href="/vision"
+                className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
+              >
+                The vision →
+              </Link>{" "}
+              <Link
+                href="/thesis"
+                className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
+              >
+                The receipts →
+              </Link>{" "}
+              <Link
+                href="/"
+                className="text-ink-3 underline decoration-ink-4 underline-offset-2 transition-colors hover:text-ink-1"
+              >
+                The engine →
+              </Link>
+            </p>
+          </footer>
           <p className="mono-num text-[11.5px] text-ink-4">
             deterministic engine v1 · {invariantCount} invariant tests
           </p>

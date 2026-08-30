@@ -29,7 +29,7 @@ export default function ProgressPage() {
               // Proof of Progress
             </span>
           </div>
-          <div className="flex items-center gap-2.5">
+          <nav aria-label="Site" className="flex items-center gap-2.5">
             <CommandHint />
             <Link
               href="/"
@@ -38,7 +38,7 @@ export default function ProgressPage() {
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
             </Link>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -138,13 +138,15 @@ export default function ProgressPage() {
           </div>
         </section>
 
+      </main>
+      <footer>
         <p className="mt-12 text-[11.5px] leading-relaxed text-ink-4">
           Built by Pavan Kalyan as an independent prototype, not affiliated with
           YegaTech. The specification-QA case is synthetic, with inputs informed by published
           against published consultant fee and utilization data. It is a worked
           example of the method, not a claim about any real firm.
         </p>
-      </main>
+      </footer>
     </div>
   );
 }

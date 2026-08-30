@@ -32,7 +32,7 @@ export default function SourcingPage() {
               // Build it or buy it
             </span>
           </div>
-          <div className="flex items-center gap-2.5">
+          <nav aria-label="Site" className="flex items-center gap-2.5">
             <CommandHint />
             <Link
               href="/"
@@ -41,7 +41,7 @@ export default function SourcingPage() {
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">The run</span>
             </Link>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -126,6 +126,8 @@ export default function SourcingPage() {
           </div>
         </section>
 
+      </main>
+      <footer>
         <p className="mt-12 text-[11.5px] leading-relaxed text-ink-4">
           Built by Pavan Kalyan as an independent prototype, not affiliated with
           YegaTech. Atlas Structural &amp; Civil is synthetic. The subscription,
@@ -134,7 +136,7 @@ export default function SourcingPage() {
           against is the same deterministic engine every other page here runs
           on.
         </p>
-      </main>
+      </footer>
     </div>
   );
 }

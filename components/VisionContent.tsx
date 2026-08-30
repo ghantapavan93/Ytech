@@ -95,7 +95,7 @@ export function VisionContent() {
               // The Vision
             </span>
           </div>
-          <div className="flex items-center gap-2.5">
+          <nav aria-label="Site" className="flex items-center gap-2.5">
             <CommandHint />
             <Link
               href="/"
@@ -104,7 +104,7 @@ export function VisionContent() {
               <ArrowLeft size={12} />
               <span className="hidden sm:inline">Instrument</span>
             </Link>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -408,12 +408,14 @@ export function VisionContent() {
           </motion.div>
         </section>
 
+      </main>
+      <footer>
         <p className="mt-10 text-[11.5px] text-ink-4">
           Built by Pavan Kalyan. Independent work, not affiliated with or
           endorsed by YegaTech. Quotes verbatim, ≤15 words, attributed; the
           simulator is a labeled toy model, not a forecast.
         </p>
-      </main>
+      </footer>
     </div>
   );
 }

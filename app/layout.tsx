@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { CommandPalette } from "@/components/CommandPalette";
 import { MotionProvider } from "@/components/MotionProvider";
+import { SITE, indexingAllowed } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,22 +18,15 @@ const geistMono = Geist_Mono({
 const DESCRIPTION =
   "This agent cuts drafting time by 42%. The firm should not deploy it. Yet. A deterministic scenario-rehearsal instrument that runs an AI workflow through a firm's fee model, incentives, review capacity, and talent system before anyone builds it.";
 
-/**
- * Where the site lives, for the absolute URLs a link preview needs.
- *
- * Vercel sets the production hostname itself, so the deployed build is
- * correct without anyone remembering to configure it. The explicit variable
- * wins when there is a custom domain, and localhost is the honest fallback
- * for a build that has not been deployed anywhere yet.
- */
-const SITE =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3000");
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
+  /*
+   * Off by default. The site reads named people's published positions, and
+   * that should not surface in a search for their name because somebody
+   * built a prototype about their work. app/robots.ts carries the reasoning.
+   */
+  robots: { index: indexingAllowed, follow: indexingAllowed },
   title: "Value Shift · AEC AI Economics Wind Tunnel",
   description: DESCRIPTION,
   /*
@@ -53,6 +47,12 @@ export const metadata: Metadata = {
     title: "The agent worked. The firm ended the month worse off.",
     description: DESCRIPTION,
   },
+};
+
+/** Matches the canvas, so mobile browser chrome does not flash white. */
+export const viewport: Viewport = {
+  themeColor: "#090a0f",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
